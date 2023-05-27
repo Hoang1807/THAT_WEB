@@ -9,368 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #ececee;
-            background-color: #1f2029;
-            /* overflow: hidden; */
-            background-image: url('https://r4.wallpaperflare.com/wallpaper/71/196/981/digital-art-minimalism-nature-hills-wallpaper-88f64d4860b08ca8d02c41def8f2349a.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            height: 100vh;
-            width: 100%;
-        }
-
-        .section-center {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            z-index: 6;
-            text-align: center;
-            transform: translateY(-50%);
-        }
-
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 7vw;
-            line-height: 1;
-            color: #ffeba7;
-            text-align: center;
-            -webkit-text-stroke: 2px #ffeba7;
-            text-stroke: 2px #ffeba7;
-            -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
-            color: transparent;
-        }
-
-        [type="checkbox"]:checked,
-        [type="checkbox"]:not(:checked) {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .menu-icon:checked+label,
-        .menu-icon:not(:checked)+label {
-            position: fixed;
-            top: 63px;
-            right: 75px;
-            display: block;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .menu-icon:checked+label:before,
-        .menu-icon:not(:checked)+label:before {
-            position: absolute;
-            content: '';
-            display: block;
-            width: 30px;
-            height: 20px;
-            z-index: 20;
-            top: 0;
-            left: 0;
-            border-top: 2px solid #ececee;
-            border-bottom: 2px solid #ececee;
-            transition: border-width 100ms 1500ms ease,
-                top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-                height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-                background-color 200ms ease,
-                transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .menu-icon:checked+label:after,
-        .menu-icon:not(:checked)+label:after {
-            position: absolute;
-            content: '';
-            display: block;
-            width: 22px;
-            height: 2px;
-            z-index: 20;
-            top: 10px;
-            right: 4px;
-            background-color: #ececee;
-            margin-top: -1px;
-            transition: width 100ms 1750ms ease,
-                right 100ms 1750ms ease,
-                margin-top 100ms ease,
-                transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .menu-icon:checked+label:before {
-            top: 10px;
-            transform: rotate(45deg);
-            height: 2px;
-            background-color: #ececee;
-            border-width: 0;
-            transition: border-width 100ms 340ms ease,
-                top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-                height 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-                background-color 200ms 500ms ease,
-                transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .menu-icon:checked+label:after {
-            width: 30px;
-            margin-top: 0;
-            right: 0;
-            transform: rotate(-45deg);
-            transition: width 100ms ease,
-                right 100ms ease,
-                margin-top 100ms 500ms ease,
-                transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .nav {
-            position: fixed;
-            top: 33px;
-            right: 50px;
-            display: block;
-            width: 80px;
-            height: 80px;
-            padding: 0;
-            margin: 0;
-            z-index: 9;
-            overflow: hidden;
-            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
-            background-color: #353746;
-            animation: border-transform 7s linear infinite;
-            transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
-                right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
-                transform 250ms 1100ms ease,
-                width 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1),
-                height 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        @keyframes border-transform {
-
-            0%,
-            100% {
-                border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            }
-
-            14% {
-                border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
-            }
-
-            28% {
-                border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
-            }
-
-            42% {
-                border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
-            }
-
-            56% {
-                border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
-            }
-
-            70% {
-                border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
-            }
-
-            84% {
-                border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
-            }
-        }
-
-        .menu-icon:checked~.nav {
-            animation-play-state: paused;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%, -50%);
-            width: 200%;
-            height: 200%;
-            transition: top 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
-                right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
-                transform 250ms 700ms ease,
-                width 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1),
-                height 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .nav ul {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            z-index: 6;
-            text-align: center;
-            transform: translateY(-50%);
-            list-style: none;
-        }
-
-        .nav ul li {
-            position: relative;
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 10px 0;
-            text-align: center;
-            list-style: none;
-            pointer-events: none;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(30px);
-            transition: all 250ms linear;
-        }
-
-        .nav ul li:nth-child(1) {
-            transition-delay: 250ms;
-        }
-
-        .nav ul li:nth-child(2) {
-            transition-delay: 200ms;
-        }
-
-        .nav ul li:nth-child(3) {
-            transition-delay: 150ms;
-        }
-
-        .nav ul li:nth-child(4) {
-            transition-delay: 100ms;
-        }
-
-        .nav ul li:nth-child(5) {
-            transition-delay: 50ms;
-        }
-
-        .nav ul li:nth-child(6) {
-            transition-delay: 25ms;
-        }
-
-        .nav ul li a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9vh;
-            text-transform: uppercase;
-            line-height: 1.2;
-            font-weight: 800;
-            display: inline-block;
-            position: relative;
-            color: #ececee;
-            transition: all 250ms linear;
-        }
-
-        .nav ul li a:hover {
-            text-decoration: none;
-            color: #ffeba7;
-        }
-
-        .nav ul li a:after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            content: '';
-            height: 2vh;
-            margin-top: -1vh;
-            width: 0;
-            left: 0;
-            background-color: #353746;
-            opacity: 0.8;
-            transition: width 250ms linear;
-        }
-
-        .nav ul li a:hover:after {
-            width: 100%;
-        }
-
-
-        .menu-icon:checked~.nav ul li {
-            pointer-events: auto;
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 350ms ease,
-                transform 250ms ease;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(1) {
-            transition-delay: 1400ms;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(2) {
-            transition-delay: 1480ms;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(3) {
-            transition-delay: 1560ms;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(4) {
-            transition-delay: 1640ms;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(5) {
-            transition-delay: 1720ms;
-        }
-
-        .menu-icon:checked~.nav ul li:nth-child(6) {
-            transition-delay: 1800ms;
-        }
-
-        .logo {
-            position: absolute;
-            top: 60px;
-            left: 50px;
-            display: block;
-            z-index: 11;
-            transition: all 250ms linear;
-        }
-
-        .logo img {
-            height: 26px;
-            width: auto;
-            display: block;
-        }
-
-
-
-        @media screen and (max-width: 991px) {
-
-            .menu-icon:checked+label,
-            .menu-icon:not(:checked)+label {
-                right: 55px;
-            }
-
-            .logo {
-                left: 30px;
-            }
-
-            .nav {
-                right: 30px;
-            }
-
-            h1 {
-                font-size: 9vw;
-                -webkit-text-stroke: 2px transparent;
-                text-stroke: 2px transparent;
-                -webkit-text-fill-color: #ffeba7;
-                text-fill-color: #ffeba7;
-                color: #ffeba7;
-            }
-
-            .nav ul li a {
-                font-size: 8vh;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
@@ -389,7 +28,7 @@
         </nav>
     </header>
     <div class="section-center">
-        <h1 class="mb-0">Bill MANAGER PAGES</h1>
+        <h1 class="mb-0">Bill DETAIL MANAGER PAGES</h1>
         <main class="mb-0">
             <div class="container mt-5 border border-2 rounded rounded-3 ">
                 <p class="fs-3"></p>
@@ -400,6 +39,10 @@
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">ID Bill</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">ID Product</label>
                                     <input type="text" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="row">
@@ -418,23 +61,19 @@
                                 </div>
                             </div>
                             <hr>
-                            <div>
-                                <span>Amount bill: <p>$20000</p></span>
-                            </div>
                             <button type="submit" class="btn btn-primary">save</button>
                             <button type="submit" class="btn btn-primary">delete</button>
                         </form>
                     </div>
-                    <div class="col-7">
+                    <div class="col-7 table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
                         <span>(3)Records Found</span>
                         <table class="table table-bordered border-3 text-light">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">User Phonenumber</th>
-                                    <th scope="col">Address User</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Edit</th>
+                                    <th scope="col">ID Bill</th>
+                                    <th scope="col">Product name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">More</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -442,31 +81,251 @@
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td><button><i class="bi bi-pencil-fill"></i></button></td>
+                                    <td><button><i class="bi bi-three-dots"></i></button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
                                     <td>Jacob</td>
                                     <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td><button><i class="bi bi-pencil-fill"></i></button></td>
+                                    <td><button><i class="bi bi-three-dots"></i></button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
                                     <td>Larry the Bird</td>
                                     <td>@twitter</td>
-                                    <td>@fat</td>
-                                    <td><button><i class="bi bi-pencil-fill"></i></button></td>
+                                    <td><button><i class="bi bi-three-dots"></i></button></td>
                                 </tr>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <span>Amount bill: </span>
+                                        </div>
+                                    </td>
+                                    <td colspan="3"><p>$20000</p></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-
+    <footer id="footer-page" class="py-5">
+        <div class="footer-page-wrapper container-md px-4 px-md-0 mt-5">
+            <div class="d-flex justify-content-center align-items-center flex-column px-3 mb-3">
+                <h5 class="fw-bold text-center ">HỆ THỐNG SHOWROOM TIN HỌC NGÔI SAO</h5>
+                <span class="border border-2 d-block border-danger" style="width: 125px;"></span>
+            </div>
+            <div class="footer-branch row row-cols-1 row-cols-lg-2 row-cols-xl-4 mb-3">
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item px-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="number px-2 d-grid fw-bold" style="align-items: center;">1</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Tân Bình
+                            </span>
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+                            data-bs-toggle="collapse" data-bs-target=".tanbinh">
+                            <span class="number p-2 d-grid fw-bold" style="align-items: center;">1</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Tân Bình
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block tanbinh show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-geo-alt"></i> <a
+                                    href="#" class="text-decoration-none text-dark"> 28 - 30 Trần Triệu Luật, P.6, Quận Tân
+                                    Bình, TP.HCM </a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-telephone"></i> <a
+                                    href="tel:0899000001" class="text-decoration-none text-dark">0899 000 001</a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-clock"></i> <span>Thời
+                                    gian làm việc: T2 - Chủ nhật, 08H30-21H00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item px-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="number px-2 d-grid fw-bold" style="align-items: center;">2</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Quận 9
+                            </span>
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+                            data-bs-toggle="collapse" data-bs-target=".q9">
+                            <span class="number p-2 d-grid fw-bold" style="align-items: center;">2</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Quận 9
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block q9 show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-geo-alt"></i> <a
+                                    href="#" class="text-decoration-none text-dark"> 180 Lê Văn Việt, P. Tăng Nhơn Phú B, Q.
+                                    9, TP.HCM </a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-telephone"></i> <a
+                                    href="tel:0899000003" class="text-decoration-none text-dark">0899 000 003</a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-clock"></i> <span>T2
+                                    - Chủ nhật, 09H00-20H00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item px-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="number px-2 d-grid fw-bold" style="align-items: center;">3</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Bình Thạnh
+                            </span>
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+                            data-bs-toggle="collapse" data-bs-target=".binhthanh">
+                            <span class="number p-2 d-grid fw-bold" style="align-items: center;">3</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Showroom Bình Thạnh
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block binhthanh show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-geo-alt"></i> <a
+                                    href="#" class="text-decoration-none text-dark"> 474 Điện Biên Phủ, P. 17, Q. Bình
+                                    Thạnh, TP.HCM </a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-telephone"></i> <a
+                                    href="tel:0899000004" class="text-decoration-none text-dark">0899 000 004</a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-clock"></i> <span>
+                                    T2 - Chủ nhật, 08H30-21H00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item px-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="number px-2 d-grid fw-bold" style="align-items: center;">4</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Shop THNS+ Quang Trung
+                            </span>
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+                            data-bs-toggle="collapse" data-bs-target=".quangtrung">
+                            <span class="number p-2 d-grid fw-bold" style="align-items: center;">4</span> <span
+                                class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
+                                Shop THNS+ Quang Trung
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block quangtrung show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-geo-alt"></i> <a
+                                    href="#" class="text-decoration-none text-dark"> 1270 Quang Trung, P.14, Q.Gò Vấp,
+                                    TP.HCM </a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-telephone"></i> <a
+                                    href="tel:0899000002" class="text-decoration-none text-dark">0899 000 002</a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><i class="bi bi-clock"></i> <span>T2
+                                    - T7: 09H00-21H00; CN: 09H00-18H00</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="policy-page row row-cols-1 row-cols-md-4 py-2">
+                <div class="shop-policy__item d-flex p-2">
+                    <i class="bi bi-box-seam-fill align-self-center text-danger px-md-2 pe-3"
+                        style="font-size: 1.8rem;"></i>
+                    <div class="d-flex flex-column gap-0">
+                        <span class="h6 m-0 fw-bold">CHÍNH SÁCH GIAO HÀNG</span> <small class="text-muted">Nhận
+                            hàng và thanh toán tại nhà</small>
+                    </div>
+                </div>
+                <div class="shop-policy__item d-flex p-2">
+                    <i class="bi bi-layer-backward align-self-center text-danger px-md-2 pe-3"
+                        style="font-size: 1.8rem;"></i>
+                    <div class="d-flex flex-column gap-0">
+                        <span class="h6 m-0 fw-bold">ĐỔI TRẢ DỄ DÀNG</span> <small class="text-muted">1 đổi 1
+                            trong 7 ngày</small>
+                    </div>
+                </div>
+                <div class="shop-policy__item d-flex p-2">
+                    <i class="bi bi-credit-card-fill align-self-center text-danger px-md-2 pe-3"
+                        style="font-size: 1.8rem;"></i>
+                    <div class="d-flex flex-column gap-0">
+                        <span class="h6 m-0 fw-bold">THANH TOÁN TIỆN LỢI</span> <small class="text-muted">Trả
+                            tiền mặt, chuyển khoản, Trà góp 0%</small>
+                    </div>
+                </div>
+                <div class="shop-policy__item d-flex p-2">
+                    <i class="bi bi-person-hearts align-self-center text-danger px-md-2 pe-3"
+                        style="font-size: 1.8rem;"></i>
+                    <div class="d-flex flex-column gap-0">
+                        <span class="h6 m-0 fw-bold">HỖ TRỢ NHIỆT TÌNH</span> <small class="text-muted">Tư vấn,
+                            giải đáp mọi thắc mắc</small>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-branch row row-cols-1 row-cols-md-4 mb-3">
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item p-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="h5 text-capitalize p-2"> GIỚI THIỆU THNS <span
+                                class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
+                            </span>
+    
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex icon-black d-md-none p-0"
+                            data-bs-toggle="collapse" data-bs-target=".gioithieu">
+                            <span class="h5 text-capitalize p-2"> GIỚI THIỆU THNS <span
+                                class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block gioithieu show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item py-1 border-bottom-0"><a href="#"
+                                    class="text-decoration-none text-dark"> Về chúng tôi </a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><a href="#"
+                                    class="text-decoration-none text-dark">Tư vấn mua hàng</a></li>
+                            <li class="list-group-item py-1 border-bottom-0"><a href="#"
+                                    class="text-decoration-none text-dark">Tuyển dụng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col card accordion accordion-flush border-0">
+                    <div class="card-header accordion-item p-0 border-0">
+                        <div class="d-none d-md-flex">
+                            <span class="h5 text-capitalize p-2"> CHÍNH SÁCH CHUNG <span
+                                class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
+                            </span>
+    
+                        </div>
+                        <button type="button" class="accordion-button collapse d-flex icon-black d-md-none p-0"
+                            data-bs-toggle="collapse" data-bs-target=".chinhsach">
+                            <span class="h5 text-capitalize p-2"> CHÍNH SÁCH CHUNG <span
+                                class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse d-md-block chinhsach show">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-bottom-0 py-1"><a href="#"
+                                    class="text-decoration-none text-dark"> Chính sách trả góp </a></li>
+                            <li class="list-group-item border-bottom-0 py-1"><a href="#"
+                                    class="text-decoration-none text-dark">Chính sách bảo mật</a></li>
+                            <li class="list-group-item border-bottom-0 py-1"><a href="#"
+                                    class="text-decoration-none text-dark"> Chính sách giải quyết khiếu nại</a></li>
+                            <li class="list-group-item border-bottom-0 py-1"><a href="#"
+                                    class="text-decoration-none text-dark"> Chính sách bảo vệ thông tin cá nhân</a></li>
+                            <li class="list-group-item border-bottom-0 py-1"><a href="#"
+                                    class="text-decoration-none text-dark">Chính sách bảo hành</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
