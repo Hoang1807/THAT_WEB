@@ -10,15 +10,15 @@
 </head>
 <body>
     <jsp:include page="header.jsp"/>
-    <div class="row">
-        <div class="col-9">
+    <div class="row row-cols">
+        <div class="col">
             <jsp:include page="items.jsp"/>
         </div>
-        <div class="col-3">
+        <div class="col">
             <jsp:include page="total.jsp"/>
         </div>
-        <jsp:include page="footer.jsp"></jsp:include>
     </div>
+    <jsp:include page="footer.jsp"></jsp:include>
 <script src="/js/jquery-3.7.0.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
