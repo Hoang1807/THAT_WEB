@@ -17,7 +17,7 @@
         <div class="col-3">
             <jsp:include page="total.jsp"/>
         </div>
-        <jsp:include page="../footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
     </div>
 <script src="/js/jquery-3.7.0.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
