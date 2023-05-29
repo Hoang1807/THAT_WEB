@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/html/style.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body class="bg-body-secondary">
+    <!-- <div class="header-action">text</div> -->
+    <header class="header-bg">
+        <div class="d-flex align-items-center">
+            <div class="p-2 w-100 text-light ps-5">Admin Manager Pages</div>
+            <div class="dropdown posision-account rounded-pill ps-3 pb-2 me-3 mb-3 mt-3  flex-shrink-1">
+                <i class="bi bi-person-fill fs-3"></i>
+                <a href=""
+                    class="btn dropdown-toggle mb-2 p-0 text-light link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Name Account</a>
+                <ul class="dropdown-menu dropdown-bg">
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="#">About</a></li>
+                    <li><a class="dropdown-item" href="#">Change password</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="nav-bar p-2">
+        <ul class="nav justify-content-center">
+            <li class="nav-item dropdown me-3 rounded-pill">
+                <a class="nav-link dropdown-toggle rounded-pill" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false" aria-current="page" href="#">Produce</a>
+                <ul class="dropdown-menu shadow">
+                    <li><a class="dropdown-item" href="#">List Produce</a></li>
+                    <li><a class="dropdown-item" href="#">List Producer</a></li>
+                    <li><a class="dropdown-item" href="#">Image Store</a></li>
+                    <li><a class="dropdown-item" href="#">Specification</a></li>
+                    <li><a class="dropdown-item" href="#">Category</a></li>
+                </ul>
+            </li>
+            <li class="nav-item me-3 rounded-pill">
+                <a class="nav-link rounded-pill" href="#">User Manager</a>
+            </li>
+            <li class="nav-item me-3 rounded-pill">
+                <a class="nav-link rounded-pill" href="#">Bill</a>
+            </li>
+            <li class="nav-item dropdown me-3 rounded-pill">
+                <a class="nav-link rounded-pill dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false" aria-current="page" href="#">Statistical</a>
+                <ul class="dropdown-menu shadow">
+                    <li><a class="dropdown-item" href="#">List Produce</a></li>
+                    <li><a class="dropdown-item" href="#">List Producer</a></li>
+                    <li><a class="dropdown-item" href="#">Image Store</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <div class="container border border-3 mt-5 bg-light-subtle p-0 rounded-4 shadow">
+            <form class="p-5">
+                <legend>Manager Producer</legend>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">ID Prodcer</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Producer Name</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Producer Email</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Producer Phonenumber</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end ">
+                    <button type="submit" class="btn btn-success ms-2">save</button>
+                    <button type="submit" class="btn btn-danger ms-2">delete</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
