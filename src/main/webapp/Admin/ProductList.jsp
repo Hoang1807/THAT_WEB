@@ -1,67 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="/html/style.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="MultipleSelect.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
-
 <body class="bg-body-secondary">
-    <!-- <div class="header-action">text</div> -->
-    <header class="header-bg">
-        <div class="d-flex align-items-center">
-            <div class="p-2 w-100 text-light ps-5">Admin Manager Pages</div>
-            <div class="dropdown d-flex posision-account rounded-pill ps-3 pb-2 me-3 mb-3 mt-3  flex-shrink-1">
-                <i class="bi bi-person-fill fs-3 mt-2"></i>
-                <a href=""
-                    class="btn dropdown-toggle mt-3 mb-2 me-2 p-0 text-light link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Name Account</a>
-                <ul class="dropdown-menu dropdown-bg">
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                    <li><a class="dropdown-item" href="#">About</a></li>
-                    <li><a class="dropdown-item" href="#">Change password</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <div class="nav-bar p-2">
-        <ul class="nav justify-content-center">
-            <li class="nav-item dropdown me-3 rounded-pill">
-                <a class="nav-link dropdown-toggle rounded-pill" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false" aria-current="page" href="#">Produce</a>
-                <ul class="dropdown-menu shadow">
-                    <li><a class="dropdown-item" href="ProductList.html">List Product</a></li>
-                    <li><a class="dropdown-item" href="ProducerList.html">List Producer</a></li>
-                    <li><a class="dropdown-item" href="ImageAdd.html">Image Store</a></li>
-                    <li><a class="dropdown-item" href="SpecAdd.html">Specification</a></li>
-                    <li><a class="dropdown-item" href="CategoryAdd.html">Category</a></li>
-                </ul>
-            </li>
-            <li class="nav-item me-3 rounded-pill">
-                <a class="nav-link rounded-pill" href="UserList.html">User Manager</a>
-            </li>
-            <li class="nav-item me-3 rounded-pill">
-                <a class="nav-link rounded-pill" href="BillList.html">Bill</a>
-            </li>
-            <li class="nav-item dropdown me-3 rounded-pill">
-                <a class="nav-link rounded-pill dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false" aria-current="page" href="#">Statistical</a>
-                <ul class="dropdown-menu shadow">
-                    <li><a class="dropdown-item" href="#">List Produce</a></li>
-                    <li><a class="dropdown-item" href="#">List Producer</a></li>
-                    <li><a class="dropdown-item" href="#">Image Store</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <main>
+	<jsp:include page="../Admin/header.jsp"></jsp:include>
+<main>
         <div class="container border border-3 mt-5 bg-light-subtle p-0 rounded-4 shadow">
             <form class="p-5">
                 <legend>Manager Product</legend>
@@ -215,7 +166,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
-        <script src="MultipleSelect.js"></script>
+        <script src="/js/MultipleSelect.js"></script>
 </body>
-
 </html>

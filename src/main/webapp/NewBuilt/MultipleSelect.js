@@ -1,4 +1,4 @@
-//MultiplSelect js cua tat ca product's file'
+
         function MultiSelectTag(el, customs = { shadow: false, rounded: true }) {
             var element = null
             var options = null

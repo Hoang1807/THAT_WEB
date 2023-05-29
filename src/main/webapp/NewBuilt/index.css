@@ -1,4 +1,3 @@
-/*Header start*/
 .posision-account {
     width: fit-content;
     background-color: #FC939D;
@@ -29,4 +28,9 @@
     background-color: #f66370;
     color: #F8F9FA;
 }
-/*Header end*/
+
+@media screen and (max-width: 1200px) {
+    .mainChild>.main-child__content {
+        width: 720px !important;
+    }
+}
