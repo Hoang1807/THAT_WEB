@@ -10,7 +10,7 @@
 </head>
 <body>
   <section class="container-fluid px-0">
-  		<jsp:include page="./layout/_header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"/>
         <article id="insMain" class="container-md">
             <section id="insHomeSlider" class="row mb-3">
                 <div class="col-12 col-md-8 px-2 px-md-0">
@@ -28,6 +28,7 @@
                                     data-flickity-lazyload="https://file.hstatic.net/200000420363/file/sli_a5161c2f3e0048db808e60abd332dcc3.png"
                                     alt="hình ảnh">
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -186,7 +187,7 @@
                 </div>
             </section>
         </article>
-        <jsp:include page="./layout/_footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
     </section>
  <script src="/js/jquery-3.7.0.min.js"></script>
  <script src="/js/jquery.bootstrap-growl.min.js"></script>
