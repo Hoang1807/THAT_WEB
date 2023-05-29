@@ -161,9 +161,19 @@
 .nav-sidebar__dropdown .list-group-item:hover > .mainChild {
   display: block !important;
 }
+
 .header-page__nav > .nav-main__menu > .nav-navbar {
   background-color: var(--greyish-color);
 }
+
+#modalDangnhap > .modal-dialog .form-control:focus {
+  box-shadow: none !important;
+}
+
+#modalDangnhap > .modal-dialog .nav > .active {
+  text-decoration: underline !important;
+}
+
 /* end header */
 
 /* start article */
