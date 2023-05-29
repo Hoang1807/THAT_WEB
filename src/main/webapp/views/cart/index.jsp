@@ -10,11 +10,11 @@
 </head>
 <body>
     <jsp:include page="header.jsp"/>
-    <div class="row row-cols">
-        <div class="col">
+    <div class="row ">
+        <div class="col-md-8">
             <jsp:include page="items.jsp"/>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <jsp:include page="total.jsp"/>
         </div>
     </div>

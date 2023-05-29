@@ -18,7 +18,7 @@
             <td><img src="#"/></td>
             <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
-            <td><input type="number"/></td>
+            <td class="quantity"><input type="number"/></td>
             <td>2.400.000</td>
             <td><a href="#">Delete</a></td>
         </tr>
@@ -27,7 +27,7 @@
             <td><img src="#"/></td>
             <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
-            <td><input type="number"/></td>
+            <td class="quantity"><input type="number"/></td>
             <td>2.400.000</td>
             <td><a href="#">Delete</a></td>
         </tr>
@@ -36,7 +36,7 @@
             <td><img src="#"/></td>
             <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
-            <td><input type="number"/></td>
+            <td class="quantity"><input type="number"/></td>
             <td>2.400.000</td>
             <td><a href="#">Delete</a></td>
         </tr>
