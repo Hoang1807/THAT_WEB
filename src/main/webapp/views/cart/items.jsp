@@ -16,7 +16,7 @@
         <tr>
             <th scope="row">1</th>
             <td><img src="#"/></td>
-            <td>jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
+            <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
             <td><input type="number"/></td>
             <td>2.400.000</td>
@@ -25,7 +25,7 @@
         <tr>
                 <th scope="row">2</th>
             <td><img src="#"/></td>
-            <td>jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
+            <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
             <td><input type="number"/></td>
             <td>2.400.000</td>
@@ -34,7 +34,7 @@
         <tr>
             <th scope="row">3</th>
             <td><img src="#"/></td>
-            <td>jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
+            <td class="text-break">jjdkfjkajdfkjn n ansdfjklnakjdnkjndkjf</td>
             <td>2.400.000</td>
             <td><input type="number"/></td>
             <td>2.400.000</td>
