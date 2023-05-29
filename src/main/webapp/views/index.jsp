@@ -28,7 +28,6 @@
                                     data-flickity-lazyload="https://file.hstatic.net/200000420363/file/sli_a5161c2f3e0048db808e60abd332dcc3.png"
                                     alt="hình ảnh">
                             </a>
-
                         </div>
                     </div>
                 </div>
