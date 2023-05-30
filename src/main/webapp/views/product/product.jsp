@@ -22,19 +22,13 @@
 	<div class="container mt-2 w-100">
     <div class="content">
       <div class="row justify-content-start">
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Bộ lọc</button>
-        </div>
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Hãng</button>
-        </div>
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Loại</button>
+        <div class="col-2 filter">
+          <span><Strong>Bộ lọc</Strong></span>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
-          <h4>Hãng sản xuất</h4>
+        <div class="col-12">
+          <span><Strong>Hãng sãn xuất</Strong></span>
         </div>
         <div class="row d-flex column-gap-2">
           <div class="col-3 col-lg-2">
@@ -43,9 +37,9 @@
           </div>
         </div>
       </div>
-      <div class="row ">
-        <div class="col-2">
-          <h4>Loại sản phẩm</h4>
+      <div class="row">
+        <div class="col-12">
+          <span><Strong>Loại</Strong></span>
         </div>
         <div class="row d-flex column-gap-2">
           <div class="col-3 col-lg-2">
