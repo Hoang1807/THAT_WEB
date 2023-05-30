@@ -10,7 +10,7 @@
 </head>
 <body>
   <section class="container-fluid px-0">
-  		<jsp:include page="./layout/_header.jsp"></jsp:include>
+  		<jsp:include page="layout/_header.jsp"></jsp:include>
         <article id="insMain" class="container-md">
             <section id="insHomeSlider" class="row mb-3">
                 <div class="col-12 col-md-8 px-2 px-md-0">
@@ -187,7 +187,7 @@
                 </div>
             </section>
         </article>
-        <jsp:include page="./layout/_footer.jsp"></jsp:include>
+        <jsp:include page="layout/_footer.jsp"></jsp:include>
     </section>
  <script src="/js/jquery-3.7.0.min.js"></script>
  <script src="/js/jquery.bootstrap-growl.min.js"></script>

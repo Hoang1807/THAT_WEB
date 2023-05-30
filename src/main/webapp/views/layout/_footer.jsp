@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<footer id="footer-page" class="py-5">
+<footer id="footer-page" class="py-2">
 	<div class="footer-page-wrapper container-md px-4 px-md-0 mt-5">
 		<div class="d-flex justify-content-center align-items-center flex-column px-3 mb-3">
 			<h5 class="fw-bold text-center ">HỆ THỐNG SHOWROOM TIN HỌC NGÔI SAO</h5>
