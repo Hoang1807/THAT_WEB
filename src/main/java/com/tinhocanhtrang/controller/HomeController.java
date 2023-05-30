@@ -12,12 +12,14 @@ public class HomeController {
 	public String getHome() {
 		return "index";
 	}
+
 	@RequestMapping(value = "product",method = RequestMethod.GET)
 	public String getProduct() {
-		return "product";
+		return "product/product";
 	}
+
 	@RequestMapping(value = "detail",method = RequestMethod.GET)
 	public String getDetailProduct() {
-		return "detail_product";
+		return "product/detail_product";
 	}
 }

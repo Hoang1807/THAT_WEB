@@ -18,7 +18,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="./layout/_header.jsp"></jsp:include>
+	<jsp:include page="../layout/_header.jsp"></jsp:include>
 	<div class="container mt-2 w-100">
     <div class="content">
       <div class="row justify-content-start">
@@ -194,6 +194,6 @@
     <br>
     <hr>
   </div>
-  <jsp:include page="./layout/_footer.jsp"></jsp:include>
+  <jsp:include page="../layout/_footer.jsp"></jsp:include>
 </body>
 </html>
