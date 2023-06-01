@@ -16,6 +16,10 @@
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <link rel="stylesheet" href="/css/Detail.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/flickity.css">
+        <link rel="stylesheet" href="/css/style.css">
+        
     </head>
 
     <body>
