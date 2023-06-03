@@ -16,6 +16,10 @@
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <link rel="stylesheet" href="/css/Detail.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/flickity.css">
+        <link rel="stylesheet" href="/css/style.css">
+        
     </head>
 
     <body>
@@ -28,31 +32,62 @@
                                 Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</strong></span>
                     </div>
                     <hr>
-                    <div class="content_body overflow-hidden h-auto">
+                    <div class="content_body">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 ">
-                                <div id="carouselExample" class="carousel slide">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="/image/product/lt.png" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="/image/product/lt.png" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="/image/product/lt.png" class="d-block w-100" alt="...">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div id="carouselExample" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="./image/product/lt.png" class="d-block w-100" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="..." class="d-block w-100" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="..." class="d-block w-100" alt="...">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev z-0" type="button"
+                                                data-bs-target="#carouselExample" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon bg-black"
+                                                    aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next z-0" type="button"
+                                                data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon bg-black"
+                                                    aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
                                         </div>
                                     </div>
-                                    <button class="carousel-control-prev z-0 ro" type="button"
-                                        data-bs-target="#carouselExample" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next z-0" type="button"
-                                        data-bs-target="#carouselExample" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon bg-black" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+                                    <ul class="col-12 row mt-2" style="list-style-type: none;">
+                                            <li class="col-6">
+                                                <div class="iconl">
+                                                    <p><img class="lazyloaded" width="50" height="50"
+                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_1.png?v=1752">
+                                                        Chính sách bảo hành</p>
+                                                </div>
+                                            </li>
+                                            <li class="col-6">
+                                                <div class="iconl">
+                                                    <p><img class=" lazyloaded" width="50" height="50"
+                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_2.png?v=1752">
+                                                        Cam kết chính hãng 100% </p>
+                                                </div>
+
+                                            </li>
+                                            <li class="col-6">
+                                                <div class="iconl">
+                                                    <p><img class=" lazyloaded" width="50" height="50"
+                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_4.png?v=1752">
+                                                        1900 0243
+                                                    </p>
+                                                </div>
+                                            </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
@@ -222,7 +257,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="row mt-2" style="height: 100px;">
+                                    <div class="row">
                                         <div class="col-12">
                                             <button class="btn col-12 text-info border-info">Thêm vào giỏ hàng</button>
                                         </div>
@@ -238,10 +273,11 @@
         </div>
         <div class="container product_relate_to px-2">
             <span>Sản phẩm liên quan</span>
-            <div class="carousel mt-3 bg-white row" data-flickity='{ "groupCells": true }'>
+            <div class="carousel mt-3 bg-white " data-flickity='{ "groupCells": true }'>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -251,7 +287,8 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -261,7 +298,8 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -271,7 +309,8 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -281,7 +320,8 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -291,7 +331,8 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg"
+                            alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -299,7 +340,6 @@
                     </a>
                     <span class="price_relate text-center">19,000,000đ</span>
                 </div>
-
             </div>
         </div>
         <jsp:include page="../layout/_footer.jsp"></jsp:include>

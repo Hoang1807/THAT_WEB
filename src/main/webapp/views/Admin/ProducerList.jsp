@@ -16,38 +16,25 @@
 	<main>
         <div class="container border border-3 mt-5 bg-light-subtle p-0 rounded-4 shadow">
             <form class="p-5">
-                <legend>Manager User</legend>
+                <legend>Manager Producer</legend>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Phonenumber</label>
+                            <label for="exampleInputPassword1" class="form-label">ID Producer</label>
                             <input type="text" disabled class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">User Name</label>
+                            <label for="exampleInputPassword1" class="form-label">Producer Name</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="d-flex">
-                            Roles:&ensp;
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">User</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Admin</label>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">User Password</label>
+                            <label for="exampleInputPassword1" class="form-label">Producer Email</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">User Email</label>
+                            <label for="exampleInputPassword1" class="form-label">Producer Phonenumber</label>
                             <input type="number" class="form-control" id="exampleInputPassword1">
                         </div>
                     </div>
@@ -59,17 +46,16 @@
             </form>
         </div>
         <div class="container border border-3 mt-5 bg-light-subtle p-3 rounded-4 shadow table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
-            <div><a href="UserAdd.html" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i>ADD</a></div>
+            <div><a href="ProducerAdd" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i>ADD</a></div>
             <hr>
             <span>(3)Records Found</span>
             <table class="table table-bordered border-3 text-black">
                 <thead>
                     <tr>
-                        <th scope="col">Phonenumber</th>
-                        <th scope="col">Password</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
+                        <th scope="col">ID Prodcer</th>
+                        <th scope="col">Producer Name</th>
+                        <th scope="col">Producer Email</th>
+                        <th scope="col">Producer Phonenumber</th>
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
@@ -78,25 +64,22 @@
                         <th scope="row">1</th>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td><button class="rounded-pill bg-secondary border-0" ><i class="bi bi-pencil-fill"></i></button></td>
+                        <td>Otto</td>
+                        <td><button fom class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td><button class="rounded-pill bg-secondary border-0"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td>Otto</td>
+                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
                         <td>@twitter</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td><button class="rounded-pill bg-secondary border-0"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td>Otto</td>
+                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -108,5 +91,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
+        <script type="/js/MultipleSelect.js"></script>
 </body>
 </html>

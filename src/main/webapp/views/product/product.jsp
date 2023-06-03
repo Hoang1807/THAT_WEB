@@ -13,8 +13,11 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/flickity.css">
+        <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/product.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
 <title>Insert title here</title>
 </head>
 <body>
@@ -22,19 +25,13 @@
 	<div class="container mt-2 w-100">
     <div class="content">
       <div class="row justify-content-start">
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Bộ lọc</button>
-        </div>
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Hãng</button>
-        </div>
-        <div class="col-1 filter">
-          <button class="btn btn-dark">Loại</button>
+        <div class="col-2 filter">
+          <span><Strong>Bộ lọc</Strong></span>
         </div>
       </div>
       <div class="row">
-        <div class="col-2">
-          <h4>Hãng sản xuất</h4>
+        <div class="col-12">
+          <span><Strong>Hãng sãn xuất</Strong></span>
         </div>
         <div class="row d-flex column-gap-2">
           <div class="col-3 col-lg-2">
@@ -43,9 +40,9 @@
           </div>
         </div>
       </div>
-      <div class="row ">
-        <div class="col-2">
-          <h4>Loại sản phẩm</h4>
+      <div class="row">
+        <div class="col-12">
+          <span><Strong>Loại</Strong></span>
         </div>
         <div class="row d-flex column-gap-2">
           <div class="col-3 col-lg-2">
