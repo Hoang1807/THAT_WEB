@@ -6,7 +6,7 @@
 				<span class="border border-2 d-block border-danger" style="width: 125px;"></span>
 			</div>
 			<div class="footer-branch row row-cols-1 row-cols-lg-2 row-cols-xl-4 mb-3">
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item px-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="number px-2 d-grid fw-bold" style="align-items: center;">1</span> <span
@@ -14,7 +14,7 @@
 								Showroom Tân Bình
 							</span>
 						</div>
-						<button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+						<button type="button" class="accordion-button collapse d-flex d-md-none p-0"
 							data-bs-toggle="collapse" data-bs-target=".tanbinh">
 							<span class="number p-2 d-grid fw-bold" style="align-items: center;">1</span> <span
 								class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
@@ -34,7 +34,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item px-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="number px-2 d-grid fw-bold" style="align-items: center;">2</span> <span
@@ -42,7 +42,7 @@
 								Showroom Quận 9
 							</span>
 						</div>
-						<button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+						<button type="button" class="accordion-button collapse d-flex d-md-none p-0"
 							data-bs-toggle="collapse" data-bs-target=".q9">
 							<span class="number p-2 d-grid fw-bold" style="align-items: center;">2</span> <span
 								class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
@@ -62,7 +62,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item px-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="number px-2 d-grid fw-bold" style="align-items: center;">3</span> <span
@@ -70,7 +70,7 @@
 								Showroom Bình Thạnh
 							</span>
 						</div>
-						<button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+						<button type="button" class="accordion-button collapse d-flex d-md-none p-0"
 							data-bs-toggle="collapse" data-bs-target=".binhthanh">
 							<span class="number p-2 d-grid fw-bold" style="align-items: center;">3</span> <span
 								class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
@@ -90,7 +90,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item px-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="number px-2 d-grid fw-bold" style="align-items: center;">4</span> <span
@@ -98,7 +98,7 @@
 								Showroom Quang Trung
 							</span>
 						</div>
-						<button type="button" class="accordion-button collapse d-flex d-md-none p-2 "
+						<button type="button" class="accordion-button collapse d-flex d-md-none p-0 "
 							data-bs-toggle="collapse" data-bs-target=".quangtrung">
 							<span class="number p-2 d-grid fw-bold" style="align-items: center;">4</span> <span
 								class="branch-name text-capitalize p-2 flex-fill"> <i class="bi bi-star-fill px-2"></i>
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			<div class="policy-page row row-cols-1 row-cols-md-4 py-2">
-				<div class="shop-policy__item d-flex px-4 py-2 p-md-2">
+				<div class="shop-policy__item d-flex py-2 p-md-2">
 					<i class="bi bi-box-seam-fill align-self-center text-danger px-md-2 pe-3"
 						style="font-size: 1.8rem;"></i>
 					<div class="d-flex flex-column gap-0">
@@ -128,7 +128,7 @@
 							hàng và thanh toán tại nhà</small>
 					</div>
 				</div>
-				<div class="shop-policy__item d-flex px-4 py-2 p-md-2">
+				<div class="shop-policy__item d-flex py-2 p-md-2">
 					<i class="bi bi-layer-backward align-self-center text-danger px-md-2 pe-3"
 						style="font-size: 1.8rem;"></i>
 					<div class="d-flex flex-column gap-0">
@@ -136,7 +136,7 @@
 							trong 7 ngày</small>
 					</div>
 				</div>
-				<div class="shop-policy__item d-flex px-4 py-2 p-md-2">
+				<div class="shop-policy__item d-flex py-2 p-md-2">
 					<i class="bi bi-credit-card-fill align-self-center text-danger px-md-2 pe-3"
 						style="font-size: 1.8rem;"></i>
 					<div class="d-flex flex-column gap-0">
@@ -144,7 +144,7 @@
 							tiền mặt, chuyển khoản, Trà góp 0%</small>
 					</div>
 				</div>
-				<div class="shop-policy__item d-flex px-4 py-2 p-md-2">
+				<div class="shop-policy__item d-flex py-2 p-md-2">
 					<i class="bi bi-person-hearts align-self-center text-danger px-md-2 pe-3"
 						style="font-size: 1.8rem;"></i>
 					<div class="d-flex flex-column gap-0">
@@ -154,13 +154,12 @@
 				</div>
 			</div>
 			<div class="footer-branch row row-cols-1 row-cols-md-4 mb-3">
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item p-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="h5 text-capitalize p-2"> GIỚI THIỆU THNS <span
 									class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
 							</span>
-
 						</div>
 						<button type="button" class="accordion-button collapse d-flex icon-black d-md-none p-0"
 							data-bs-toggle="collapse" data-bs-target=".gioithieu">
@@ -180,13 +179,12 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col card accordion accordion-flush border-0">
+				<div class="col card px-2 accordion accordion-flush border-0">
 					<div class="card-header accordion-item p-0 border-0">
 						<div class="d-none d-md-flex">
 							<span class="h5 text-capitalize p-2"> CHÍNH SÁCH CHUNG <span
 									class="border border-2 d-block border-danger mt-2" style="width: 125px;"></span>
 							</span>
-
 						</div>
 						<button type="button" class="accordion-button collapse d-flex icon-black d-md-none p-0"
 							data-bs-toggle="collapse" data-bs-target=".chinhsach">

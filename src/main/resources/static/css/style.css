@@ -46,15 +46,28 @@
 }
 @media screen and (max-width: 768px) {
   .frmSearch > #searchFRM input[type="text"] {
-    width: 220px;
+    width: 280px;
   }
 }
 
 @media screen and (max-width: 540px) {
   .frmSearch > #searchFRM input[type="text"] {
-    width: 70px;
+    width: 180px;
   }
 }
+
+@media screen and (max-width: 440px) {
+  .frmSearch > #searchFRM input[type="text"] {
+    width: 115px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .frmSearch > #searchFRM input[type="text"] {
+    width: 90px;
+  }
+}
+
 .header-action .bi {
   font-size: 2rem;
   color: var(--greyish-color);
@@ -89,6 +102,7 @@
   padding: 0;
   color: #000000;
 }
+
 .header-action__account > .header-account__dropdown .btn-google {
   color: #ffffff;
   background-color: var(--red-color) !important;
