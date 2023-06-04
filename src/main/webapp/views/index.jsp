@@ -4,6 +4,8 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tin Học Ánh Trăng chuyên buôn bán linh kiện PC</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/flickity.css">
@@ -30,7 +32,6 @@
                                         data-flickity-lazyload="https://file.hstatic.net/200000420363/file/sli_a5161c2f3e0048db808e60abd332dcc3.png"
                                         alt="hình ảnh">
                                 </a>
-
                             </div>
                         </div>
                     </div>
