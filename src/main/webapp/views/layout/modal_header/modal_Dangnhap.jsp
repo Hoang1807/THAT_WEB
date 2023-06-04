@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <div class="modal fade" id="modalDangnhap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDangnhap" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content container">
                 <div class="row position-relative">
                     <button type="button"
                         class="btn btn-lg bg-white opacity-100 rounded-circle btn-close position-absolute start-100 top-0 translate-middle"
                         data-bs-dismiss="modal"></button>
-                    <div class="col-7 p-5">
+                    <div class="col-md-7 p-5">
                         <div class="mb-3">
                             <h4 class="fw-semibold">Xin chào,</h4>
                             <div class="nav">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-5"><img
+                    <div class="col-5 d-none d-md-block"><img
                             src="https://theme.hstatic.net/200000420363/1001015796/14/banner_login.png?v=1737"
                             alt="hình ảnh" class="w-100">
                     </div>

@@ -12,8 +12,7 @@
 			<div class="header-page__wrapper navbar navbar-expand-lg">
 				<div class="container-fluid px-0">
 					<a class="navbar-brand" href="/home">
-						<img class="navbar-logo"
-							src="https://theme.hstatic.net/200000420363/1000988446/14/logo.png?v=2262" alt="hình ảnh">
+						<img class="navbar-logo" src="/image/moonlight-logo.png" alt="hình ảnh">
 					</a>
 					<div class="header-search">
 						<div class="frmSearch">
@@ -196,22 +195,4 @@
 		</div>
 	</header>
 	<jsp:include page="modal_header/modal_Dangnhap.jsp"></jsp:include>
-	<div class="offcanvas offcanvas-start" style="width: 330px;" data-bs-scroll="false" data-bs-backdrop="true"
-		tabindex="-1" id="offcanvasMenu">
-		<div class="offcanvas-header py-2">
-			<div class="d-flex gap-2">
-				<a class="col-3 align-self-center" href="/home">
-					<img class="navbar-logo w-100"
-						src="https://theme.hstatic.net/200000420363/1000988446/14/logo.png?v=2262" alt="hình ảnh">
-				</a>
-				<div class="col-9 d-flex flex-column">
-					<span class="h5 text-uppercase fw-bold mb-0">tin học ánh trăng</span>
-					<small>Linh kiện - phụ kiện PC chính hãng giá tốt</small>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<div class="offcanvas-body">
-
-		</div>
-	</div>
+	<jsp:include page="modal_header/modal_menu.jsp"></jsp:include>
