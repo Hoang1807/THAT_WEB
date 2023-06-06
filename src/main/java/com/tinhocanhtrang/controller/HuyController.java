@@ -12,53 +12,63 @@ public class HuyController {
 		return "Admin/ProductList";
 	}
 	
-	@RequestMapping(value = "ProductList",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/ProductList",method = RequestMethod.GET)
 	public String getProduct() {
 		return "Admin/ProductList";
 	}
 
-	@RequestMapping(value = "ProductAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/ProductAdd",method = RequestMethod.GET)
 	public String getDetailProduct() {
 		return "Admin/ProductAdd";
 	}
 	
-	@RequestMapping(value = "ProducerList",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/ProducerList",method = RequestMethod.GET)
 	public String getProducer() {
 		return "Admin/ProducerList";
 	}
 	
-	@RequestMapping(value = "ProducerAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/ProducerAdd",method = RequestMethod.GET)
 	public String getDetailProducer() {
 		return "Admin/ProducerAdd";
 	}
 	
-	@RequestMapping(value = "UserList",method = RequestMethod.GET)
+	@RequestMapping(value = "/UserManager/UserList",method = RequestMethod.GET)
 	public String getUser() {
 		return "Admin/UserList";
 	}
 	
-	@RequestMapping(value = "UserAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/UserManager/UserAdd",method = RequestMethod.GET)
 	public String getDetailUser() {
 		return "Admin/UserAdd";
 	}
 	
-	@RequestMapping(value = "BillList",method = RequestMethod.GET)
+	@RequestMapping(value = "/Bill/BillList",method = RequestMethod.GET)
 	public String getBill() {
 		return "Admin/BillList";
 	}
 	
-	@RequestMapping(value = "CategoryAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/Bill/BillDetail",method = RequestMethod.GET)
+	public String getBillDetail() {
+		return "Admin/BillDetail";
+	}
+	
+	@RequestMapping(value = "/Product/CategoryAdd",method = RequestMethod.GET)
 	public String getCategory() {
 		return "Admin/CategoryAdd";
 	}
 	
-	@RequestMapping(value = "SpecAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/SpecAdd",method = RequestMethod.GET)
 	public String getSpecification() {
 		return "Admin/SpecAdd";
 	}
 	
-	@RequestMapping(value = "ImageAdd",method = RequestMethod.GET)
+	@RequestMapping(value = "/Product/ImageAdd",method = RequestMethod.GET)
 	public String getImageAdd() {
 		return "Admin/ImageAdd";
+	}
+	
+	@RequestMapping(value = "/Statistical",method = RequestMethod.GET)
+	public String getStatistical() {
+		return "Admin/StatisticsLayout";
 	}
 }
