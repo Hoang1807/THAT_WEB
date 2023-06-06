@@ -19,18 +19,26 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="dangnhap">
-                                <form action="">
+                                <form action="/a" class="needs-validation form-dangnhap" novalidate>
                                     <div class="mb-3">
                                         <input type="text"
                                             class="form-control border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Số điện thoại">
+                                            placeholder="Số điện thoại" required>
                                     </div>
                                     <div class="mb-3 d-flex flex-column">
-                                        <input type="password"
-                                            class="form-control  border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Mật khẩu">
-                                        <a href="" class="text-decoration-none text-end"><small>Quên mật
-                                                khẩu?</small></a>
+                                        <div class="position-relative">
+                                            <input type="password"
+                                                class="form-control password border-0 border-bottom border-danger rounded-0"
+                                                placeholder="Mật khẩu" required>
+                                            <span class="btn-show-pw position-absolute d-none">
+                                                <i class="bi bi-eye-slash"></i>
+                                            </span>
+                                        </div>
+                                        <div class="ms-auto">
+                                            <a href="#" class="text-decoration-none">
+                                                <small>Quên mật khẩu?</small>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="mb-3 d-grid">
                                         <button class="btn text-bg-danger text-uppercase p-2">đăng nhập</button>
@@ -39,31 +47,43 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="dangky">
-                                <form action="">
+                                <form action="" class="needs-validation form-dangky" novalidate>
                                     <div class="mb-3">
-                                        <input type="text" name=""
+                                        <input type="text" pattern="0[0-9]{9}" name=""
                                             class="form-control border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Số điện thoại">
+                                            placeholder="Số điện thoại" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập số điện thoại hoặc nhập đúng định dạng
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" name=""
+                                        <input type="text" minlength="6" name=""
                                             class="form-control  border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Họ tên">
+                                            placeholder="Họ tên" required>
+                                        <div class="invalid-feedback">
+                                            Họ tên phải dài hơn 6 kí tự
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="email" name=""
+                                        <input type="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" name=""
                                             class="form-control  border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Email">
+                                            placeholder="Email" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập đúng định dạng gmail
+                                        </div>
+                                    </div>
+                                    <div class="position-relative mb-3">
+                                        <input type="password"
+                                            class="form-control password border-0 border-bottom border-danger rounded-0"
+                                            placeholder="Mật khẩu" required>
+                                        <span class="btn-show-pw position-absolute d-none">
+                                            <i class="bi bi-eye-slash"></i>
+                                        </span>
                                     </div>
                                     <div class="mb-3">
                                         <input type="password" name=""
-                                            class="form-control border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Mật khẩu">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="password" name=""
                                             class="form-control  border-0 border-bottom border-danger rounded-0"
-                                            placeholder="Xác nhận mật khẩu">
+                                            placeholder="Xác nhận mật khẩu" required>
                                     </div>
                                     <div class="mb-3 d-grid">
                                         <button class="btn text-bg-danger text-uppercase p-2">đăng ký</button>

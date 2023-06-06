@@ -1,5 +1,7 @@
 @charset "UTF-8";
+
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
 :root {
   --greyish-color: #7c7575;
   --yellow-color: #fdd835;
@@ -36,14 +38,17 @@
 .frmSearch > #searchFRM .form-control:focus {
   box-shadow: none;
 }
+
 .frmSearch > #searchFRM input[type="text"] {
   width: 520px;
 }
+
 @media screen and (max-width: 1200px) {
   .frmSearch > #searchFRM input[type="text"] {
     width: 320px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .frmSearch > #searchFRM input[type="text"] {
     width: 280px;
@@ -84,6 +89,7 @@
   color: var(--greyish-color);
   padding: 0 0 0 5px;
 }
+
 .header-action__account > .header-account__dropdown {
   left: 100%;
   top: 48px;
@@ -92,12 +98,14 @@
   transform: translate(-85%, 30px);
   transition: 0.3s;
 }
+
 .header-action__account:hover > .header-account__dropdown {
   opacity: 1;
   visibility: visible;
   transform: translate(-85%, 0px);
   transition: 0.3s;
 }
+
 .header-action__account > .header-account__dropdown .list-group-item {
   padding: 0;
   color: #000000;
@@ -118,6 +126,7 @@
   font-size: 1rem;
   color: #ffffff;
 }
+
 .header-account__dropdown > .list-group {
   width: 240px;
 }
@@ -136,11 +145,13 @@
   font-size: 1.5rem;
   color: #ffffff;
 }
+
 .nav-main__menu > .nav-navbar > .nav-link,
 .nav-main__menu > .nav-navbar > .nav-link .bi {
   font-size: 1.2rem;
   color: #ffffff;
 }
+
 .header-page__nav > .nav-sidebar span {
   font-size: 1rem !important;
 }
@@ -167,11 +178,13 @@
   .list-group-item:hover {
   color: var(--red-color);
 }
+
 @media screen and (max-width: 1200px) {
   .mainChild > .main-child__content {
     width: 720px !important;
   }
 }
+
 .nav-sidebar__dropdown .list-group-item:hover > .mainChild {
   display: block !important;
 }
@@ -198,6 +211,7 @@
   color: var(--bs-emphasis-color);
   background-color: transparent;
 }
+
 .btn-toggle:hover,
 .btn-toggle:focus {
   color: rgba(var(--bs-emphasis-color-rgb), 0.85);
@@ -219,6 +233,7 @@
 .btn-toggle[aria-expanded="true"] {
   color: rgba(var(--bs-emphasis-color-rgb), 0.85);
 }
+
 .btn-toggle[aria-expanded="true"]::before {
   transform: rotate(90deg);
 }
@@ -228,9 +243,31 @@
   margin-top: 0.125rem;
   margin-left: 1.25rem;
 }
+
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
   background-color: var(--bs-tertiary-bg);
+}
+
+.header-action__language > .btn:focus {
+  border: none !important;
+}
+
+.header-action__language > .btn:not(:focus) {
+  border: none !important;
+}
+
+.form-dangnhap .btn-show-pw,
+.form-dangky .btn-show-pw {
+  top: 5%;
+  left: 100%;
+  transform: translate(-50%, 25%);
+  cursor: pointer;
+}
+
+.form-dangnhap input.password:focus ~ .btn-show-pw,
+.form-dangky input.password:focus ~ .btn-show-pw {
+  display: block !important;
 }
 /* end header */
 
@@ -249,26 +286,32 @@
   border-radius: 15px;
   opacity: 1;
 }
+
 .homeProduct > .homeProduct-title {
   background-color: #ffffff;
 }
+
 .homeProduct > .homeProduct-title > .h2 {
   display: block;
   background-color: var(--red-color);
 }
+
 .homeProduct > .homeProduct-content .card {
   width: calc(100% / 6);
 }
+
 @media screen and (max-width: 960px) {
   .homeProduct > .homeProduct-content .card {
     width: calc(100% / 3);
   }
 }
+
 @media screen and (max-width: 540px) {
   .homeProduct > .homeProduct-content .card {
     width: calc(100% / 2);
   }
 }
+
 .homeProduct > .homeProduct-content .card-title {
   overflow: hidden;
   display: -webkit-box;
@@ -304,15 +347,18 @@
   left: 93%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
 }
+
 .accordion-button.collapse {
   background-color: transparent !important;
 }
+
 .accordion-button.collapsed.icon-black::after {
   content: "";
   position: absolute;
   left: 93%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='black' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
 }
+
 .accordion-button:not(.collapsed) {
   background: transparent;
 }
@@ -320,6 +366,7 @@
 .accordion-button:not(.collapsed):focus {
   box-shadow: none !important;
 }
+
 .accordion-button:not(.collapsed)::after {
   content: "";
   position: absolute;
