@@ -59,7 +59,7 @@
             </form>
         </div>
         <div class="container border border-3 mt-5 bg-light-subtle p-3 rounded-4 shadow table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
-            <div><a href="UserAdd" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i>ADD</a></div>
+            <div><a href="/UserManager/UserAdd" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i>ADD</a></div>
             <hr>
             <span>(3)Records Found</span>
             <table class="table table-bordered border-3 text-black">
