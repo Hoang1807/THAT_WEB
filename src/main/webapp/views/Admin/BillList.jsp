@@ -58,21 +58,21 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td><button><a href="BillDetail" class="bi bi-three-dots"></a></button></td>
+                        <td><button><a href="/Bill/BillDetail" class="bi bi-three-dots"></a></button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
-                        <td><button><a href="BillDetail" class="bi bi-three-dots"></a></button></td>
+                        <td><button><a href="/Bill/BillDetail" class="bi bi-three-dots"></a></button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
                         <td>@twitter</td>
                         <td>@fat</td>
-                        <td><button><a href="BillDetail" class="bi bi-three-dots"></a></button></td>
+                        <td><button><a href="/Bill/BillDetail" class="bi bi-three-dots"></a></button></td>
                     </tr>
                 </tbody>
             </table>

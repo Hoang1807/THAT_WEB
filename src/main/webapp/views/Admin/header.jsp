@@ -33,27 +33,21 @@
                 <a class="nav-link dropdown-toggle rounded-pill" data-bs-toggle="dropdown" href="#" role="button"
                     aria-expanded="false" aria-current="page" href="#">Produce</a>
                     <ul class="dropdown-menu shadow">
-                        <li><a class="dropdown-item" href="ProductList">List Product</a></li>
-                        <li><a class="dropdown-item" href="ProducerList">List Producer</a></li>
-                        <li><a class="dropdown-item" href="ImageAdd">Image Store</a></li>
-                        <li><a class="dropdown-item" href="SpecAdd">Specification</a></li>
-                        <li><a class="dropdown-item" href="CategoryAdd">Category</a></li>
+                        <li><a class="dropdown-item" href="/Product/ProductList">List Product</a></li>
+                        <li><a class="dropdown-item" href="/Product/ProducerList">List Producer</a></li>
+                        <li><a class="dropdown-item" href="/Product/ImageAdd">Image Store</a></li>
+                        <li><a class="dropdown-item" href="/Product/SpecAdd">Specification</a></li>
+                        <li><a class="dropdown-item" href="/Product/CategoryAdd">Category</a></li>
                     </ul>
                 </li>
                 <li class="nav-item me-3 rounded-pill">
-                    <a class="nav-link rounded-pill" href="UserList">User Manager</a>
+                    <a class="nav-link rounded-pill" href="/UserManager/UserList">User Manager</a>
                 </li>
                 <li class="nav-item me-3 rounded-pill">
-                    <a class="nav-link rounded-pill" href="BillList">Bill</a>
+                    <a class="nav-link rounded-pill" href="/Bill/BillList">Bill</a>
                 </li>
             <li class="nav-item dropdown me-3 rounded-pill">
-                <a class="nav-link rounded-pill dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false" aria-current="page" href="#">Statistical</a>
-                <ul class="dropdown-menu shadow">
-                    <li><a class="dropdown-item" href="#">List Produce</a></li>
-                    <li><a class="dropdown-item" href="#">List Producer</a></li>
-                    <li><a class="dropdown-item" href="#">Image Store</a></li>
-                </ul>
+                <a class="nav-link rounded-pill " role="button" href="/Statistical">Statistical</a>
             </li>
         </ul>
     </div>
