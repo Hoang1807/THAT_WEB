@@ -62,14 +62,23 @@
 						</div>
 						<div class="header-action__cart d-flex position-relative">
 							<a href="#" class="text-decoration-none link-dark stretched-link">
-								<i class="bi bi-cart d-block position-relative"> <span
-										class="position-absolute z-1 badge rounded-pill bg-danger"> 3 <span
+								<i class="bi bi-cart d-block position-relative">
+									<span class="position-absolute z-1 badge rounded-pill bg-danger"> 3 <span
 											class="visually-hidden">quantity in cart</span>
 									</span>
 								</i>
 							</a>
 							<ul class="list-group list-group-flush align-self-center">
 								<li class="list-group-item fw-bold d-none d-sm-inline">Giỏ hàng</li>
+							</ul>
+						</div>
+						<div class="header-action__language dropstart d-none d-xxl-block">
+							<button class="btn p-0" type="button" data-bs-toggle="dropdown">
+								<i class="bi bi-globe-asia-australia"></i>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="?lang=vi">Tiếng Việt</a></li>
+								<li><a class="dropdown-item" href="?lang=en">English</a></li>
 							</ul>
 						</div>
 					</div>

@@ -68,23 +68,35 @@
                         </li>
                     </ul>
                     <hr>
-                    <div class="dropdown">
-                        <a href="#"
-                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                                class="rounded-circle me-2">
-                            <strong>Tài khoản</strong>
-                        </a>
-                        <ul class="dropdown-menu text-small shadow">
-                            <li><a class="dropdown-item" data-bs-toggle="modal" href="#modalDangnhap">Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="#">Đăng ky</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
+                    <div class="d-flex justify-content-between ">
+                        <div class="dropdown">
+                            <a href="#"
+                                class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+                                    class="rounded-circle me-2">
+                                <strong>Tài khoản</strong>
+                            </a>
+                            <ul class="dropdown-menu text-small shadow">
+                                <li><a class="dropdown-item" data-bs-toggle="modal" href="#modalDangnhap">Đăng nhập</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Đăng ky</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+                        <div class="header-action__language dropup">
+                            <button class="btn p-0" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-globe-asia-australia"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="?lang=vi">Tiếng Việt</a></li>
+                                <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
