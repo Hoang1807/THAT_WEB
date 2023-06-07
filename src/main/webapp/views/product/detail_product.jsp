@@ -24,8 +24,8 @@
 
     <body>
         <jsp:include page="../layout/_header.jsp"></jsp:include>
-        <div class="container product_detail mt-3">
-            <div class="container mt-2">
+        <div class="container-lg product_detail mt-3 ">
+            <div class="container-lg mt-2">
                 <div class="content">
                     <div class="content_header">
                         <span><strong>Laptop
@@ -33,7 +33,7 @@
                     </div>
                     <hr>
                     <div class="content_body">
-                        <div class="row">
+                        <div class="row container-lg">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 ">
                                 <div class="row">
                                     <div class="col-12">
@@ -90,7 +90,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
+                            <div class=" container-lg col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
                                 <div class="info">
                                     <div class="price text-danger fw-bolder fs-5">
                                         <span>Giá 19,000,000đ</span>
