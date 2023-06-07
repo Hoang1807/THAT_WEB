@@ -257,18 +257,35 @@
   border: none !important;
 }
 
-.form-dangnhap .btn-show-pw,
-.form-dangky .btn-show-pw {
+#form-dangnhap .btn-show-pw,
+#form-dangky .btn-show-pw {
   top: 5%;
   left: 100%;
   transform: translate(-50%, 25%);
   cursor: pointer;
 }
 
-.form-dangnhap input.password:focus ~ .btn-show-pw,
-.form-dangky input.password:focus ~ .btn-show-pw {
+#form-dangnhap input.password:focus ~ .btn-show-pw,
+#form-dangky input.password:focus ~ .btn-show-pw {
   display: block !important;
 }
+
+label.error {
+  color: red;
+  font-size: 1rem;
+  display: block;
+  margin-top: 5px;
+  text-transform: capitalize;
+}
+
+input.error.fail-alert {
+  color: var(--red-color);
+}
+
+input.valid.success-alert {
+  color: green;
+}
+
 /* end header */
 
 /* start article */
