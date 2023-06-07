@@ -29,54 +29,124 @@ var flkty = new Flickity(elem, {
 });
 // end code Flickity itemSlide-carousel
 
-// start code form Dangnhap
-// validate form
-(() => {
-  "use strict";
-  const forms = $(".needs-validation");
-  Array.from(forms).forEach((form) => {
-    form.addEventListener(
-      "submit",
-      (event) => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      },
-      true
-    );
-  });
-})();
-
-// showpassword form dangnhap
+// start Jquery
 $(document).ready(function () {
-  $(".btn-show-pw").on("click", "i", { showPass: false }, function (event) {
-    if (event.data.showPass) {
-      $("input.password")
-        .prop("type", "password")
-        .next()
-        .children("i")
-        .toggleClass("bi-eye bi-eye-slash");
-      event.data.showPass = false;
+  // showpassword form dangnhap
+  $(".btn-show-pw").on("click", "i", function () {
+    if (!$(this).hasClass("bi-eye-slash")) {
+      $(this)
+        .toggleClass("bi-eye bi-eye-slash")
+        .closest("div")
+        .children("input")
+        .prop("type", "password");
     } else {
-      $("input.password")
-        .prop("type", "text")
-        .next()
-        .children("i")
-        .toggleClass("bi-eye bi-eye-slash");
-      event.data.showPass = true;
+      $(this)
+        .toggleClass("bi-eye bi-eye-slash")
+        .closest("div")
+        .children("input")
+        .prop("type", "text");
     }
   });
 
+  // change icon showpassword
   $(".btn-show-pw")
     .on("mouseenter", function () {
-      console.log(this);
       $(this).toggleClass("d-block");
     })
     .on("mouseleave", function () {
-      console.log(this);
       $(this).toggleClass("d-none");
     });
+
+  // validate phone
+  $.validator.addMethod(
+    "phone",
+    function (value) {
+      return /0[0-9]{9}/.test(value);
+    },
+    "Điện thoại chưa đúng đinh dạng"
+  );
+
+  // validate email
+  $.validator.addMethod(
+    "email",
+    function (value) {
+      return /[^@]+@[^@]+\.[a-zA-Z]{2,6}/.test(value);
+    },
+    "Vui lòng nhập đúng đinh dạng abc@domain.tld"
+  );
+
+  // validate form dangky
+  $("#form-dangky").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      userPhone: {
+        required: true,
+        phone: true,
+      },
+      userName: {
+        required: true,
+        minlength: 6,
+      },
+      userEmail: {
+        required: true,
+        email: true,
+      },
+      userPassword: {
+        required: true,
+        minlength: 6,
+      },
+      confirmPassword: {
+        required: true,
+        equalTo: "input[name='userPassword'",
+      },
+    },
+    messages: {
+      userPhone: {
+        required: "vui lòng nhập số điện thoại",
+      },
+      userName: {
+        required: "Vui lòng nhập tên",
+        minlength: "vui lòng nhập trên 6 kí tự",
+      },
+      userEmail: {
+        required: "Vui lòng nhập gmail",
+      },
+      userPassword: {
+        required: "Vui lòng nhập password",
+        minlength: "vui lòng nhập trên 6 kí tự",
+      },
+      confirmPassword: {
+        required: "Vui lòng nhập lại mật khẩu",
+        equalTo: "Mật khẩu không trùng khớp",
+      },
+    },
+  });
+
+  // validate form dangnhap
+  $("#form-dangnhap").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      userPhone: {
+        required: true,
+        phone: true,
+      },
+      userPassword: {
+        required: true,
+        minlength: 6,
+      },
+    },
+    messages: {
+      userPhone: {
+        required: "vui lòng nhập số điện thoại",
+      },
+      userPassword: {
+        required: "Vui lòng nhập password",
+        minlength: "vui lòng nhập trên 6 kí tự",
+      },
+    },
+  });
 });
-// end code form Dangnhap
+
+// end Jquery
