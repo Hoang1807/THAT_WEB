@@ -1,5 +1,5 @@
 package com.tinhocanhtrang.entity;
-// Generated Jun 5, 2023, 1:36:25 PM by Hibernate Tools 4.3.6.Final
+// Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -10,7 +10,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -23,7 +25,7 @@ public class Spec implements java.io.Serializable {
 	private Integer specId;
 	private Serializable specKey;
 	private Serializable specValue;
-	private Set<SpecDetail> specDetails = new HashSet<SpecDetail>(0);
+	private Set<Product> products = new HashSet<Product>(0);
 
 	public Spec() {
 	}
@@ -33,10 +35,10 @@ public class Spec implements java.io.Serializable {
 		this.specValue = specValue;
 	}
 
-	public Spec(Serializable specKey, Serializable specValue, Set<SpecDetail> specDetails) {
+	public Spec(Serializable specKey, Serializable specValue, Set<Product> products) {
 		this.specKey = specKey;
 		this.specValue = specValue;
-		this.specDetails = specDetails;
+		this.products = products;
 	}
 
 	@Id
@@ -69,13 +71,16 @@ public class Spec implements java.io.Serializable {
 		this.specValue = specValue;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "spec")
-	public Set<SpecDetail> getSpecDetails() {
-		return this.specDetails;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SPEC_DETAIL", schema = "dbo", catalog = "THAT", joinColumns = {
+			@JoinColumn(name = "spec_id", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "product_id", nullable = false, updatable = false) })
+	public Set<Product> getProducts() {
+		return this.products;
 	}
 
-	public void setSpecDetails(Set<SpecDetail> specDetails) {
-		this.specDetails = specDetails;
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 
 }
