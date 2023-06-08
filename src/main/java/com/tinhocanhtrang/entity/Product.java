@@ -30,26 +30,24 @@ import lombok.Setter;
 @Entity
 @Setter
 @Table(name = "PRODUCT", schema = "dbo", catalog = "THAT")
-<<<<<<< HEAD
+
 @NoArgsConstructor
 public class Product implements Serializable {
-=======
-public class Product implements java.io.Serializable {
+
+
 
 	private String productId;
 	private Category category;
 	private Producer producer;
-	private Serializable productName;
+	private String productName;
 	private int productQuantity;
 	private double productPrice;
 	private Set<BillDetail> billDetails = new HashSet<BillDetail>(0);
 	private Set<Spec> specs = new HashSet<Spec>(0);
 	private Set<Image> images = new HashSet<Image>(0);
 
-	public Product() {
-	}
 
-	public Product(String productId, Category category, Producer producer, Serializable productName,
+	public Product(String productId, Category category, Producer producer, String productName,
 			int productQuantity, double productPrice) {
 		this.productId = productId;
 		this.category = category;
@@ -59,21 +57,9 @@ public class Product implements java.io.Serializable {
 		this.productPrice = productPrice;
 	}
 
-	public Product(String productId, Category category, Producer producer, Serializable productName,
-			int productQuantity, double productPrice, Set<BillDetail> billDetails, Set<Spec> specs, Set<Image> images) {
-		this.productId = productId;
-		this.category = category;
-		this.producer = producer;
-		this.productName = productName;
-		this.productQuantity = productQuantity;
-		this.productPrice = productPrice;
-		this.billDetails = billDetails;
-		this.specs = specs;
-		this.images = images;
-	}
+	
 
 	@Id
-
 	@Column(name = "product_id", unique = true, nullable = false, length = 20)
 	public String getProductId() {
 		return this.productId;
@@ -104,11 +90,11 @@ public class Product implements java.io.Serializable {
 	}
 
 	@Column(name = "product_name", nullable = false)
-	public Serializable getProductName() {
+	public String getProductName() {
 		return this.productName;
 	}
 
-	public void setProductName(Serializable productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
@@ -156,27 +142,5 @@ public class Product implements java.io.Serializable {
 	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
->>>>>>> df1cbf8853dfec96a40bd4451cb6f0b7404b7d71
 
-    @Id
-    @Column(name = "product_id", unique = true, nullable = false, length = 20)
-    private String productId;
-    @Column(name = "product_name", nullable = false)
-    private String productName;
-    @Column(name = "product_quantity", nullable = false)
-    private int productQuantity;
-    @Column(name = "product_price", nullable = false, precision = 53, scale = 0)
-    private Double productPrice;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "producter_id", nullable = false)
-    private Producter producter;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<SpecDetail> specDetails = new HashSet<SpecDetail>(0);
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<BillDetail> billDetails = new HashSet<BillDetail>(0);
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<Image> images = new HashSet<>();
 }

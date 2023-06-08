@@ -25,15 +25,11 @@ public class DetailController {
 	ImageDAO imgDao;
 	@RequestMapping(value = "product/detail", method = RequestMethod.GET)
 	public String getDetailProduct(Model model,@RequestParam("id") String id) {
-		Optional<Product> productOptional = proDAO.findById(id);
-		
-		Product product = productOptional.orElse(null);
-		if (product != null) {
-		    Set<Image> images = product.getImages();
-		    System.out.println(images.size());
-		} else {
-		    // Xử lý khi không có giá trị tồn tại
-		}
+		List<Image> img=imgDao.findByIdproduct(id);
+		Optional<Product> product=proDAO.findById(id);
+		Product pro=product.get();
+		model.addAttribute("pro",pro);
+		model.addAttribute("image",img);
 		return "product/detail_product";
 	}
 }
