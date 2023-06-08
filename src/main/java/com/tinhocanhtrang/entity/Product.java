@@ -1,5 +1,5 @@
 package com.tinhocanhtrang.entity;
-// Generated Jun 5, 2023, 1:36:25 PM by Hibernate Tools 4.3.6.Final
+// Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -9,9 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -23,39 +23,38 @@ public class Product implements java.io.Serializable {
 
 	private String productId;
 	private Category category;
-	private Producter producter;
+	private Producer producer;
 	private Serializable productName;
 	private int productQuantity;
 	private double productPrice;
-	private Set<SpecDetail> specDetails = new HashSet<SpecDetail>(0);
 	private Set<BillDetail> billDetails = new HashSet<BillDetail>(0);
-	private Image image;
+	private Set<Spec> specs = new HashSet<Spec>(0);
+	private Set<Image> images = new HashSet<Image>(0);
 
 	public Product() {
 	}
 
-	public Product(String productId, Category category, Producter producter, Serializable productName,
+	public Product(String productId, Category category, Producer producer, Serializable productName,
 			int productQuantity, double productPrice) {
 		this.productId = productId;
 		this.category = category;
-		this.producter = producter;
+		this.producer = producer;
 		this.productName = productName;
 		this.productQuantity = productQuantity;
 		this.productPrice = productPrice;
 	}
 
-	public Product(String productId, Category category, Producter producter, Serializable productName,
-			int productQuantity, double productPrice, Set<SpecDetail> specDetails, Set<BillDetail> billDetails,
-			Image image) {
+	public Product(String productId, Category category, Producer producer, Serializable productName,
+			int productQuantity, double productPrice, Set<BillDetail> billDetails, Set<Spec> specs, Set<Image> images) {
 		this.productId = productId;
 		this.category = category;
-		this.producter = producter;
+		this.producer = producer;
 		this.productName = productName;
 		this.productQuantity = productQuantity;
 		this.productPrice = productPrice;
-		this.specDetails = specDetails;
 		this.billDetails = billDetails;
-		this.image = image;
+		this.specs = specs;
+		this.images = images;
 	}
 
 	@Id
@@ -80,13 +79,13 @@ public class Product implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "producter_id", nullable = false)
-	public Producter getProducter() {
-		return this.producter;
+	@JoinColumn(name = "producer_id", nullable = false)
+	public Producer getProducer() {
+		return this.producer;
 	}
 
-	public void setProducter(Producter producter) {
-		this.producter = producter;
+	public void setProducer(Producer producer) {
+		this.producer = producer;
 	}
 
 	@Column(name = "product_name", nullable = false)
@@ -117,15 +116,6 @@ public class Product implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-	public Set<SpecDetail> getSpecDetails() {
-		return this.specDetails;
-	}
-
-	public void setSpecDetails(Set<SpecDetail> specDetails) {
-		this.specDetails = specDetails;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	public Set<BillDetail> getBillDetails() {
 		return this.billDetails;
 	}
@@ -134,13 +124,22 @@ public class Product implements java.io.Serializable {
 		this.billDetails = billDetails;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "product")
-	public Image getImage() {
-		return this.image;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "products")
+	public Set<Spec> getSpecs() {
+		return this.specs;
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
+	public void setSpecs(Set<Spec> specs) {
+		this.specs = specs;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	public Set<Image> getImages() {
+		return this.images;
+	}
+
+	public void setImages(Set<Image> images) {
+		this.images = images;
 	}
 
 }

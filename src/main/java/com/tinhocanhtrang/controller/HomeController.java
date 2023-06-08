@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.tinhocanhtrang.repositoty.UserRepository;
+import com.tinhocanhtrang.repository.UserRepository;
 import com.tinhocanhtrang.service.CloudinaryService;
 import com.tinhocanhtrang.service.SecurityService;
 

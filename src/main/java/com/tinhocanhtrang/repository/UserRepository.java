@@ -1,4 +1,4 @@
-package com.tinhocanhtrang.repositoty;
+package com.tinhocanhtrang.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
