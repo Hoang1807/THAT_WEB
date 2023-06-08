@@ -1,5 +1,5 @@
 package com.tinhocanhtrang.entity;
-// Generated Jun 5, 2023, 1:36:25 PM by Hibernate Tools 4.3.6.Final
+// Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
 import java.io.Serializable;
 import java.util.Date;
@@ -30,7 +30,7 @@ public class Bill implements java.io.Serializable {
 	private Serializable billAddress;
 	private Date billDate;
 	private boolean billStatus;
-	private Serializable bullNote;
+	private Serializable billNote;
 	private Set<BillDetail> billDetails = new HashSet<BillDetail>(0);
 
 	public Bill() {
@@ -43,13 +43,13 @@ public class Bill implements java.io.Serializable {
 		this.billStatus = billStatus;
 	}
 
-	public Bill(User user, Serializable billAddress, Date billDate, boolean billStatus, Serializable bullNote,
+	public Bill(User user, Serializable billAddress, Date billDate, boolean billStatus, Serializable billNote,
 			Set<BillDetail> billDetails) {
 		this.user = user;
 		this.billAddress = billAddress;
 		this.billDate = billDate;
 		this.billStatus = billStatus;
-		this.bullNote = bullNote;
+		this.billNote = billNote;
 		this.billDetails = billDetails;
 	}
 
@@ -103,13 +103,13 @@ public class Bill implements java.io.Serializable {
 		this.billStatus = billStatus;
 	}
 
-	@Column(name = "bull_note")
-	public Serializable getBullNote() {
-		return this.bullNote;
+	@Column(name = "bill_note")
+	public Serializable getBillNote() {
+		return this.billNote;
 	}
 
-	public void setBullNote(Serializable bullNote) {
-		this.bullNote = bullNote;
+	public void setBillNote(Serializable billNote) {
+		this.billNote = billNote;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bill")

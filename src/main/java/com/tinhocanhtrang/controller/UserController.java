@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tinhocanhtrang.entity.User;
-import com.tinhocanhtrang.repositoty.UserRepository;
+import com.tinhocanhtrang.repository.UserRepository;
 import com.tinhocanhtrang.service.SecurityService;
 import com.tinhocanhtrang.service.SessionService;
 
