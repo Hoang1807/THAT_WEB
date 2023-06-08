@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <jsp:include page="header.jsp"/>
-    <div class="row ">
+    <jsp:include page="../layout/_header.jsp"/>
+    <div class="container mx-auto row ">
         <div class="col-md-8">
             <jsp:include page="items.jsp"/>
         </div>
@@ -18,7 +18,7 @@
             <jsp:include page="total.jsp"/>
         </div>
     </div>
-    <jsp:include page="footer.jsp"></jsp:include>
+    <jsp:include page="../layout/_footer.jsp"></jsp:include>
 <script src="/js/jquery-3.7.0.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
