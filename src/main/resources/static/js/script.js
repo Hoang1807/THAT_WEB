@@ -61,7 +61,7 @@ $(document).ready(function () {
   $.validator.addMethod(
     "phone",
     function (value) {
-      return /0[0-9]{9}/.test(value);
+      return /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/.test(value);
     },
     "Điện thoại chưa đúng đinh dạng"
   );
@@ -98,7 +98,7 @@ $(document).ready(function () {
       },
       confirmPassword: {
         required: true,
-        equalTo: "input[name='userPassword'",
+        equalTo: "#form-dangky input[name='userPassword']",
       },
     },
     messages: {
@@ -148,5 +148,89 @@ $(document).ready(function () {
     },
   });
 });
+
+// ajax form dangky
+$("#form-dangky").on("submit", function (event) {
+  event.preventDefault();
+  if ($("#form-dangky").valid()) {
+    $.ajax({
+      url: "/user/register",
+      method: "POST",
+      data: {
+        userPhone: $("#form-dangky input[name='userPhone'").val(),
+        userName: $("input[name='userName'").val(),
+        userEmail: $("input[name='userEmail'").val(),
+        userPassword: $("#form-dangky input[name='userPassword'").val(),
+      },
+      success: function (resultText) {
+        bootstrapToast(
+          "#toast-success",
+          "Xin chào, tài khoản " + resultText.userPhone + " đã được kích hoạt"
+        );
+
+        // wait 4s for toast
+        $("#btn-dangky").text("Vui lòng chờ...").attr("disabled", true);
+        setTimeout(function () {
+          $("#btn-dangky").text("đăng ký").attr("disabled", false);
+          $("#form-dangky input").val("");
+        }, 5000);
+
+        // Login fast
+        $("label[for='btn-login']").on("click", function (event) {
+          $("#form-dangnhap")
+            .find("input[name='userPhone']")
+            .val(resultText.userPhone)
+            .end()
+            .find("input[name='userPassword']")
+            .val(resultText.userPassword);
+        });
+      },
+      error: function (jqXHR, textStatus) {
+        if (textStatus == "error") {
+          bootstrapToast(
+            "#toast-warning",
+            "Xin chào, số điện thoại bạn vừa đăng ký đã tồn tại"
+          );
+        }
+      },
+    });
+  }
+});
+
+// modalDangnhap show when login unsuccessful
+$(".userErr").each(function () {
+  if ($(this).text().length > 0) {
+    bootstrap.Modal.getOrCreateInstance($("#modalDangnhap")).show();
+  }
+});
+
+function getDateNow() {
+  let date = new Date();
+  let dateString =
+    (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) +
+    "/" +
+    (date.getMonth() + 1 < 10
+      ? "0" + (date.getMonth() + 1)
+      : date.getMonth() + 1) +
+    "/" +
+    date.getUTCFullYear() +
+    " " +
+    (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) +
+    ":" +
+    (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
+    ":" +
+    (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
+  return dateString;
+}
+
+function bootstrapToast(element, text) {
+  let option = {
+    animation: true,
+    delay: 4000,
+  };
+  $(element).find(".toast-title").text(text);
+  $(element).find("small").text(getDateNow());
+  bootstrap.Toast.getOrCreateInstance($(element), option).show();
+}
 
 // end Jquery
