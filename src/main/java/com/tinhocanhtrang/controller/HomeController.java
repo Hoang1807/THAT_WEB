@@ -5,18 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.tinhocanhtrang.repositoty.UserRepository;
+import com.tinhocanhtrang.service.CloudinaryService;
 import com.tinhocanhtrang.service.SecurityService;
 
 @Controller
 public class HomeController {
-	@Autowired
-	SecurityService securityService;
-
-	@Autowired
-	UserRepository userDAO;
 
 	@RequestMapping(value = "home", method = RequestMethod.GET)
-	public String getHome() {
+	public String getHome() throws Exception {
 		return "index";
 	}
 

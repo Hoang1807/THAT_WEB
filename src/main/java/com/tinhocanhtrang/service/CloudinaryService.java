@@ -21,6 +21,7 @@ public class CloudinaryService {
 	}
 
 	public CloudinaryService() {
+		cloudinary = new Cloudinary("cloudinary://584368271543577:DMdJ5OUw9j_WLnFRLCJA4h7S52U@dz9gzy7iz");
 	}
 
 	public String uploadImage(String imagePath) throws Exception {
