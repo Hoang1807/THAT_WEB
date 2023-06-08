@@ -3,7 +3,9 @@
     <html>
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Insert title here</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -19,7 +21,7 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/flickity.css">
         <link rel="stylesheet" href="/css/style.css">
-        
+
     </head>
 
     <body>
@@ -64,29 +66,28 @@
                                         </div>
                                     </div>
                                     <ul class="col-12 row mt-2" style="list-style-type: none;">
-                                            <li class="col-6">
-                                                <div class="iconl">
-                                                    <p><img class="lazyloaded" width="50" height="50"
-                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_1.png?v=1752">
-                                                        Chính sách bảo hành</p>
-                                                </div>
-                                            </li>
-                                            <li class="col-6">
-                                                <div class="iconl">
-                                                    <p><img class=" lazyloaded" width="50" height="50"
-                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_2.png?v=1752">
-                                                        Cam kết chính hãng 100% </p>
-                                                </div>
-
-                                            </li>
-                                            <li class="col-6">
-                                                <div class="iconl">
-                                                    <p><img class=" lazyloaded" width="50" height="50"
-                                                            src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_4.png?v=1752">
-                                                        1900 0243
-                                                    </p>
-                                                </div>
-                                            </li>
+                                        <li class="col-6">
+                                            <div class="iconl">
+                                                <p><img class="lazyloaded" width="50" height="50"
+                                                        src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_1.png?v=1752">
+                                                    Chính sách bảo hành</p>
+                                            </div>
+                                        </li>
+                                        <li class="col-6">
+                                            <div class="iconl">
+                                                <p><img class=" lazyloaded" width="50" height="50"
+                                                        src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_2.png?v=1752">
+                                                    Cam kết chính hãng 100% </p>
+                                            </div>
+                                        </li>
+                                        <li class="col-6">
+                                            <div class="iconl">
+                                                <p><img class=" lazyloaded" width="50" height="50"
+                                                        src="//theme.hstatic.net/200000420363/1001015796/14/product_policy_4.png?v=1752">
+                                                    1900 0243
+                                                </p>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -276,8 +277,7 @@
             <div class="carousel mt-3 bg-white " data-flickity='{ "groupCells": true }'>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -287,8 +287,7 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -298,8 +297,7 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -309,8 +307,7 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -320,8 +317,7 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
@@ -331,8 +327,7 @@
                 </div>
                 <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                     <a href="" class="relate_to">
-                        <img src="/image/product/1.jpg"
-                            alt="" width="100%" height="60%">
+                        <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
                     </a>
                     <a href="" class="name_relate">
                         <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB | 15.6" FHD |
