@@ -24,40 +24,37 @@
 }
 
 .container-fluid > .navbar-brand > img.navbar-logo {
-  width: 100px;
-  height: 70px;
+  width: 90px;
+  height: 60px;
 }
 
 @media screen and (max-width: 768px) {
   .container-fluid > .navbar-brand > img.navbar-logo {
     width: 70px;
-    height: 50px;
+    height: 40px;
   }
 }
 
 .frmSearch > #searchFRM .form-control:focus {
   box-shadow: none;
 }
-
 .frmSearch > #searchFRM input[type="text"] {
   width: 520px;
 }
-
 @media screen and (max-width: 1200px) {
   .frmSearch > #searchFRM input[type="text"] {
     width: 320px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .frmSearch > #searchFRM input[type="text"] {
-    width: 280px;
+    width: 220px;
   }
 }
 
 @media screen and (max-width: 540px) {
   .frmSearch > #searchFRM input[type="text"] {
-    width: 180px;
+    width: 70px;
   }
 }
 

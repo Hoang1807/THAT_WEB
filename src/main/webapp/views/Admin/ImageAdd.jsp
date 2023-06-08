@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -76,30 +78,26 @@
                         <th scope="col">User Phonenumber</th>
                         <th scope="col">Address Operation</th>
                         <th scope="col">Date</th>
-                        <th scope="col">More</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">1</th>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td><button><i class="bi bi-three-dots"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
-                        <td><button><i class="bi bi-three-dots"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
                         <td>@twitter</td>
                         <td>@fat</td>
-                        <td><button><i class="bi bi-three-dots"></i></button></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -44,24 +46,20 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Category Name</th>
-                        <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">1</th>
                         <td>Mark</td>
-                        <td><button><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">2</th>
                         <td>Jacob</td>
-                        <td><button><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
-                        <td><button><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                 </tbody>
             </table>
