@@ -20,7 +20,7 @@
                     class="btn dropdown-toggle mt-3 mb-2 me-2 p-0 text-light link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">Name Account</a>
                 <ul class="dropdown-menu dropdown-bg">
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/home" >Logout</a></li>
                     <li><a class="dropdown-item" href="#">About</a></li>
                     <li><a class="dropdown-item" href="#">Change password</a></li>
                 </ul>
@@ -51,4 +51,6 @@
             </li>
         </ul>
     </div>
+    <!-- <jsp:include page="../layout/modal_header/modal_Dangnhap.jsp"></jsp:include> -->
+		<!-- <jsp:include page="../layout/modal_header/modal_menu.jsp"></jsp:include> -->
 </html>

@@ -104,24 +104,23 @@
             </form>
         </div>
         <div
-            class="container border border-3 mt-5 bg-light-subtle p-3 rounded-4 shadow table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
+            class="container border border-3 mt-5 bg-light-subtle p-3 rounded-4 shadow table-responsive table-responsive-sm  table-responsive-lg">
             <div><a href="/Product/ProductAdd" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i>ADD</a></div>
             <hr>
             <span>(3)Records Found</span>
             <table class="table table-bordered border-3 text-black">
                 <thead>
                     <tr>
-                        <th style="width: 10%;" scope="col">Image</th>
-                        <th scope="col">ID Product</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Product Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Producer</th>
-                        <th scope="col">Edit</th>
+                        <th style="width: 10%;">Image</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Producer</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row">
                             <img class="img-thumbnail w-100"
                                 src="https://product.hstatic.net/200000420363/product/1_cf780ffbe8024e66910638f844b7acd3_large.jpg"
@@ -132,9 +131,8 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Otto</td>
-                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row"><img class="img-thumbnail w-100"
                                 src="https://product.hstatic.net/200000420363/product/1_c07a1f4049214638935a5168913867f8_large.jpg"
                                 alt=""></th>
@@ -143,9 +141,8 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Otto</td>
-                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
-                    <tr>
+                    <tr onclick="location.href=window.location.href.split('?')[0]+'?videoId=${video.idYoutube}';" style="cursor: pointer;">
                         <th scope="row"><img class="img-thumbnail w-100"
                                 src="https://product.hstatic.net/200000420363/product/gskill-8g-3200-aegis_de49d0bed72140f39fd12378b9a2fd60_large.jpg"
                                 alt=""></th>
@@ -154,7 +151,6 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Otto</td>
-                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                 </tbody>
             </table>

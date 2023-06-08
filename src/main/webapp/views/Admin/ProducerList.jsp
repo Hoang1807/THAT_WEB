@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -56,7 +56,6 @@
                         <th scope="col">Producer Name</th>
                         <th scope="col">Producer Email</th>
                         <th scope="col">Producer Phonenumber</th>
-                        <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,21 +64,18 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Otto</td>
-                        <td><button fom class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>Otto</td>
-                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
                         <td>@twitter</td>
                         <td>Otto</td>
-                        <td><button class="rounded-pill border-0"><i class="bi bi-pencil-fill"></i></button></td>
                     </tr>
                 </tbody>
             </table>
