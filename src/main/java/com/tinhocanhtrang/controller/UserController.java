@@ -58,6 +58,8 @@ public class UserController {
 				model.addAttribute("userPhone", user.getUserPhone());
 				model.addAttribute("userPassword", user.getUserPassword());
 			}
+		}else {
+			model.addAttribute("userErr", "số điện thoại hoặc mật khẩu không hợp lệ");
 		}
 		return "redirect:/home";
 	}
