@@ -153,6 +153,7 @@ $(document).ready(function () {
 $("#form-dangky").on("submit", function (event) {
   event.preventDefault();
   if ($("#form-dangky").valid()) {
+    $("#btn-dangky").text("Vui lòng chờ...").attr("disabled", true);
     $.ajax({
       url: "/user/register",
       method: "POST",
@@ -165,15 +166,13 @@ $("#form-dangky").on("submit", function (event) {
       success: function (resultText) {
         bootstrapToast(
           "#toast-success",
-          "Xin chào, tài khoản " + resultText.userPhone + " đã được kích hoạt"
+          "Xin chào, tài khoản " + resultText.userPhone + " đã được kích hoạt",
+          2000
         );
 
-        // wait 4s for toast
-        $("#btn-dangky").text("Vui lòng chờ...").attr("disabled", true);
-        setTimeout(function () {
-          $("#btn-dangky").text("đăng ký").attr("disabled", false);
-          $("#form-dangky input").val("");
-        }, 5000);
+        // wait toast
+        $("#btn-dangky").text("đăng ký").attr("disabled", false);
+        $("#form-dangky input").val("");
 
         // Login fast
         $("label[for='btn-login']").on("click", function (event) {
@@ -189,8 +188,12 @@ $("#form-dangky").on("submit", function (event) {
         if (textStatus == "error") {
           bootstrapToast(
             "#toast-warning",
-            "Xin chào, số điện thoại bạn vừa đăng ký đã tồn tại"
+            "Xin chào, số điện thoại bạn vừa đăng ký đã tồn tại",
+            2000
           );
+
+          // wait toast
+          $("#btn-dangky").text("đăng ký").attr("disabled", false);
         }
       },
     });
@@ -223,10 +226,10 @@ function getDateNow() {
   return dateString;
 }
 
-function bootstrapToast(element, text) {
+function bootstrapToast(element, text, delay) {
   let option = {
     animation: true,
-    delay: 4000,
+    delay: delay,
   };
   $(element).find(".toast-title").text(text);
   $(element).find("small").text(getDateNow());
