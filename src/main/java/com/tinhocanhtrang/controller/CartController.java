@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CartController {
 	@RequestMapping(value = "cart", method = RequestMethod.GET)
-	public String getHome() {
+	public String getHome() throws Exception {
 		return "cart/index";
 	}
 }

@@ -6,11 +6,11 @@
 <title>Tin Học Ánh Trăng chuyên buôn bán linh kiện PC</title>
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/flickity.css">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/styleUser.css">
 </head>
 <body>
     <jsp:include page="../layout/_header.jsp"/>
-    <div class="container mx-auto row ">
+    <div class="container mt-5 mx-auto row ">
         <div class="col-md-8">
             <jsp:include page="items.jsp"/>
         </div>
