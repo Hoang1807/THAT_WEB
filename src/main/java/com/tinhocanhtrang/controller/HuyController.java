@@ -22,15 +22,6 @@ public class HuyController {
 		return "Admin/ProductAdd";
 	}
 	
-	@RequestMapping(value = "/Product/ProducerList",method = RequestMethod.GET)
-	public String getProducer() {
-		return "Admin/ProducerList";
-	}
-	
-	@RequestMapping(value = "/Product/ProducerAdd",method = RequestMethod.GET)
-	public String getDetailProducer() {
-		return "Admin/ProducerAdd";
-	}
 	
 	@RequestMapping(value = "/UserManager/UserList",method = RequestMethod.GET)
 	public String getUser() {

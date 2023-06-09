@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,27 +18,27 @@
 	<jsp:include page="../Admin/header.jsp"></jsp:include>
 	 <main>
         <div class="container border border-3 mt-5 bg-light-subtle p-0 rounded-4 shadow">
-            <form class="p-5">
+            <form class="p-5" action="/Product/ProducerAdd/insert" method="POST" modelAttribute="producer" >
                 <legend>Manager Producer</legend>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">ID Producer</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input type="text" name="producterId" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Producer Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input name="producterName" type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Producer Email</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <input name="producterEmail" type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Producer Phonenumber</label>
-                            <input type="number" class="form-control" id="exampleInputPassword1">
+                            <input name="producterPhone" type="number" class="form-control" id="exampleInputPassword1">
                         </div>
                     </div>
                 </div>
