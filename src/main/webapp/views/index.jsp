@@ -9,7 +9,7 @@
         <title>Tin Học Ánh Trăng chuyên buôn bán linh kiện PC</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/flickity.css">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/styleUser.css">
     </head>
 
     <body>
@@ -199,7 +199,7 @@
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/flickity.pkgd.min.js"></script>
-        <script src="/js/script.js"></script>
+        <script src="/js/scriptUser.js"></script>
     </body>
 
     </html>

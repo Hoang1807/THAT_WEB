@@ -258,7 +258,7 @@
 #form-dangky .btn-show-pw {
   top: 5%;
   left: 100%;
-  transform: translate(-50%, 25%);
+  transform: translate(-100%, 25%);
   cursor: pointer;
 }
 

@@ -4,7 +4,9 @@
         <div class="offcanvas-header pb-0">
             <div class="d-flex gap-2">
                 <a class="col-4 align-self-center px-1" href="/home">
-                    <img class="navbar-logo w-100" src="/image/moonlight-logo.png" alt="hình ảnh">
+                    <img class="navbar-logo w-100"
+                        src="https://res.cloudinary.com/dz9gzy7iz/image/upload/v1686125288/moonlight-logo.png"
+                        alt="hình ảnh">
                 </a>
                 <div class="col-8 d-flex flex-column">
                     <span class="h6 text-uppercase fw-bold mb-0">tin học ánh trăng</span>
@@ -80,7 +82,8 @@
                             <ul class="dropdown-menu text-small shadow">
                                 <li><a class="dropdown-item" data-bs-toggle="modal" href="#modalDangnhap">Đăng nhập</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Đăng ky</a></li>
+                                <li><a class="dropdown-item" href="#modalDangnhap" data-bs-toggle="modal">Đăng ký</a>
+                                </li>
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">

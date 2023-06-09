@@ -37,7 +37,7 @@
                 <%@include file="StoreRevenue.jsp" %>
             </div>
             <div class="tab-pane fade ${TabReport=='3'?'show active':''}" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="3">
-                <%@include file="ProductStatistics.jsp" %>
+              
             </div>
         </div>
     </div>

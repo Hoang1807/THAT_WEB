@@ -19,20 +19,22 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="dangnhap">
-                                <form action="/a" id="form-dangnhap">
+                                <form action="/user/login" method="POST" id="form-dangnhap">
                                     <div class="mb-3">
-                                        <input type="text" name="userPhone"
+                                        <input type="text" name="userPhone" value="${param.userPhone}"
                                             class="form-control border-0 border-bottom border-danger rounded-0"
                                             placeholder="Số điện thoại">
                                     </div>
                                     <div class="mb-3 d-flex flex-column">
                                         <div class="position-relative">
-                                            <input type="password" name="userPassword"
+                                            <input type="password" name="userPassword" value="${param.userPassword}"
                                                 class="form-control password border-0 border-bottom border-danger rounded-0"
                                                 placeholder="Mật khẩu">
+                                            <span class="text-danger userErr">${param.userErr}</span>
                                             <span class="btn-show-pw position-absolute d-none">
                                                 <i class="bi bi-eye-slash"></i>
                                             </span>
+
                                         </div>
                                         <div class="ms-auto">
                                             <a href="#" class="text-decoration-none">
@@ -41,13 +43,15 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 d-grid">
-                                        <button class="btn text-bg-danger text-uppercase p-2">đăng nhập</button>
+                                        <button id="btn-login" class="btn text-bg-danger text-uppercase p-2">
+                                            đăng nhập
+                                        </button>
                                     </div>
                                     <hr class="my-4">
                                 </form>
                             </div>
                             <div class="tab-pane" id="dangky">
-                                <form action="" id="form-dangky">
+                                <form action="" id="form-dangky" method="POST">
                                     <div class="mb-3">
                                         <input type="text" name="userPhone"
                                             class="form-control border-0 border-bottom border-danger rounded-0"
@@ -80,7 +84,9 @@
                                         </span>
                                     </div>
                                     <div class="mb-3 d-grid">
-                                        <button class="btn text-bg-danger text-uppercase p-2">đăng ký</button>
+                                        <button id="btn-dangky" class="btn text-bg-danger text-uppercase p-2">
+                                            đăng ký
+                                        </button>
                                     </div>
                                     <hr class="my-4">
                                 </form>
@@ -94,4 +100,5 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="../notification.jsp"></jsp:include>
     </div>
