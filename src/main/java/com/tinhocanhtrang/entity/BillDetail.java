@@ -1,5 +1,5 @@
 package com.tinhocanhtrang.entity;
-// Generated Jun 5, 2023, 1:36:25 PM by Hibernate Tools 4.3.6.Final
+// Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;

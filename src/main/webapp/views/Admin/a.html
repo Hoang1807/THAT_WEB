@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.112.5">
+    <title>Dashboard Template · Bootstrap v5.3</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta name="theme-color" content="#712cf9">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        #searchDataTable {
+            width: 40%;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            #searchDataTable {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.3/examples/dashboard/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Tin Học Ánh Trăng</a>
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar border border-right col-md-3  p-0 bg-body-tertiary">
+                <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Tin Học Ánh Trăng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <h6 class="sidebar-heading px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                                <span>Sản phẩm</span>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                                    <i class="bi bi-archive"></i>
+                                    Quản lý sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    <i class="bi bi-inboxes"></i>
+                                    Quản lý loại
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h6
+                            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                            <span>Nội bộ</span>
+                        </h6>
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    <i class="bi bi-file-earmark-person-fill"></i>
+                                    Nhân viên
+                                </a>
+                            </li>
+                        </ul>
+
+                        <hr class="my-3">
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    Trang cá nhân
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <main class="col-md-9 col-lg- ms-sm-auto px-md-4">
+                <h1 class="h2 pt-3 pb-2 mb-3 border-bottom">Quản lý sản phẩm</h1>
+                <form action="">
+                    <form class="" action="/category/create" autocomplete="off">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="productId" class="form-label">Mã sản phẩm</label>
+                                <input type="text" id="productId" class="form-control shadow-none" name="productId"
+                                    value="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="productName" class="form-label">Tên sản phẩm</label>
+                                <input type="text" id="productName" class="form-control shadow-none" name="productName"
+                                    value="">
+                            </div>
+                            <div class="col-sm-4 col-6">
+                                <label for="productQuantity" class="form-label">Số lượng</label>
+                                <input type="number" id="productQuantity" class="form-control shadow-none"
+                                    name="productQuantity" value="">
+                            </div>
+                            <div class="col-sm-4 col-6">
+                                <label for="productPrice" class="form-label">Giá</label>
+                                <input type="number" id="productPrice" class="form-control shadow-none"
+                                    name="productPrice" value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="category" class="form-label">Loại</label>
+                                <select class="form-select" name="category" id="category">
+                                    <option value="1">CPU</option>
+                                    <option value="2">SSD</option>
+                                    <option value="3">HDD</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="specs" class="form-label">Thông số kỹ thuật</label>
+                                <select name="specs" id="specs" multiple>
+                                    <option value="1">Dòng điện đầu vào: 9A</option>
+                                    <option value="2">Tần số đầu vào: 50 Hz - 60 Hz</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="specs" class="form-label">Ảnh</label>
+                                <input type="file" id="images" name="images" class="form-control" multiple>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex gap-2">
+                            <button class=" btn btn-success text-capitalize">Thêm</button>
+                            <button class="btn btn-warning text-capitalize" formaction="/category/update"
+                                type="submit">Update</button>
+                            <button class="btn btn-danger text-capitalize" formaction="/category/delete"
+                                type="submit">Delete</button>
+                            <button class="btn btn-primary text-capitalize" formaction="/category/index">Reset</button>
+                        </div>
+                    </form>
+                </form>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2>Section title</h2>
+                    <form class="input-group order-1 order-md-0" id="searchDataTable">
+                        <input type="text" id="search" class="form-control shadow-none" name="search"
+                            placeholder="Tìm kiếm">
+                        <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
+                    </form>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="dropdown me-2">
+                            <button type="button" data-bs-toggle="dropdown"
+                                class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+                                Số lượng
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Còn hàng</a></li>
+                                <li><a class="dropdown-item" href="#">Hết hàng</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown me-2">
+                            <button type="button" data-bs-toggle="dropdown"
+                                class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+                                Giá
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tăng dần</a></li>
+                                <li><a class="dropdown-item" href="#">Giảm dần</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive small">
+                    <table id="tableDataProduct" class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th class="fw-bold align-middle text-center" scope="col">#</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Ảnh</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Mã</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Tên</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Giá</th>
+                                <th class="fw-bold align-middle text-center" scope="col">NSX</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Số lượng</th>
+                                <th class="fw-bold align-middle text-center" scope="col">Chỉnh</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle text-center">1</td>
+                                <td class="align-middle text-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/%E0%B4%B5%E0%B4%BF%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B5%81%E0%B4%95%E0%B4%BE%E0%B4%B3.JPG/1200px-%E0%B4%B5%E0%B4%BF%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B5%81%E0%B4%95%E0%B4%BE%E0%B4%B3.JPG"
+                                        alt="" width="100px" class="p-2">
+                                </td>
+                                <td class="align-middle text-center">PS23306</td>
+                                <td class="align-middle text-center">Dell 22035645465879</td>
+                                <td class="align-middle text-center">10000</td>
+                                <td class="align-middle text-center">DELL</td>
+                                <td class="align-middle text-center">50</td>
+                                <td class="align-middle text-center"><button class="btn btn-danger"><i
+                                            class="bi bi-pencil"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
+        integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG"
+        crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/5.3/examples/dashboard/dashboard.js"></script>
+    <script>
+        new MultiSelectTag('specs');
+    </script>
+</body>
+
+</html>

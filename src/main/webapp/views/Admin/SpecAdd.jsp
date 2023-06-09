@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-body-secondary">
-<jsp:include page="../Admin/header.jsp"></jsp:include>
+<jsp:include page="../admin/header.jsp"></jsp:include>
 <main>
         <div class="container border border-3 mt-5 bg-light-subtle p-0 rounded-4 shadow">
             <form class="p-5">

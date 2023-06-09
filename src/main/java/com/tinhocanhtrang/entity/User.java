@@ -1,12 +1,9 @@
 package com.tinhocanhtrang.entity;
-// Generated Jun 5, 2023, 1:36:25 PM by Hibernate Tools 4.3.6.Final
+// Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.hibernate.annotations.Nationalized;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,13 +24,13 @@ public class User implements java.io.Serializable {
 	private Serializable userName;
 	private String userEmail;
 	private String userPassword;
-	private int userRole;
+	private boolean userRole;
 	private Set<Bill> bills = new HashSet<Bill>(0);
 
 	public User() {
 	}
 
-	public User(String userPhone, Serializable userName, String userEmail, String userPassword, int userRole) {
+	public User(String userPhone, Serializable userName, String userEmail, String userPassword, boolean userRole) {
 		this.userPhone = userPhone;
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -41,7 +38,7 @@ public class User implements java.io.Serializable {
 		this.userRole = userRole;
 	}
 
-	public User(String userPhone, Serializable userName, String userEmail, String userPassword, int userRole,
+	public User(String userPhone, Serializable userName, String userEmail, String userPassword, boolean userRole,
 			Set<Bill> bills) {
 		this.userPhone = userPhone;
 		this.userName = userName;
@@ -52,6 +49,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@Id
+
 	@Column(name = "user_phone", unique = true, nullable = false, length = 64)
 	public String getUserPhone() {
 		return this.userPhone;
@@ -62,7 +60,6 @@ public class User implements java.io.Serializable {
 	}
 
 	@Column(name = "user_name", nullable = false)
-	@Nationalized
 	public Serializable getUserName() {
 		return this.userName;
 	}
@@ -90,11 +87,11 @@ public class User implements java.io.Serializable {
 	}
 
 	@Column(name = "user_role", nullable = false)
-	public int getUserRole() {
+	public boolean isUserRole() {
 		return this.userRole;
 	}
 
-	public void setUserRole(int userRole) {
+	public void setUserRole(boolean userRole) {
 		this.userRole = userRole;
 	}
 
