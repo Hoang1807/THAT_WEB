@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý loại</h1>
-        <form id="form-loai" method="POST" autocomplete="off">
+        <form id="form-loai" action="/admin/manager-category/create" method="POST" autocomplete="off">
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="categoryId" class="form-label">Mã loại</label>
-                    <input type="text" id="categoryId" class="form-control shadow-none" name="categoryId" value="">
+                    <input type="text" id="categoryId" ng-model="cate.id" class="form-control shadow-none"
+                        name="categoryId" value="">
                 </div>
                 <div class="col-sm-6">
                     <label for="categoryName" class="form-label">Tên loại</label>
-                    <input type="text" id="categoryName" class="form-control shadow-none" name="categoryName" value="">
+                    <input type="text" id="categoryName" ng-model="cate.name" class="form-control shadow-none"
+                        name="categoryName" value="">
                 </div>
             </div>
 
@@ -17,7 +19,7 @@
             <div class="d-flex gap-2">
                 <button class="btn btn-success text-capitalize" id="btn-addCategory">Add</button>
                 <button class="btn btn-danger text-capitalize" id="btn-delCategory">Delete</button>
-                <button class="btn btn-primary text-capitalize" formaction="/category/index">Reset</button>
+                <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
             </div>
         </form>
 
@@ -25,7 +27,8 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2 class="text-capitalize">Danh sách loại</h2>
             <form class="input-group order-1 order-md-0" id="searchDataTable">
-                <input type="text" id="search" class="form-control shadow-none" name="search" placeholder="Tìm kiếm">
+                <input type="text" id="search" ng-model="search" class="form-control shadow-none" name="search"
+                    placeholder="Tìm kiếm">
                 <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
             </form>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -68,7 +71,8 @@
                             <td class="align-middle text-center">${item.categoryId}</td>
                             <td class="align-middle text-center">${item.categoryName}</td>
                             <td class="align-middle text-center">
-                                <button class="btn btn-danger">
+                                <button class="btn btn-danger"
+                                    ng-click="editCate('${item.categoryId}','${item.categoryName}')">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                             </td>
