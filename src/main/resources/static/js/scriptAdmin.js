@@ -169,8 +169,6 @@ $(document).ready(function () {
     }
   });
 
-  // search for category
-
   function getDateNow() {
     let date = new Date();
     let dateString =
