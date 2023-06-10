@@ -5,19 +5,19 @@
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="producerId" class="form-label">Mã nhà sản xuất</label>
-                    <input type="text" id="producerId" class="form-control shadow-none" name="producerId" ng-init="producerId='${producer.producerId}'" ng-model="producerId" value="${producer.producerId}">
+                    <input type="text" id="producerId" class="form-control shadow-none" name="producerId" ng-model="producer.id">
                 </div>
                 <div class="col-sm-6">
                     <label for="producerName" class="form-label">Tên nhà sản xuất</label>
-                    <input type="text" id="producerName" class="form-control shadow-none" name="producerName" ng-init="producerName='${producer.producerName}'" ng-model="producerName" value="${producer.producerName}">
+                    <input type="text" id="producerName" class="form-control shadow-none" name="producerName" ng-model="producer.name">
                 </div>
                 <div class="col-sm-6">
                     <label for="producerEmail" class="form-label">Email</label>
-                    <input type="email" id="producerEmail" class="form-control shadow-none" name="producerEmail" ng-init="producerEmail='${producer.producerEmail}'" ng-model="producerEmail" value="${producer.producerEmail}">
+                    <input type="email" id="producerEmail" class="form-control shadow-none" name="producerEmail" ng-model="producer.email">
                 </div>
                 <div class="col-sm-6">
                     <label for="producerPhone" class="form-label">Số điện thoại</label>
-                    <input type="number" id="producerPhone" class="form-control shadow-none" name="producerPhone" ng-init="producerPhone='${producer.producerPhone}'" ng-model="producerPhone" value="${producer.producerPhone}">
+                    <input type="number" id="producerPhone" class="form-control shadow-none" name="producerPhone" ng-model="producer.phone">
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
             </thead>
             <tbody>
                 <c:forEach var="item" items="${listProducer}" varStatus="loop" >
-                    <tr style="cursor: pointer;" onclick="showUp(item.producerId,item.producerName,item.producerEmail,item.producerPhone)">
+                    <tr style="cursor: pointer;" ng-click="editProducer('${item.producerId}','${item.producerName}','${item.producerEmail}','${item.producerPhone}')">
                         <td class="align-middle text-center">${loop.index}</td>
                         <td class="align-middle text-center">${item.producerId}</td>
                         <td class="align-middle text-center">${item.producerName}</td>
@@ -83,7 +83,3 @@
             </tbody>
         </table>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script>
-
-    </script>

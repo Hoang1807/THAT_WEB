@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý sản phẩm</h1>
+    <form action="">
         <form class="" action="/category/create" autocomplete="off">
             <div class="row g-3">
                 <div class="col-sm-6">
@@ -40,9 +41,7 @@
                     <input type="file" id="images" name="images" class="form-control" multiple>
                 </div>
             </div>
-
             <hr class="my-4">
-
             <div class="d-flex gap-2">
                 <button class=" btn btn-success text-capitalize">Thêm</button>
                 <button class="btn btn-warning text-capitalize" formaction="/category/update"
@@ -52,7 +51,7 @@
                 <button class="btn btn-primary text-capitalize" formaction="/category/index">Reset</button>
             </div>
         </form>
-
+    </form>
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Section title</h2>

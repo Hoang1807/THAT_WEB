@@ -93,6 +93,11 @@ $(document).ready(function () {
       },
       producerPhone: {
         required: "Vui lòng nhập số điện thoại",
+        maxlength: "vui lòng dưới 10 ký tự",
+      },
+      categoryName: {
+        required: "Vui lòng nhập tên",
+        minlength: "vui lòng nhập dưới 50 kí tự",
       },
     },
   });
@@ -101,8 +106,8 @@ $(document).ready(function () {
   $("#form-loai").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
+      //   ajax create form category
       if (event.originalEvent.submitter.innerText == "Add") {
-        //   ajax create form category
         $("#btn-addCategory").on("click", function () {
           // wait for toast
           $("#form-loai button").attr("disabled", true);
@@ -161,6 +166,7 @@ $(document).ready(function () {
           });
         });
         $("#btn-addCategory").trigger("click");
+        //   ajax delete form category
       } else if (event.originalEvent.submitter.innerText == "Delete") {
         $("#btn-delCategory").on("click", function () {
           $("#form-loai button").attr("disabled", true);
@@ -328,6 +334,7 @@ $(document).ready(function () {
       }
     }
   });
+  // search for category
 
   function getDateNow() {
     let date = new Date();

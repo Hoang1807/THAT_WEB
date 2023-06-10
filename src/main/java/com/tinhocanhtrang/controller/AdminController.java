@@ -40,9 +40,10 @@ public class AdminController {
 	}
 	@PostMapping(value = "admin/manager-category/delete")
 	public String getManagerCategory_Delete(Category category) throws IOException {
-		categoryRepository.delete(category);
-		return "redirect:/admin/manager-category";
+		return "admin/Category";
 	}
+
+
 
 	@PostMapping(value = "admin/manager-category/check")
 	public @ResponseBody boolean getManagerCategory_Check(Category category) {
