@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/product.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="/js/danhmuc.js"></script>
+        <script src="./js/danhmuc.js"></script>
         <title>Insert title here</title>
       </head>
 
@@ -45,19 +45,19 @@
             </div>
             <div class="often_brand often_list">
               <div class="item ">
-                <input type="checkbox" class="btn btn-check button" id="asus">
+                <input type="checkbox" class="btn btn-check button" name="cagetory" value="acer" id="asus" onclick="findDM()">
                     <label for="asus" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_2.png?v=2035" alt="Acer">
                     </label>
               </div>
               <div class="item">
-                  <input type="checkbox" class="btn btn-check button" id="acer">
+                  <input type="checkbox" class="btn btn-check button" name="cagetory" id="acer">
                     <label for="acer" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_5.png?v=2035" alt="Acer">
                     </label>
               </div>
               <div class="item">
-                    <input type="checkbox" class="btn btn-check button" id="dell">
+                    <input type="checkbox" class="btn btn-check button" name="cagetory" id="dell">
                     <label for="dell" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_6.png?v=2035" alt="Dell">
                     </label>
@@ -69,19 +69,19 @@
                     </label>
               </div>
               <div class="item">
-                    <input type="checkbox" class="btn btn-check button" id="msi">
+                    <input type="checkbox" class="btn btn-check button" name="cagetory" id="msi">
                     <label for="msi" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_7.png?v=2035" alt="Msi">
                     </label>
               </div>
               <div class="item">
-                    <input type="checkbox" class="btn btn-check button" id="lenovo">
+                    <input type="checkbox" class="btn btn-check button" name="cagetory" id="lenovo">
                     <label for="lenovo" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_4.png?v=2035" alt="Lenovo">
                     </label>
               </div>
               <div class="item">
-                    <input type="checkbox" class="btn btn-check button" id="Gigabyte">
+                    <input type="checkbox" class="btn btn-check button" name="cagetory" id="Gigabyte">
                     <label for="Gigabyte" class="btn">
                       <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_10.png?v=2035" alt="GIGABYTE">
                     </label>
@@ -92,8 +92,9 @@
                 <h5>Tổng số lượng sản phẩm</h5>
               </div>
               <div class="sp_order float-end">
-                <select  name="sapXep" onchange="findDM()">
-                  <option value="1" selected="selected">Giá tăng</option>
+                <select  name="sapXep" onchange="sort()">
+                  <option value="0" selected="selected">Theo</option>
+                  <option value="1" >Giá tăng</option>
                   <option value="2">Giá giảm</option>
                   <option value="3">A-Z</option>
                   <option value="4">Z-A</option>
@@ -152,15 +153,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
           integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
           </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-          integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-          </script>
-          <script>
-            $(function(){
-              $
-            })
-          </script>
+        
       </body>
 
       </html>
