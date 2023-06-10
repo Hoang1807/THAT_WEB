@@ -196,6 +196,7 @@
         </section>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
+        <script src="/js/angular.min.js"></script>
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/flickity.pkgd.min.js"></script>

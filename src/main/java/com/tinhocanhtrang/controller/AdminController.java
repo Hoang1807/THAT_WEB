@@ -34,12 +34,13 @@ public class AdminController {
 	}
 
 	@PostMapping(value = "admin/manager-category/create")
-	public String getManagerCategory_Create(Category category) throws IOException {
+	public String getManagerCategory_Create(Category category) {
 		categoryRepository.save(category);
 		return "redirect:/admin/manager-category";
 	}
+	
 	@PostMapping(value = "admin/manager-category/delete")
-	public String getManagerCategory_Delete(Category category) throws IOException {
+	public String getManagerCategory_Delete(Category category) {
 		categoryRepository.delete(category);
 		return "redirect:/admin/manager-category";
 	}
