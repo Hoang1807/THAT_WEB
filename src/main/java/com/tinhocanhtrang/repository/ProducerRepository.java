@@ -8,4 +8,5 @@ import com.tinhocanhtrang.entity.Producer;
 
 public interface ProducerRepository extends JpaRepository<Producer, String> {
 	public boolean existsByProducerId(String producerId);
+//	public Producer findProducerIdEqual(String producerId);
 }
