@@ -29,7 +29,9 @@ public class DetailController {
 		Optional<Product> product=proDAO.findById(id);
 		Product pro=product.get();
 		model.addAttribute("pro",pro);
-		model.addAttribute("image",img);
+		model.addAttribute("image",pro.getImages());
+		model.addAttribute("spec",pro.getSpecs());
+		System.out.println(pro.getSpecs().get(0).getSpecKey());
 		return "product/detail_product";
 	}
 }

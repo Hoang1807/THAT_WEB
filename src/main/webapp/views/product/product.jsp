@@ -6,7 +6,7 @@
       <html>
 
       <head>
-        
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,8 @@
         <link rel="stylesheet" href="/css/flickity.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/product.css">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/danhmuc.js"></script>
         <title>Insert title here</title>
       </head>
 
@@ -41,12 +42,49 @@
               <div class="col-12">
                 <span><Strong>Hãng sãn xuất</Strong></span>
               </div>
-              <div class="row d-flex column-gap-2">
-                <div class="col-3 col-lg-2">
-                  <input type="radio" class="btn-check btn-size col-3 col-lg-2" value="12312"> <label
-                    class="btn btn-outline-dark btn-size col-3 col-lg-2" for="12312">Hình
-                    hãng</label>
-                </div>
+            </div>
+            <div class="often_brand often_list">
+              <div class="item ">
+                <input type="checkbox" class="btn btn-check button" id="asus">
+                    <label for="asus" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_2.png?v=2035" alt="Acer">
+                    </label>
+              </div>
+              <div class="item">
+                  <input type="checkbox" class="btn btn-check button" id="acer">
+                    <label for="acer" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_5.png?v=2035" alt="Acer">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="checkbox" class="btn btn-check button" id="dell">
+                    <label for="dell" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_6.png?v=2035" alt="Dell">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="checkbox" class="btn btn-check button" id="hp">
+                    <label for="hp" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_3.png?v=2035" alt="Hp">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="checkbox" class="btn btn-check button" id="msi">
+                    <label for="msi" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_7.png?v=2035" alt="Msi">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="checkbox" class="btn btn-check button" id="lenovo">
+                    <label for="lenovo" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_4.png?v=2035" alt="Lenovo">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="checkbox" class="btn btn-check button" id="Gigabyte">
+                    <label for="Gigabyte" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_10.png?v=2035" alt="GIGABYTE">
+                    </label>
               </div>
             </div>
             <div class="w-100 mt-2">
@@ -54,8 +92,11 @@
                 <h5>Tổng số lượng sản phẩm</h5>
               </div>
               <div class="sp_order float-end">
-                <select name="" id="">
-                  <option value="">Sắp xếp theo</option>
+                <select  name="sapXep" onchange="findDM()">
+                  <option value="1" selected="selected">Giá tăng</option>
+                  <option value="2">Giá giảm</option>
+                  <option value="3">A-Z</option>
+                  <option value="4">Z-A</option>
                 </select>
               </div>
             </div>
@@ -68,9 +109,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 product">
                   <div class="card mx-auto border-0 rounded-0 h-auto  position-relative">
                     <div class="card-img">
-                      <img class="card-img "
-                        src="https://res.cloudinary.com/dz9gzy7iz/image/upload/v1686224214/okk/kho.jpg" alt=""
-                        >
+                      <img class="card-img " src="${item.images[0].imageLink}" alt="">
                     </div>
                     <div class="card-body mx-auto mt-2">
                       <div class="loopName text-center ">
@@ -116,6 +155,11 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
           integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+          </script>
+          <script>
+            $(function(){
+              $
+            })
           </script>
       </body>
 
