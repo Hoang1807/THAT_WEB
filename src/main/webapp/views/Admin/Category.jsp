@@ -16,7 +16,6 @@
     <body ng-app="myApp">
         <jsp:include page="layout/_header.jsp"></jsp:include>
         <div class="container-fluid" ng-controller="myCtrl">
-            {{x}}
             <div class="row">
                 <div class="sidebar border border-right col-md-3  p-0 bg-body-tertiary">
                     <jsp:include page="layout/sidebar.jsp"></jsp:include>
@@ -37,9 +36,6 @@
         <script src="/js/multi-select-tag.js"></script>
         <script src="/js/scriptAdmin.js"></script>
         <script src="/js/angularJSAdmin.js"></script>
-        <script>
-
-        </script>
     </body>
 
     </html>

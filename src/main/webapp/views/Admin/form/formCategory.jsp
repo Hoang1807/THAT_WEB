@@ -26,8 +26,9 @@
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2 class="text-capitalize">Danh sách loại</h2>
-            <form class="input-group order-1 order-md-0" id="searchDataTable">
-                <input type="text" id="search" ng-model="search" class="form-control shadow-none" name="search"
+            <form class="input-group order-1 order-md-0" action="/admin/manager-category/search" id="searchDataTable"
+                autocomplete="off" ng-init="search = '${search}'">
+                <input type="text" id="searchCate" ng-model="search" class="form-control shadow-none" name="search"
                     placeholder="Tìm kiếm">
                 <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
             </form>
@@ -38,8 +39,10 @@
                         Mã
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tăng dần</a></li>
-                        <li><a class="dropdown-item" href="#">Giảm dần</a></li>
+                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=true">Tăng
+                                dần</a></li>
+                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=false">Giảm
+                                dần</a></li>
                     </ul>
                 </div>
                 <div class="dropdown me-2">
@@ -48,8 +51,12 @@
                         Tên
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tăng dần</a></li>
-                        <li><a class="dropdown-item" href="#">Giảm dần</a></li>
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-category/sort?name=categoryName&sort=true">Tăng
+                                dần</a></li>
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-category/sort?name=categoryName&sort=false">Giảm
+                                dần</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,9 +72,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${listCate}" varStatus="loop">
-                        <tr>
-                            <td class="align-middle text-center">${loop.index}</td>
+                    <c:forEach var="item" items="${listCate.content}" varStatus="loop">
+                        <tr class="test">
+                            <td class="align-middle text-center">${loop.index+1}</td>
                             <td class="align-middle text-center">${item.categoryId}</td>
                             <td class="align-middle text-center">${item.categoryName}</td>
                             <td class="align-middle text-center">
@@ -78,7 +85,27 @@
                             </td>
                         </tr>
                     </c:forEach>
-
                 </tbody>
             </table>
+            <nav class="d-flex flex-column">
+                <span class="m-auto mb-2">Page ${listCate.number+1}/${listCate.totalPages}</span>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}" href="
+                            /admin/manager-category/search?page=0">&#8676</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-category/search?page=${listCate.number<=0?listCate.totalPages-1:listCate.number-1}">&laquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-category/search?page=${listCate.number>=listCate.totalPages-1?0:listCate.number+1}">&raquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-category/search?page=${listCate.totalPages-1}">&#8677</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
