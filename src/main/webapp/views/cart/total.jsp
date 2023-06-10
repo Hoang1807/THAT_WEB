@@ -2,7 +2,7 @@
 
 <div class="card">
     <div class="card-body">
-        <div class="row d-flex justify-content-md-between mx-5">		
+        <div class="row d-flex justify-content-md-between mx-2">		
             <a href="#" class="button col-md-6 btn btn-colour-1">TIẾP TỤC MUA SẢN PHẨM</a>
             <a href="#" class="button col-md-6 btn btn-outline">THANH TOÁN</a>
         </div>
