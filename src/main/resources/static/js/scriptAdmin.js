@@ -61,8 +61,8 @@ $(document).ready(function () {
   $("#form-loai").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
+      //   ajax create form category
       if (event.originalEvent.submitter.innerText == "Add") {
-        //   ajax create form category
         $("#btn-addCategory").on("click", function () {
           // wait for toast
           $("#form-loai button").attr("disabled", true);
@@ -121,6 +121,7 @@ $(document).ready(function () {
           });
         });
         $("#btn-addCategory").trigger("click");
+        //   ajax delete form category
       } else if (event.originalEvent.submitter.innerText == "Delete") {
         $("#btn-delCategory").on("click", function () {
           $("#form-loai button").attr("disabled", true);
@@ -151,7 +152,7 @@ $(document).ready(function () {
                   success: function (resultText) {
                     bootstrapToast(
                       "#toast-success",
-                      "Bạn đã thêm thành công.",
+                      "Bạn đã xóa thành công.",
                       2000
                     );
                     setTimeout(function () {
@@ -167,6 +168,8 @@ $(document).ready(function () {
       }
     }
   });
+
+  // search for category
 
   function getDateNow() {
     let date = new Date();
