@@ -1,32 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý loại</h1>
-        <form id="form-loai" action="/admin/manager-category/create" method="POST" autocomplete="off">
+        <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý thông số kỹ thuật</h1>
+        <form id="form-thongsokythuat" action="/admin/manager-spec/create" method="POST" autocomplete="off">
             <div class="row g-3">
+                <input type="text" class="d-none" ng-model="spec.id" name="specId">
                 <div class="col-sm-6">
-                    <label for="categoryId" class="form-label">Mã loại</label>
-                    <input type="text" id="categoryId" ng-model="cate.id" class="form-control shadow-none"
-                        name="categoryId" value="">
+                    <label for="specKey" class="form-label">Key thông số kỹ thuật</label>
+                    <input type="text" id="specKey" ng-model="spec.key" class="form-control shadow-none" name="specKey">
                 </div>
                 <div class="col-sm-6">
-                    <label for="categoryName" class="form-label">Tên loại</label>
-                    <input type="text" id="categoryName" ng-model="cate.name" class="form-control shadow-none"
-                        name="categoryName" value="">
+                    <label for="specValue" class="form-label">Giá trị thông số kỹ thuật</label>
+                    <input type="text" id="specValue" ng-model="spec.value" class="form-control shadow-none"
+                        name="specValue">
                 </div>
             </div>
 
             <hr class="my-4">
             <div class="d-flex gap-2">
-                <button class="btn btn-success text-capitalize" id="btn-addCategory">Add</button>
-                <button class="btn btn-danger text-capitalize" id="btn-delCategory">Delete</button>
+                <button class="btn btn-success text-capitalize" id="btn-addSpec">Add</button>
+                <button class="btn btn-danger text-capitalize" id="btn-delSpec">Delete</button>
                 <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
             </div>
         </form>
 
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h5 class="text-capitalize">Danh sách loại</h5>
-            <form class="input-group order-1 order-md-0" action="/admin/manager-category/search" id="searchDataTable"
+            <h5 class="text-capitalize">Danh sách thông số kỹ thuận</h5>
+            <form class="input-group order-1 order-md-0" action="/admin/manager-spec/search" id="searchDataTable"
                 autocomplete="off" ng-init="search = '${search}'">
                 <input type="text" id="searchCate" ng-model="search" class="form-control shadow-none" name="search"
                     placeholder="Tìm kiếm">
@@ -62,43 +62,45 @@
             </div>
         </div>
         <div class="table-responsive small">
-            <table id="tableDataProduct" class="table table-hover table-striped table-sm ">
+            <table id="tableDataProduct" class="table table-hover table-striped table-sm">
                 <thead>
                     <tr>
                         <th class="fw-bold align-middle text-center" scope="col">#</th>
-                        <th class="fw-bold align-middle text-center" scope="col">Mã loại</th>
-                        <th class="fw-bold align-middle text-center" scope="col">Tên loại</th>
+                        <th class="fw-bold align-middle text-center" scope="col">Mã thông số</th>
+                        <th class="fw-bold align-middle text-center" scope="col">Key thông số</th>
+                        <th class="fw-bold align-middle text-center" scope="col">Giá trị thông số</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${listCate.content}" varStatus="loop">
-                        <tr class="test" ng-click="editCate('${item.categoryId}','${item.categoryName}')"
+                    <c:forEach var="item" items="${listSpec.content}" varStatus="loop">
+                        <tr ng-click="editSpec('${item.specId}','${item.specKey}','${item.specValue}')"
                             style="cursor: pointer;">
                             <td class="align-middle text-center">${loop.index+1}</td>
-                            <td class="align-middle text-center">${item.categoryId}</td>
-                            <td class="align-middle text-center">${item.categoryName}</td>
+                            <td class="align-middle text-center">${item.specId}</td>
+                            <td class="align-middle text-center">${item.specKey}</td>
+                            <td class="align-middle text-center">${item.specValue}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
             <nav class="d-flex flex-column">
-                <span class="m-auto mb-2">Page ${listCate.number+1}/${listCate.totalPages}</span>
+                <span class="m-auto mb-2">Page ${listSpec.number+1}/${listSpec.totalPages}</span>
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}" href="
-                            /admin/manager-category/search?page=0">&#8676</a>
+                        <a class="page-link ${listSpec.totalPages ==0?'disabled':''}" href="
+                            /admin/manager-spec/search?page=0">&#8676</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
-                            href="/admin/manager-category/search?page=${listCate.number<=0?listCate.totalPages-1:listCate.number-1}">&laquo;</a>
+                        <a class="page-link ${listSpec.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-spec/search?page=${listSpec.number<=0?listSpec.totalPages-1:listSpec.number-1}">&laquo;</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
-                            href="/admin/manager-category/search?page=${listCate.number>=listCate.totalPages-1?0:listCate.number+1}">&raquo;</a>
+                        <a class="page-link ${listSpec.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-spec/search?page=${listSpec.number>=listSpec.totalPages-1?0:listSpec.number+1}">&raquo;</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
-                            href="/admin/manager-category/search?page=${listCate.totalPages-1}">&#8677</a>
+                        <a class="page-link ${listSpec.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-spec/search?page=${listSpec.totalPages-1}">&#8677</a>
                     </li>
                 </ul>
             </nav>

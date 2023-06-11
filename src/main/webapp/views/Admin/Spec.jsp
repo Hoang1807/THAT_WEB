@@ -17,15 +17,15 @@
         <jsp:include page="layout/_header.jsp"></jsp:include>
         <div class="container-fluid" ng-controller="myCtrl">
             <div class="row">
-                <div class="sidebar border border-right col-md-3  p-0 bg-body-tertiary">
+                <div class="sidebar border border-right col-md-3 p-0 bg-body-tertiary">
                     <jsp:include page="layout/sidebar.jsp"></jsp:include>
                 </div>
                 <main class="col-md-9 col-lg- ms-sm-auto px-md-4">
-                    <jsp:include page="form/formCategory.jsp"></jsp:include>
+                    <jsp:include page="form/formSpec.jsp"></jsp:include>
                 </main>
             </div>
         </div>
-        <jsp:include page="Notifications/NotificationCate.jsp"></jsp:include>
+        <jsp:include page="Notifications/NotificationSpec.jsp"></jsp:include>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
         <script src="/js/angular.min.js"></script>
