@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tinhocanhtrang.entity.Producer;
+import com.tinhocanhtrang.repository.ProducerRepository;
 
 import jakarta.websocket.server.PathParam;
 
@@ -61,3 +62,4 @@ public class ProducerController {
 			return true;
 		}else return false;
 	}
+}
