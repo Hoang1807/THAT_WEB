@@ -1,18 +1,15 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.List;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
-=======
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
->>>>>>> e4b0fb2891571134e15f304253a6ac6c1570fcba
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -49,13 +46,12 @@ public class Product implements Serializable {
 	
 
 	@Id
-
 	@Column(name = "product_id", unique = true, nullable = false, length = 20)
 	public String getProductId() {
 		return this.productId;
 	}
 
-	public void ListProductId(String productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 
@@ -65,7 +61,7 @@ public class Product implements Serializable {
 		return this.category;
 	}
 
-	public void ListCategory(Category category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
@@ -75,7 +71,7 @@ public class Product implements Serializable {
 		return this.producer;
 	}
 
-	public void ListProducer(Producer producer) {
+	public void setProducer(Producer producer) {
 		this.producer = producer;
 	}
 
@@ -84,7 +80,7 @@ public class Product implements Serializable {
 		return this.productName;
 	}
 
-	public void ListProductName(String productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
@@ -93,7 +89,7 @@ public class Product implements Serializable {
 		return this.productQuantity;
 	}
 
-	public void ListProductQuantity(int productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 
@@ -102,7 +98,7 @@ public class Product implements Serializable {
 		return this.productPrice;
 	}
 
-	public void ListProductPrice(double productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
@@ -111,7 +107,7 @@ public class Product implements Serializable {
 		return this.billDetails;
 	}
 
-	public void ListBillDetails(List<BillDetail> billDetails) {
+	public void setBillDetails(List<BillDetail> billDetails) {
 		this.billDetails = billDetails;
 	}
 
@@ -120,7 +116,7 @@ public class Product implements Serializable {
 		return this.specs;
 	}
 
-	public void ListSpecs(List<Spec> specs) {
+	public void setSpecs(List<Spec> specs) {
 		this.specs = specs;
 	}
 
@@ -129,7 +125,7 @@ public class Product implements Serializable {
 		return this.images;
 	}
 
-	public void ListImages(List<Image> images) {
+	public void setImages(List<Image> images) {
 		this.images = images;
 	}
 
