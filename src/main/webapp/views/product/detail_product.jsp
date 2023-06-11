@@ -23,7 +23,7 @@
                 <link rel="stylesheet" href="/css/Detail.css">
                 <link rel="stylesheet" href="/css/bootstrap.min.css">
                 <link rel="stylesheet" href="/css/flickity.css">
-                <link rel="stylesheet" href="/css/style.css">
+                <link rel="stylesheet" href="/css/styleUser.css">
 
             </head>
 
@@ -38,17 +38,19 @@
                             <hr>
                             <div class="content_body">
                                 <div class="row container-lg">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 ">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 py-0">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div id="carouselExample" class="carousel slide">
                                                     <div class="carousel-inner">
                                                         <div class="carousel-item active">
-                                                            <img src="${image[0].imageLink}" class="d-block w-100" alt="...">
+                                                            <img src="${image[0].imageLink}" class="d-block w-100"
+                                                                alt="...">
                                                         </div>
-                                                        <c:forEach var="img" items="${image}">
+                                                        <c:forEach var="img" items="${image.subList(1, image.size())}">
                                                             <div class="carousel-item">
-                                                                <img src="${img.imageLink}" class="d-block w-100" alt="...">
+                                                                <img src="${img.imageLink}" class="d-block w-100"
+                                                                    alt="...">
                                                             </div>
                                                         </c:forEach>
                                                     </div>
@@ -66,7 +68,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <ul class="col-12 row mt-2" style="list-style-type: none;">
+                                            <ul class="col-12 row mt-1" style="list-style-type: none;">
                                                 <li class="col-6">
                                                     <div class="iconl">
                                                         <p><img class="lazyloaded" width="50" height="50"
@@ -95,7 +97,8 @@
                                     <div class=" container-lg col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
                                         <div class="info">
                                             <div class="price text-danger fw-bolder fs-5">
-                                                <span>Giá <fmt:formatNumber>${pro.productPrice}</fmt:formatNumber> VND</span>
+                                                <span>Giá <fmt:formatNumber>${pro.productPrice}</fmt:formatNumber>
+                                                    VND</span>
                                             </div>
                                             <hr>
                                             <span class="fs-3 text-danger fw-bold">
@@ -112,207 +115,28 @@
                                                             </td>
                                                             <td
                                                                 class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
+                                                                ${pro.productName}</td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
+                                                                Hãng
                                                             </td>
                                                             <td
                                                                 class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
+                                                                ${pro.producer.producerName}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td
-                                                                class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                                                Sản
-                                                                phẩm
-                                                            </td>
-                                                            <td
-                                                                class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-                                                                Laptop
-                                                                Acer Aspire 3 A315-58-35AG (NX.ADDSV.00B)</td>
-                                                        </tr>
+                                                        <c:forEach var="item" items="${spec}">
+                                                            <tr>
+                                                                <td class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                                                    ${item.specKey}
+                                                                </td>
+                                                                <td class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+                                                                    ${item.specValue}
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -334,72 +158,17 @@
                 <div class="container product_relate_to px-2">
                     <span>Sản phẩm liên quan</span>
                     <div class="carousel mt-3 bg-white " data-flickity='{ "groupCells": true }'>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
+                    	<c:forEach var="product" items="${product_relate}">
+                    		<div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+	                            <a href="/product/detail?id=${product.productId}" class="relate_to">
+	                                <img src="${product.images[0].imageLink}" alt="" width="100%" height="60%">
+	                            </a>
+	                            <a href="/product/detail?id=${product.productId}" class="name_relate">
+	                                <span>${product.productName}</span>
+	                            </a>
+	                            <span class="price_relate text-center"><fmt:formatNumber  maxFractionDigits = "3" type="number">${product.productPrice}</fmt:formatNumber> đ</span>
+                       		</div>
+                    	</c:forEach>
                     </div>
                 </div>
                 <jsp:include page="../layout/_footer.jsp"></jsp:include>

@@ -2,12 +2,33 @@
 .filter{
     margin-right: -40px;
 }
-.btn-size{
-    width: 100px;
-    height: 40px;
-    border-radius: 15px 15px 15px 15px;
-    text-align: center;
+
+
+.often_list{
+  display: flex;
+  flex-wrap: wrap;
 }
+.often_list .item {
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+.often_list .item input{
+  align-items: center !important;
+  border: 1px solid #e0e0e0 !important;
+  color: #333 !important;
+  display: block !important;
+  font-size: 14px !important;
+  padding: 5px 15px !important;
+  vertical-align: top !important;
+  border-radius: 52px !important;
+  min-width: 70px !important;
+  text-align: center !important;
+  background: #fff !important;
+}
+.often_list .item img {
+  height: 20px;
+}
+
 .loopName a {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

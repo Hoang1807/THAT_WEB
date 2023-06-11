@@ -1,6 +1,7 @@
 package com.tinhocanhtrang.controller;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -29,7 +30,17 @@ public class DetailController {
 		Optional<Product> product=proDAO.findById(id);
 		Product pro=product.get();
 		model.addAttribute("pro",pro);
-		model.addAttribute("image",img);
+		model.addAttribute("image",pro.getImages());
+		model.addAttribute("spec",pro.getSpecs());
+		List<Product> list=proDAO.findProductRelate(pro.getCategory().getCategoryId(), pro.getProducer().getProducerId());
+		Iterator<Product> iterator = list.iterator();
+		while (iterator.hasNext()) {
+		    Product pd = iterator.next();
+		    if (pd.getProductId().equals(pro.getProductId())) {
+		        iterator.remove();
+		    }
+		}
+		model.addAttribute("product_relate",list);
 		return "product/detail_product";
 	}
 }
