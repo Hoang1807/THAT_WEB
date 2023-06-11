@@ -43,8 +43,8 @@
                     Mã
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">A->Z</a></li>
-                    <li><a class="dropdown-item" href="#">Z->A</a></li>
+                    <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=true">A->Z</a></li>
+                    <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=false">Z->A</a></li>
                 </ul>
             </div>
             <div class="dropdown me-2">
@@ -53,8 +53,8 @@
                     Tên
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">A->Z</a></li>
-                    <li><a class="dropdown-item" href="#">Z->A</a></li>
+                    <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryName&sort=true">A->Z</a></li>
+                    <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryName&sort=false">Z->A</a></li>
                 </ul>
             </div>
         </div>
@@ -71,9 +71,9 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="item" items="${listProducer}" varStatus="loop" >
+                <c:forEach var="item" items="${listProducer.content}" varStatus="loop" >
                     <tr style="cursor: pointer;" ng-click="editProducer('${item.producerId}','${item.producerName}','${item.producerEmail}','${item.producerPhone}')">
-                        <td class="align-middle text-center">${loop.index}</td>
+                        <td class="align-middle text-center">${loop.index+1}</td>
                         <td class="align-middle text-center">${item.producerId}</td>
                         <td class="align-middle text-center">${item.producerName}</td>
                         <td class="align-middle text-center">${item.producerEmail}</td>

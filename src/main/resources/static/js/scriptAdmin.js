@@ -336,7 +336,7 @@ $(document).ready(function () {
   $("#form-nsx").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
-      if (event.originalEvent.submitter.innerText == "Lưu") {
+      if (event.originalEvent.submitter.innerText == "Add") {
         //   ajax create form category
         $("#btn-saveProducer").on("click", function () {
           // wait for toast
@@ -402,7 +402,7 @@ $(document).ready(function () {
           });
         });
         $("#btn-saveProducer").trigger("click");
-      } else if (event.originalEvent.submitter.innerText == "Xóa") {
+      } else if (event.originalEvent.submitter.innerText == "Delete") {
         $("#btn-deleteProducer").on("click", function () {
           $("#form-nsx button").attr("disabled", true);
           $.ajax({

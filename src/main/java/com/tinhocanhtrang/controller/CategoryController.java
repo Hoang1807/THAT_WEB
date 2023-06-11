@@ -37,7 +37,7 @@ public class CategoryController {
 
 	@GetMapping(value = "admin/manager-category")
 	public String getManagerCategory() {
-		return "admin/Category";
+		return "Admin/Category";
 	}
 
 	@PostMapping(value = "admin/manager-category/create")
@@ -63,7 +63,7 @@ public class CategoryController {
 				"%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
 		model.addAttribute("listCate", page);
 		model.addAttribute("search", kwords);
-		return "admin/Category";
+		return "Admin/Category";
 	}
 
 	@GetMapping(value = "admin/manager-category/sort")
@@ -78,7 +78,7 @@ public class CategoryController {
 				"%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
 		model.addAttribute("listCate", page);
 		model.addAttribute("search", kwords);
-		return "admin/Category";
+		return "Admin/Category";
 	}
 
 	@PostMapping(value = "admin/manager-category/check")
@@ -92,7 +92,7 @@ public class CategoryController {
 
 	@GetMapping(value = "admin/manager-product")
 	public String getManagerProduct() {
-		return "admin/Product";
+		return "Admin/Product";
 	}
 
 }
