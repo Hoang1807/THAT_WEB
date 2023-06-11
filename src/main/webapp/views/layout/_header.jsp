@@ -108,7 +108,7 @@
 									</c:otherwise>
 								</c:choose>
 								<div class="header-action__cart d-flex position-relative">
-									<a href="#" class="text-decoration-none link-dark stretched-link">
+									<a href="cart" class="text-decoration-none link-dark stretched-link">
 										<i class="bi bi-cart d-block position-relative">
 											<span class="position-absolute z-1 badge rounded-pill bg-danger"> 3 <span
 													class="visually-hidden">quantity in cart</span>
