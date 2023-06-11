@@ -30,14 +30,6 @@ public class ProducerController {
 		return "Admin/Producer";
 	}
 	
-	@GetMapping(value = "admin/producer/*")
-	public String getIndexProducer(@PathParam("producerId") String id,Model model) {
-		System.out.println("hello");
-		model.addAttribute("producer",dao.findById(id).get());
-		return "Admin/Producer";
-	}
-	
-	
 	@PostMapping(value = "admin/producer/save")
 	public String getSaveProducer(Producer p) {
 		dao.save(p);
@@ -49,12 +41,6 @@ public class ProducerController {
 		dao.delete(p);
 		return "redirect:/admin/producer";
 	}
-	
-//	@RequestMapping(value = "/Product/ProducerAdd/insert",method = RequestMethod.POST)
-//	public String insertProducer(Producer p) {
-//		dao.save(p);
-//		return ""; 
-//	}
 	
 	@PostMapping(value = "admin/producer/check")
 	public @ResponseBody boolean getCheckProducer(Producer producer) {

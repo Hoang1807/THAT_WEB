@@ -92,7 +92,7 @@
 
 													<c:if test="${sessionScope.current_account.userRole}">
 														<li class="list-group-item border-0 m-1">
-															<a href="/admin/manager-product" class="btn btn-login">
+															<a href="/admin/manager-category" class="btn btn-login">
 																Admin
 															</a>
 														</li>
