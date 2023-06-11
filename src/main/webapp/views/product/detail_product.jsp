@@ -23,7 +23,7 @@
                 <link rel="stylesheet" href="/css/Detail.css">
                 <link rel="stylesheet" href="/css/bootstrap.min.css">
                 <link rel="stylesheet" href="/css/flickity.css">
-                <link rel="stylesheet" href="/css/style.css">
+                <link rel="stylesheet" href="/css/styleUser.css">
 
             </head>
 
@@ -158,72 +158,17 @@
                 <div class="container product_relate_to px-2">
                     <span>Sản phẩm liên quan</span>
                     <div class="carousel mt-3 bg-white " data-flickity='{ "groupCells": true }'>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
-                        <div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-                            <a href="" class="relate_to">
-                                <img src="/image/product/1.jpg" alt="" width="100%" height="60%">
-                            </a>
-                            <a href="" class="name_relate">
-                                <span>Laptop Gaming Gigabyte A5 K1 AVN1030SB R5 5600H | 8GB | 512GB | RTX 3060 6GB |
-                                    15.6" FHD |
-                                    Win11 (Black)</span>
-                            </a>
-                            <span class="price_relate text-center">19,000,000đ</span>
-                        </div>
+                    	<c:forEach var="product" items="${product_relate}">
+                    		<div class="carousel-cell col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+	                            <a href="/product/detail?id=${product.productId}" class="relate_to">
+	                                <img src="${product.images[0].imageLink}" alt="" width="100%" height="60%">
+	                            </a>
+	                            <a href="/product/detail?id=${product.productId}" class="name_relate">
+	                                <span>${product.productName}</span>
+	                            </a>
+	                            <span class="price_relate text-center"><fmt:formatNumber  maxFractionDigits = "3" type="number">${product.productPrice}</fmt:formatNumber> đ</span>
+                       		</div>
+                    	</c:forEach>
                     </div>
                 </div>
                 <jsp:include page="../layout/_footer.jsp"></jsp:include>

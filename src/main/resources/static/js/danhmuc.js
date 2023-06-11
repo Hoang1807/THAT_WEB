@@ -1,24 +1,18 @@
-
- function findDM(){
-	 //lấy pramater
-	
-
-	var sapxep = $('select[name="sapXep"]').val();
-
-	
-	$.ajax({
-			type: 'post',
-			url: '/laptop/product/findGiaSP',
-			data: {
-				"sapxep": sapxep
-			},
-			success: function() {
-				console.log(sapxep)
-			},
-			error: function() {
-				alert("Error !!");
-			}
-		});
- }
-
- 
+function findDM() {
+    var danhmuc = $('input[name="cagetory"]:checked').val();
+    var sapxep = $('select[name="sort"]').val();
+    $.ajax({
+        method:'GET',
+        url: '/a',
+        data: {
+            "danhmuc": danhmuc,
+            "sapxep": sapxep,
+        },
+        success: function(response) {
+            location.reload(response)
+        },
+        error: function() {
+            alert("Error!!");
+        }
+    });
+}
