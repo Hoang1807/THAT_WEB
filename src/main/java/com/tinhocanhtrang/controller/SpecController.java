@@ -1,12 +1,14 @@
 package com.tinhocanhtrang.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +18,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tinhocanhtrang.entity.Category;
+import com.tinhocanhtrang.entity.Product;
 import com.tinhocanhtrang.entity.Spec;
 import com.tinhocanhtrang.repository.SpecRepository;
 import com.tinhocanhtrang.service.SessionService;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
-import lombok.experimental.PackagePrivate;
 
 @Controller
-@Transactional
 public class SpecController {
 	@Autowired
 	SpecRepository specRepository;
@@ -53,14 +54,11 @@ public class SpecController {
 
 	@PostMapping(value = "admin/manager-spec/delete")
 	public String getManagerspec_Delete(Spec spec) throws IOException {
-		if (spec.getSpecId() != null) {
-			if (specRepository.findById(spec.getSpecId()).get().getProducts().size() > 0) {
-				response.sendError(500);
-			} else {
-				specRepository.deleteBySpecKeyLikeAndSpecValueLike(spec.getSpecKey(), spec.getSpecValue());
-			}
-		} else {
-			specRepository.deleteBySpecKeyLikeAndSpecValueLike(spec.getSpecKey(), spec.getSpecValue());
+		Spec specData = specRepository.findBySpecKeyAndSpecValue(spec.getSpecKey(), spec.getSpecValue());
+		if (specData != null && specData.getProducts().size() > 0) {
+			response.sendError(500);
+		} else if (specData != null && specData.getProducts().size() == 0) {
+			specRepository.delete(specData);
 		}
 		return "redirect:/admin/manager-spec";
 	}
@@ -72,6 +70,21 @@ public class SpecController {
 		sessionService.set("keywords", kwords);
 		sessionService.set("page", p.orElse(0));
 		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
+				(kwords == null ? "" : kwords), pageable);
+		model.addAttribute("listSpec", page);
+		model.addAttribute("search", kwords);
+		return "admin/Spec";
+	}
+
+	@GetMapping(value = "admin/manager-spec/sort")
+	public String getManagerCategory_Sort(@RequestParam("name") Optional<String> n,
+			@RequestParam("sort") Optional<Boolean> s, Model model) {
+		String kwords = sessionService.get("keywords");
+		Integer p = sessionService.get("page");
+		String name = n.orElse("categoryName");
+		Boolean sort = s.orElse(true);
+		Pageable pageable = PageRequest.of(p, 6, sort ? Direction.ASC : Direction.DESC, name);
 		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listSpec", page);

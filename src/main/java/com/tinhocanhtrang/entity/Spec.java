@@ -1,5 +1,6 @@
 package com.tinhocanhtrang.entity;
 
+import java.util.ArrayList;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 import java.util.List;
 import org.hibernate.annotations.Nationalized;

@@ -12,11 +12,8 @@ import com.tinhocanhtrang.entity.Spec;
 public interface SpecRepository extends JpaRepository<Spec, Integer> {
 	public boolean existsBySpecIdOrSpecKeyLikeAndSpecValueLike(Integer specId, String specKey, String specValue);
 
-	@Query("SELECT o FROM Spec o WHERE specKey LIKE ?1 AND specValue LIKE ?2")
-	public List<Spec> findByName(String specKey, String specValue);
+	public Spec findBySpecKeyAndSpecValue(String specKey, String specValue);
 
 	public Page<Spec> findBySpecKeyContainingOrSpecValueContaining(String specKey, String specValue, Pageable pageable);
-
-	public void deleteBySpecKeyLikeAndSpecValueLike(String specKey, String specValue);
 
 }

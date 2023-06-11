@@ -39,23 +39,33 @@
                         Mã
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specId&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specId&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
                 <div class="dropdown me-2">
                     <button type="button" data-bs-toggle="dropdown"
                         class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-                        Tên
+                        Key
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"
-                                href="/admin/manager-category/sort?name=categoryName&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specKey&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item"
-                                href="/admin/manager-category/sort?name=categoryName&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specKey&sort=false">Giảm
+                                dần</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown me-2">
+                    <button type="button" data-bs-toggle="dropdown"
+                        class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+                        Giá trị
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specValue&sort=true">Tăng
+                                dần</a></li>
+                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specValue&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
