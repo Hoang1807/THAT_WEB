@@ -30,6 +30,7 @@ $(document).ready(function () {
     },
     "Vui lòng không để khoản trống"
   );
+
   // validate form category
   $("#form-loai").validate({
     errorClass: "error fail-alert",
@@ -114,7 +115,6 @@ $(document).ready(function () {
                       location.reload();
                     }, 2000);
                   },
-                  error: function (jqXHR, textStatus) {},
                 });
               }
             },
@@ -137,7 +137,7 @@ $(document).ready(function () {
               if (!resultText) {
                 bootstrapToast(
                   "#toast-warning",
-                  "Mã vừa nhập không có trông hệ thống",
+                  "Mã vừa nhập không có trong hệ thống",
                   1000
                 );
                 $("#form-loai button").attr("disabled", false);
@@ -159,12 +159,175 @@ $(document).ready(function () {
                       location.reload();
                     }, 1000);
                   },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                    bootstrapToast(
+                      "#toast-warning",
+                      "Thông tin loại này đã liên kết với sản phẩm không thể xóa!!",
+                      1000
+                    );
+                    $("#form-loai button").attr("disabled", false);
+                  },
                 });
               }
             },
           });
         });
         $("#btn-delCategory").trigger("click");
+      }
+    }
+  });
+
+  // validate form spec
+  $("#form-thongsokythuat").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      specKey: {
+        required: true,
+        maxlength: 20,
+      },
+      specValue: {
+        required: true,
+        maxlength: 50,
+      },
+    },
+    messages: {
+      specKey: {
+        required: "vui lòng nhập key",
+        maxlength: "vui lòng nhập dưới 20 ký tự",
+      },
+      specValue: {
+        required: "Vui lòng nhập giá trị",
+        maxlength: "vui lòng nhập dưới 50 kí tự",
+      },
+    },
+  });
+
+  // submit form spec
+  $("#form-thongsokythuat").on("submit", function (event) {
+    event.preventDefault();
+    if ($(this).valid()) {
+      //   ajax create form spec
+      if (event.originalEvent.submitter.innerText == "Add") {
+        $("#btn-addSpec").on("click", function () {
+          // wait for toast
+          $("#form-thongsokythuat button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/manager-spec/check",
+            method: "POST",
+            data: {
+              specId: $("input[name='specId']").val(),
+              specKey: $("input[name='specKey']").val(),
+              specValue: $("input[name='specValue']").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (resultText) {
+                if ($("input[name='specId'").val() == "") {
+                  bootstrapToast(
+                    "#toast-warning",
+                    "Cặp giá trị này đã tồn tại.",
+                    1000
+                  );
+                } else {
+                  bootstrapToast(
+                    "#toast-update",
+                    "Cặp giá trị này đã tồn tại. Bạn muốn cập nhật?",
+                    1000
+                  );
+                  $("#btn-update-spec").on("click", function () {
+                    $.ajax({
+                      url: "/admin/manager-spec/create",
+                      method: "POST",
+                      data: {
+                        specId: $("input[name='specId']").val(),
+                        specKey: $("input[name='specKey']").val(),
+                        specValue: $("input[name='specValue']").val(),
+                      },
+                      success: function () {
+                        location.reload();
+                      },
+                    });
+                  });
+                }
+                $("#form-thongsokythuat button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/manager-spec/create",
+                  method: "POST",
+                  data: {
+                    specKey: $("input[name='specKey']").val(),
+                    specValue: $("input[name='specValue']").val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã thêm thành công.",
+                      2000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 2000);
+                  },
+                });
+              }
+            },
+          });
+        });
+        $("#btn-addSpec").trigger("click");
+        //   ajax delete form category
+      } else if (event.originalEvent.submitter.innerText == "Delete") {
+        $("#btn-delSpec").on("click", function () {
+          $("#form-thongsokythuat button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/manager-spec/check",
+            method: "POST",
+            data: {
+              specKey: $("input[name='specKey'").val(),
+              specValue: $("input[name='specValue'").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (!resultText) {
+                bootstrapToast(
+                  "#toast-warning",
+                  "Cặp giá trị không có trong hệ thống",
+                  1000
+                );
+                $("#form-thongsokythuat button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/manager-spec/delete",
+                  method: "POST",
+                  data: {
+                    specId: $("input[name='specId']").val(),
+                    specKey: $("input[name='specKey']").val(),
+                    specValue: $("input[name='specValue']").val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã xóa thành công.",
+                      2000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 1000);
+                  },
+                  error: function (jqXHR, textStatus, errorThrown) {
+                    bootstrapToast(
+                      "#toast-warning",
+                      "Thông số này đã liên kết một số sản phẩm không thể xóa!",
+                      2000
+                    );
+                  },
+                });
+                $("#form-thongsokythuat button").attr("disabled", false);
+              }
+            },
+          });
+        });
+        $("#btn-delSpec").trigger("click");
       }
     }
   });

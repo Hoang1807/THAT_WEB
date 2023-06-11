@@ -23,11 +23,9 @@ import com.tinhocanhtrang.service.SessionService;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
-public class AdminController {
+public class CategoryController {
 	@Autowired
 	CategoryRepository categoryRepository;
-	@Autowired
-	HttpServletResponse response;
 	@Autowired
 	SessionService sessionService;
 
