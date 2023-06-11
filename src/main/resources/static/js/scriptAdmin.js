@@ -332,6 +332,127 @@ $(document).ready(function () {
     }
   });
 
+   // submit form producer
+  $("#form-nsx").on("submit", function (event) {
+    event.preventDefault();
+    if ($(this).valid()) {
+      if (event.originalEvent.submitter.innerText == "Lưu") {
+        //   ajax create form category
+        $("#btn-saveProducer").on("click", function () {
+          // wait for toast
+          $("#form-nsx button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/producer/check",
+            method: "POST",
+            data: {
+              producerId: $("#form-nsx input[name='producerId'").val(),
+              producerName: $("input[name='producerName'").val(),
+              producerEmail: $("input[name='producerEmail'").val(),
+              producerPhone: $("input[name='producerPhone'").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (resultText) {
+                bootstrapToast(
+                  "#toast-update",
+                  "Mã này đã tồn tại. Bạn muốn cập nhật?",
+                  3000
+                );
+                // if click update
+                $("#btn-update-cate").on("click", function () {
+                  $.ajax({
+                    url: "/admin/producer/save",
+                    method: "POST",
+                    data: {
+                      producerId: $("#form-nsx input[name='producerId'").val(),
+                      producerName: $("input[name='producerName'").val(),
+                      producerEmail: $("input[name='producerEmail'").val(),
+                      producerPhone: $("input[name='producerPhone'").val(),
+                    },
+                    success: function () {
+                      location.reload();
+                    },
+                  });
+                });
+                $("#form-nsx button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/producer/save",
+                  method: "POST",
+                  data: {
+                    producerId: $("#form-nsx input[name='producerId'").val(),
+                    producerName: $("input[name='producerName'").val(),
+                    producerEmail: $("input[name='producerEmail'").val(),
+                    producerPhone: $("input[name='producerPhone'").val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã thêm thành công.",
+                      3000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 2000);
+                  },
+                  error: function (jqXHR, textStatus) {},
+                });
+              }
+            },
+          });
+        });
+        $("#btn-saveProducer").trigger("click");
+      } else if (event.originalEvent.submitter.innerText == "Xóa") {
+        $("#btn-deleteProducer").on("click", function () {
+          $("#form-nsx button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/producer/check",
+            method: "POST",
+            data: {
+              producerId: $("#form-nsx input[name='producerId'").val(),
+              producerName: $("input[name='producerName'").val(),
+              producerEmail: $("input[name='producerEmail'").val(),
+              producerPhone: $("input[name='producerPhone'").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (!resultText) {
+                bootstrapToast(
+                  "#toast-warning",
+                  "Mã vừa nhập không có trông hệ thống",
+                  1000
+                );
+                $("#form-nsx button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/producer/delete",
+                  method: "POST",
+                  data: {
+                    producerId: $("#form-nsx input[name='producerId'").val(),
+                    producerName: $("input[name='producerName'").val(),
+                    producerEmail: $("input[name='producerEmail'").val(),
+                    producerPhone: $("input[name='producerPhone'").val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã xóa thành công.",
+                      2000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 1000);
+                  },
+                });
+              }
+            },
+          });
+        });
+        $("#btn-deleteProducer").trigger("click");
+      }
+    }
+  });
+
   function getDateNow() {
     let date = new Date();
     let dateString =
