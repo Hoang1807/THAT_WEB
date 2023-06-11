@@ -22,6 +22,12 @@
                         Quản lý loại
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/manager-spec">
+                        <i class="bi bi-gear"></i>
+                        Quản lý thông số kỹ thuật
+                    </a>
+                </li>
             </ul>
 
             <h6
@@ -33,6 +39,12 @@
                     <a class="nav-link d-flex align-items-center gap-2" href="#">
                         <i class="bi bi-file-earmark-person-fill"></i>
                         Nhân viên
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/producer">
+                        <i class="bi bi-house-fill"></i>
+                        Nhà sản xuất
                     </a>
                 </li>
             </ul>

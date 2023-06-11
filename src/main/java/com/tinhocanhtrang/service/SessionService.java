@@ -1,10 +1,18 @@
 package com.tinhocanhtrang.service;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+import java.util.Map;
+
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
 
+import com.tinhocanhtrang.entity.Product;
 @Service
 public class SessionService {
 	@Autowired
@@ -24,5 +32,17 @@ public class SessionService {
 
 	public void setTimeOut(int seconds) {
 		session.setMaxInactiveInterval(seconds);
+	}
+
+	public Collection<Object> getAll(String nameService) {
+		java.util.Map<Integer, Object> map = new HashMap<>();
+		Enumeration keys = session.getAttributeNames();
+		while (keys.hasMoreElements()) {
+			String key = (String) keys.nextElement();
+			if (!key.equals(nameService)) {
+				map.put(Integer.valueOf(key), get(key));
+			}
+		}
+		return map.values();
 	}
 }

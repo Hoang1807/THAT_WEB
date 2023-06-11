@@ -92,7 +92,7 @@
 
 													<c:if test="${sessionScope.current_account.userRole}">
 														<li class="list-group-item border-0 m-1">
-															<a href="/admin/manager-product" class="btn btn-login">
+															<a href="/admin/manager-category" class="btn btn-login">
 																Admin
 															</a>
 														</li>
@@ -108,7 +108,7 @@
 									</c:otherwise>
 								</c:choose>
 								<div class="header-action__cart d-flex position-relative">
-									<a href="#" class="text-decoration-none link-dark stretched-link">
+									<a href="cart" class="text-decoration-none link-dark stretched-link">
 										<i class="bi bi-cart d-block position-relative">
 											<span class="position-absolute z-1 badge rounded-pill bg-danger"> 3 <span
 													class="visually-hidden">quantity in cart</span>
