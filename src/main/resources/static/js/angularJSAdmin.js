@@ -18,3 +18,15 @@ app.controller("myCtrl", function($scope) {
 	};
 });
 // end AngularJS
+
+//edit producer
+app.controller("myCtrlProducer", function ($scope) {
+	$scope.editProducer = function (id, name, email, phone) {
+	  $scope.producer = {
+		id: id,
+		name: name,
+		email: email,
+		phone: phone,
+	  };
+	};
+  });

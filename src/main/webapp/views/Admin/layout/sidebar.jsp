@@ -41,6 +41,12 @@
                         Nhân viên
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/producer">
+                        <i class="bi bi-house-fill"></i>
+                        Nhà sản xuất
+                    </a>
+                </li>
             </ul>
 
             <hr class="my-3">
