@@ -1,15 +1,12 @@
 package com.tinhocanhtrang.entity;
 
-<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.List;
-=======
 import java.util.ArrayList;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 import java.util.List;
 import org.hibernate.annotations.Nationalized;
 
->>>>>>> e4b0fb2891571134e15f304253a6ac6c1570fcba
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

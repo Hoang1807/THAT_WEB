@@ -43,7 +43,7 @@ public class SpecController {
 
 	@GetMapping(value = "admin/manager-spec")
 	public String getSpec() {
-		return "admin/Spec";
+		return "Admin/Spec";
 	}
 
 	@PostMapping(value = "admin/manager-spec/create")
@@ -74,7 +74,7 @@ public class SpecController {
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listSpec", page);
 		model.addAttribute("search", kwords);
-		return "admin/Spec";
+		return "Admin/Spec";
 	}
 
 	@GetMapping(value = "admin/manager-spec/sort")
@@ -89,7 +89,7 @@ public class SpecController {
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listSpec", page);
 		model.addAttribute("search", kwords);
-		return "admin/Spec";
+		return "Admin/Spec";
 	}
 
 	@PostMapping(value = "admin/manager-spec/check")
