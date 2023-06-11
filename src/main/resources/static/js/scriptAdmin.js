@@ -283,7 +283,7 @@ $(document).ready(function () {
             },
           });
         });
-        $("btn-saveProducer").trigger("click");
+        $("#btn-saveProducer").trigger("click");
       } else if (event.originalEvent.submitter.innerText == "Xóa") {
         $("#btn-deleteProducer").on("click", function () {
           $("#form-nsx button").attr("disabled", true);

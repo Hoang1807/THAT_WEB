@@ -13,7 +13,7 @@ app.controller("myCtrl", function ($scope) {
 
 //edit producer
 app.controller("myCtrlProducer", function ($scope) {
-  $scope.editProducer = function (id, name,email,phone) {
+  $scope.editProducer = function (id, name, email, phone) {
     $scope.producer = {
       id: id,
       name: name,

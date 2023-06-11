@@ -21,7 +21,6 @@
                     <div class="d-flex gap-2">
                         <button class="btn btn-success text-capitalize" id="btn-addCategory">Add</button>
                         <button class="btn btn-danger text-capitalize" id="btn-delCategory">Delete</button>
-                        <button class="btn btn-primary text-capitalize" formaction="/category/index">Reset</button>
                         <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
                     </div>
                 </form>

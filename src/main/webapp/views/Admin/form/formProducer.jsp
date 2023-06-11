@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="producerPhone" class="form-label">Số điện thoại</label>
-                    <input type="number" id="producerPhone" class="form-control shadow-none" name="producerPhone" ng-model="producer.phone">
+                    <input type="text" id="producerPhone" class="form-control shadow-none" name="producerPhone" ng-model="producer.phone">
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
             <div class="d-flex gap-2">
                 <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Lưu</button>
                 <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Xóa</button>
-                <button class="btn btn-primary text-capitalize" formaction="/category/index">Làm mới</button>
+                <button class="btn btn-primary text-capitalize" type="reset">Làm mới</button>
             </div>
         </form>
 
