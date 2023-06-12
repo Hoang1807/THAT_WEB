@@ -58,6 +58,51 @@ $(document).ready(function () {
     },
   });
 
+  //validate form producer
+  $("#form-nsx").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      producerId: {
+        required: true,
+        noSpace: true,
+      },
+      producerName: {
+        required: true,
+        maxlength: 50,
+      },
+      producerEmail: {
+        required: true,
+        email: true,
+        noSpace: true,
+      },
+      producerPhone: {
+        required: true,
+        phone: true,
+      },
+    },
+    messages: {
+      producerId: {
+        required: "Vui lòng nhập mã nsx",
+      },
+      producerName: {
+        required: "Vui lòng nhập tên",
+        maxlength: "Vui lòng nhập dưới 50 kí tự",
+      },
+      producerEmail: {
+        required: "vui lòng nhập email",
+      },
+      producerPhone: {
+        required: "Vui lòng nhập số điện thoại",
+        maxlength: "vui lòng dưới 10 ký tự",
+      },
+      categoryName: {
+        required: "Vui lòng nhập tên",
+        minlength: "vui lòng nhập dưới 50 kí tự",
+      },
+    },
+  });
+
   // submit form category
   $("#form-loai").on("submit", function (event) {
     event.preventDefault();
@@ -335,7 +380,7 @@ $(document).ready(function () {
   $("#form-nsx").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
-      if (event.originalEvent.submitter.innerText == "Lưu") {
+      if (event.originalEvent.submitter.innerText == "Add") {
         //   ajax create form category
         $("#btn-saveProducer").on("click", function () {
           // wait for toast
@@ -401,7 +446,7 @@ $(document).ready(function () {
           });
         });
         $("#btn-saveProducer").trigger("click");
-      } else if (event.originalEvent.submitter.innerText == "Xóa") {
+      } else if (event.originalEvent.submitter.innerText == "Delete") {
         $("#btn-deleteProducer").on("click", function () {
           $("#form-nsx button").attr("disabled", true);
           $.ajax({
