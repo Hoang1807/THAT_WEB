@@ -49,6 +49,31 @@
                 </li>
             </ul>
 
+            <h6
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                <span>Thống kê</span>
+            </h6>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        <i class="bi bi-receipt-cutoff"></i>
+                        Sản phẩm bán chạy nhất
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/statistical_two">
+                        <i class="bi bi-box2"></i>
+                        Sản phẩm còn trong kho
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        <i class="bi bi-shop"></i>
+                        Doanh thu của cửa hàng
+                    </a>
+                </li>
+            </ul>
+
             <hr class="my-3">
 
             <ul class="nav flex-column mb-auto">

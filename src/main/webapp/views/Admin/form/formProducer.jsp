@@ -94,8 +94,8 @@
                             href="/admin/producer/search?page=${listProducer.number<=0?listProducer.totalPages-1:listProducer.number-1}">&laquo;</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
-                            href="/admin/producer/search?page=${listProducer.number>=listProducer.totalPages-1?0:listCate.number+1}">&raquo;</a>
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/producer/search?page=${listProducer.number>=listProducer.totalPages-1?0:listProducer.number+1}">&raquo;</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
