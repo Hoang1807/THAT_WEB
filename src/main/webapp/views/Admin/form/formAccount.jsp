@@ -73,9 +73,9 @@
                         Họ tên
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userName&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-account/search?name=userName&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userName&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-account/search?name=userName&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
@@ -85,9 +85,9 @@
                         Email
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userEmail&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-account/search?name=userEmail&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userEmail&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-account/search?name=userEmail&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
@@ -97,9 +97,10 @@
                         Vai trò
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userRole&sort=true">User</a>
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-account/search?name=userRole&sort=true">User</a>
                         </li>
-                        <li><a class="dropdown-item" href="/admin/manager-account/sort?name=userRole&sort=false">
+                        <li><a class="dropdown-item" href="/admin/manager-account/search?name=userRole&sort=false">
                                 Admin
                             </a></li>
                     </ul>

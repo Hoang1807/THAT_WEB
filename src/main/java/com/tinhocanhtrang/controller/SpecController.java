@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.tinhocanhtrang.entity.Category;
 import com.tinhocanhtrang.entity.Spec;
 import com.tinhocanhtrang.repository.SpecRepository;
 import com.tinhocanhtrang.service.SessionService;
@@ -57,28 +59,31 @@ public class SpecController {
 	}
 
 	@GetMapping(value = "admin/manager-spec/search")
-	public String getManagerSpec_Search(@RequestParam("search") Optional<String> s,
-			@RequestParam("page") Optional<Integer> p, Model model) {
-		String kwords = s.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
-		sessionService.set("page", p.orElse(0));
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
-		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
-				(kwords == null ? "" : kwords), pageable);
-		model.addAttribute("listSpec", page);
-		model.addAttribute("search", kwords);
-		return "Admin/Spec";
-	}
-
-	@GetMapping(value = "admin/manager-spec/sort")
-	public String getManagerCategory_Sort(@RequestParam("name") Optional<String> n,
+	public String getManagerSpec_Search(@RequestParam("search") Optional<String> kw,
+			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = sessionService.get("keywords");
-		Integer p = sessionService.get("page");
-		sessionService.set("page", p == null ? 0 : p);
-		String name = n.orElse("categoryName");
-		Boolean sort = s.orElse(true);
-		Pageable pageable = PageRequest.of(p, 6, sort ? Direction.ASC : Direction.DESC, name);
+		String kwords = kw.orElse(sessionService.get("keywords"));
+		sessionService.set("keywords", kwords);
+
+		Integer pe = p.orElse(sessionService.get("page"));
+		sessionService.set("page", pe);
+		if (pe == null) {
+			pe = 0;
+		}
+
+		Boolean sort = s.orElse(sessionService.get("sort"));
+		sessionService.set("sort", sort);
+		if (sort == null) {
+			sort = true;
+		}
+
+		String name = n.orElse(sessionService.get("name"));
+		sessionService.set("name", name);
+		if (name == null) {
+			name = "specId";
+		}
+
+		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
 		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listSpec", page);

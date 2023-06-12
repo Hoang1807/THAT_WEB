@@ -50,28 +50,31 @@ public class AccountController {
 	}
 
 	@GetMapping(value = "admin/manager-account/search")
-	public String getManagerSpec_Search(@RequestParam("search") Optional<String> s,
-			@RequestParam("page") Optional<Integer> p, Model model) {
-		String kwords = s.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
-		sessionService.set("page", p.orElse(0));
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
-		Page<User> page = userRepository.findByUserNameContainingOrUserEmailContaining((kwords == null ? "" : kwords),
-				(kwords == null ? "" : kwords), pageable);
-		model.addAttribute("listAccount", page);
-		model.addAttribute("search", kwords);
-		return "Admin/Account";
-	}
-	
-	@GetMapping(value = "admin/manager-account/sort")
-	public String getManagerCategory_Sort(@RequestParam("name") Optional<String> n,
+	public String getManagerAccount_Search(@RequestParam("search") Optional<String> kw,
+			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = sessionService.get("keywords");
-		Integer p = sessionService.get("page");
-		sessionService.set("page", p == null ? 0 : p);
-		String name = n.orElse("categoryName");
-		Boolean sort = s.orElse(true);
-		Pageable pageable = PageRequest.of(p, 6, sort ? Direction.ASC : Direction.DESC, name);
+		String kwords = kw.orElse(sessionService.get("keywords"));
+		sessionService.set("keywords", kwords);
+
+		Integer pe = p.orElse(sessionService.get("page"));
+		sessionService.set("page", pe);
+		if (pe == null) {
+			pe = 0;
+		}
+
+		Boolean sort = s.orElse(sessionService.get("sort"));
+		sessionService.set("sort", sort);
+		if (sort == null) {
+			sort = true;
+		}
+
+		String name = n.orElse(sessionService.get("name"));
+		sessionService.set("name", name);
+		if (name == null) {
+			name = "userName";
+		}
+
+		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
 		Page<User> page = userRepository.findByUserNameContainingOrUserEmailContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listAccount", page);

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý nhà sản xuất</h1>
-        <form id="form-nsx" method="POST" autocomplete="off">
+        <form id="form-producer" method="POST" autocomplete="off">
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label for="producerId" class="form-label">Mã nhà sản xuất</label>
@@ -36,7 +36,7 @@
 
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="text-capitalize">Danh sách nhà sản xuất</h2>
+            <h5 class="text-capitalize">Danh sách nhà sản xuất</h5>
             <form class="input-group order-1 order-md-0" id="searchDataTable">
                 <input type="text" id="search" class="form-control shadow-none" name="search" placeholder="Tìm kiếm">
                 <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
@@ -76,10 +76,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="item" items="${listProducer}" varStatus="loop">
+                    <c:forEach var="item" items="${listProducer.content}" varStatus="loop">
                         <tr style="cursor: pointer;"
                             ng-click="editProducer('${item.producerId}','${item.producerName}','${item.producerEmail}','${item.producerPhone}')">
-                            <td class="align-middle text-center">${loop.index}</td>
+                            <td class="align-middle text-center">${loop.index+1}</td>
                             <td class="align-middle text-center">${item.producerId}</td>
                             <td class="align-middle text-center">${item.producerName}</td>
                             <td class="align-middle text-center">${item.producerEmail}</td>

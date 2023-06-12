@@ -33,23 +33,11 @@ public class Producer {
 	private String producerPhone;
 	private List<Product> products;
 
-	public Producer() {
-	}
-
 	public Producer(String producerId, String producerEmail, String producerName, String producerPhone) {
 		this.producerId = producerId;
 		this.producerEmail = producerEmail;
 		this.producerName = producerName;
 		this.producerPhone = producerPhone;
-	}
-
-	public Producer(String producerId, String producerEmail, Serializable producerName, String producerPhone,
-			Set<Product> products) {
-		this.producerId = producerId;
-		this.producerEmail = producerEmail;
-		this.producerName = producerName;
-		this.producerPhone = producerPhone;
-		this.products = products;
 	}
 
 	@Id
