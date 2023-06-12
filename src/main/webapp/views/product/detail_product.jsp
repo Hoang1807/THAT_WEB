@@ -101,13 +101,6 @@
                                                     VND</span>
                                             </div>
                                             <hr>
-                                            <div class="mb-3 d-grid"> 
-                                                <form action="/cart/add?prid=${pro.productId}" method="post"></form>
-                                                <button id="btn-login" class="btn text-bg-danger text-uppercase p-2">
-                                                    Thêm vào giỏ hàng
-                                                </button>
-                                            </div>
-                                            <hr>
                                             <span class="fs-3 text-danger fw-bold">
                                                 Thông số kĩ thuật:
                                             </span>
@@ -149,8 +142,10 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <button class="btn col-12 text-info border-info">Thêm vào giỏ
-                                                        hàng</button>
+                                                    <form action="/cart/add?prid=${pro.productId}" method="post">
+                                                        <button class="btn col-12 text-info border-info">Thêm vào giỏ
+                                                            hàng</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
