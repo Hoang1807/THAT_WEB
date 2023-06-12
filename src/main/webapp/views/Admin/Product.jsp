@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!doctype html>
-    <html lang="en" data-bs-theme="auto">
+    <html lang="en">
 
     <head>
 
@@ -26,13 +26,17 @@
                 </main>
             </div>
         </div>
+        <jsp:include page="Notifications/NotificationCate.jsp"></jsp:include>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
+        <script src="/js/angular.min.js"></script>
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
         <script src="/js/flickity.pkgd.min.js"></script>
+        <script src="/js/isotope.pkgd.min.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/multi-select-tag.js"></script>
         <script src="/js/scriptAdmin.js"></script>
+        <script src="/js/angularJSAdmin.js"></script>
     </body>
 
     </html>
