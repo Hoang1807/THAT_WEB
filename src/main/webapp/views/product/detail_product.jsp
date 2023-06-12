@@ -101,6 +101,12 @@
                                                     VND</span>
                                             </div>
                                             <hr>
+                                            <div class="mb-3 d-grid">
+                                                <button id="btn-login" class="btn text-bg-danger text-uppercase p-2">
+                                                    Thêm vào giỏ hàng
+                                                </button>
+                                            </div>
+                                            <hr>
                                             <span class="fs-3 text-danger fw-bold">
                                                 Thông số kĩ thuật:
                                             </span>
