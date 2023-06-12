@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/styleAdmin.css">
     </head>
 
-    <body ng-app="myApp"> 
+    <body ng-app="myApp">
         <jsp:include page="layout/_header.jsp"></jsp:include>
         <div class="container-fluid" ng-controller="myCtrlProducer">
             <div class="row">
@@ -29,11 +29,6 @@
         <jsp:include page="Notifications/NotificationCate.jsp"></jsp:include>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
-        <script src="/js/jquery.bootstrap-growl.min.js"></script>
-        <script src="/js/flickity.pkgd.min.js"></script>
-        <script src="/js/bootstrap.bundle.min.js"></script>
-        <script src="/js/multi-select-tag.js"></script>
-        <script src="/js/scriptAdmin.js"></script>
         <script src="/js/angular.min.js"></script>
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
         <script src="/js/flickity.pkgd.min.js"></script>

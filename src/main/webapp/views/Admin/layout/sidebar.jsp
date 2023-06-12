@@ -36,15 +36,15 @@
             </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <i class="bi bi-file-earmark-person-fill"></i>
-                        Nhân viên
+                    <a class="nav-link d-flex align-items-center gap-2" href="/admin/manager-account">
+                        <i class="bi bi-file-earmark-person"></i>
+                        Quản lý tài khoản
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="/admin/producer">
                         <i class="bi bi-house-fill"></i>
-                        Nhà sản xuất
+                        Quản lý nhà sản xuất
                     </a>
                 </li>
             </ul>

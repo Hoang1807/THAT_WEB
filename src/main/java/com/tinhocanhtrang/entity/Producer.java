@@ -1,9 +1,12 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import org.hibernate.annotations.Nationalized;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,26 +19,26 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "PRODUCER", schema = "dbo", catalog = "THAT")
-public class Producer implements java.io.Serializable {
+public class Producer {
 
 	private String producerId;
 	private String producerEmail;
-	private Serializable producerName;
+	private String producerName;
 	private String producerPhone;
-	private Set<Product> products = new HashSet<Product>(0);
+	private List<Product> products;
 
 	public Producer() {
 	}
 
-	public Producer(String producerId, String producerEmail, Serializable producerName, String producerPhone) {
+	public Producer(String producerId, String producerEmail, String producerName, String producerPhone) {
 		this.producerId = producerId;
 		this.producerEmail = producerEmail;
 		this.producerName = producerName;
 		this.producerPhone = producerPhone;
 	}
 
-	public Producer(String producerId, String producerEmail, Serializable producerName, String producerPhone,
-			Set<Product> products) {
+	public Producer(String producerId, String producerEmail, String producerName, String producerPhone,
+			List<Product> products) {
 		this.producerId = producerId;
 		this.producerEmail = producerEmail;
 		this.producerName = producerName;
@@ -64,11 +67,12 @@ public class Producer implements java.io.Serializable {
 	}
 
 	@Column(name = "producer_name", nullable = false)
-	public Serializable getProducerName() {
+	@Nationalized
+	public String getProducerName() {
 		return this.producerName;
 	}
 
-	public void setProducerName(Serializable producerName) {
+	public void setProducerName(String producerName) {
 		this.producerName = producerName;
 	}
 
@@ -82,11 +86,11 @@ public class Producer implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producer")
-	public Set<Product> getProducts() {
+	public List<Product> getProducts() {
 		return this.products;
 	}
 
-	public void setProducts(Set<Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 

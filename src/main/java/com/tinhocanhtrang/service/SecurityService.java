@@ -19,7 +19,7 @@ public class SecurityService {
 		return BCrypt.checkpw(rawPassword, encodedPassword);
 	}
 
-	public static String sha256(String base) {
+	public String sha256(String base) {
 		try {
 			final MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			final byte[] hash = digest.digest(base.getBytes("UTF-8"));
@@ -36,8 +36,8 @@ public class SecurityService {
 		}
 	}
 
-	public static boolean matchesSha256(String rawPassword, String encodedPassword) {
-		String encodedPass = SecurityService.sha256(rawPassword);
+	public boolean matchesSha256(String rawPassword, String encodedPassword) {
+		String encodedPass = sha256(rawPassword);
 		return encodedPass.equals(encodedPassword);
 
 	}
