@@ -35,3 +35,16 @@ input.valid.success-alert {
     width: 100%;
   }
 }
+
+#form-account .btn-show-pw,
+#form-account .btn-show-pw {
+  top: 5%;
+  left: 98%;
+  transform: translate(-100%, 25%);
+  cursor: pointer;
+}
+
+#form-account input.password:focus ~ .btn-show-pw,
+#form-account input.password:focus ~ .btn-show-pw {
+  display: block !important;
+}

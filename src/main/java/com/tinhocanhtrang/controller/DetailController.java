@@ -1,10 +1,8 @@
 package com.tinhocanhtrang.controller;
 
-import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tinhocanhtrang.DAO.ImageDAO;
-import com.tinhocanhtrang.DAO.ProductDAO;
 import com.tinhocanhtrang.entity.Image;
 import com.tinhocanhtrang.entity.Product;
+import com.tinhocanhtrang.repository.ProductRepository;
 
 @Controller
 public class DetailController {
 	@Autowired
-	ProductDAO proDAO;
+	ProductRepository proDAO;
 	@Autowired 
 	ImageDAO imgDao;
 	@RequestMapping(value = "product/detail", method = RequestMethod.GET)

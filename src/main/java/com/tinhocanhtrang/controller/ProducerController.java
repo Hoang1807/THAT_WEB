@@ -15,74 +15,80 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tinhocanhtrang.entity.Category;
 import com.tinhocanhtrang.entity.Producer;
 import com.tinhocanhtrang.repository.ProducerRepository;
 import com.tinhocanhtrang.service.SessionService;
 
-
 @Controller
 public class ProducerController {
-	@Autowired 
-	ProducerRepository dao ;
+	@Autowired
+	ProducerRepository producerRepository;
 	@Autowired
 	SessionService sessionService;
-	
+
 	@ModelAttribute("listProducer")
-	public Page<Producer> getListProducer(){
+	public Page<Producer> getAllProducer() {
 		Pageable pageable = PageRequest.of(0, 6);
-		return dao.findByProducerNameLikeOrProducerIdLike("%", "%", pageable);
+		return producerRepository.findByProducerNameContainingOrProducerIdContaining("", "", pageable);
 	}
-	
-	@GetMapping(value = "admin/producer")
+
+	@GetMapping(value = "admin/manager-producer")
 	public String getProducer() {
+		
 		return "Admin/Producer";
 	}
-	
-	@PostMapping(value = "admin/producer/save")
-	public String getSaveProducer(Producer p) {
-		dao.save(p);
-		return "redirect:/admin/producer";
+
+	@PostMapping(value = "admin/manager-producer/create")
+	public String getManagerProducer_Create(Producer producer) {
+		producerRepository.save(producer);
+		return "redirect:/admin/manager-producer";
 	}
-	
-	@PostMapping(value = "admin/producer/delete")
-	public String getDeleteProducer(Producer p) {
-		dao.delete(p);
-		return "redirect:/admin/producer";
+
+	@PostMapping(value = "admin/manager-producer/delete")
+	public String getManagerProducer_Delete(Producer producer) {
+		producerRepository.delete(producer);
+		return "redirect:/admin/manager-producer";
 	}
-	
-	@GetMapping(value = "admin/producer/search")
-	public String getManagerProducer_Search(@RequestParam("search") Optional<String> s,
-			@RequestParam("page") Optional<Integer> p, Model model) {
-		String kwords = s.orElse(sessionService.get("keywords"));
+
+	@GetMapping(value = "admin/manager-producer/search")
+	public String getManagerProducer_Search(@RequestParam("search") Optional<String> kw,
+			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
+			@RequestParam("sort") Optional<Boolean> s, Model model) {
+		String kwords = kw.orElse(sessionService.get("keywords"));
 		sessionService.set("keywords", kwords);
-		sessionService.set("page", p.orElse(0));
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
-		Page<Producer> page = dao.findByProducerNameLikeOrProducerIdLike(
-				"%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
+
+		Integer pe = p.orElse(sessionService.get("page"));
+		sessionService.set("page", pe);
+		if (pe == null) {
+			pe = 0;
+		}
+
+		Boolean sort = s.orElse(sessionService.get("sort"));
+		sessionService.set("sort", sort);
+		if (sort == null) {
+			sort = true;
+		}
+
+		String name = n.orElse(sessionService.get("name"));
+		sessionService.set("name", name);
+		if (name == null) {
+			name = "producerId";
+		}
+
+		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
+		Page<Producer> page = producerRepository.findByProducerNameContainingOrProducerIdContaining(
+				(kwords == null ? "" : kwords), (kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listProducer", page);
 		model.addAttribute("search", kwords);
 		return "Admin/Producer";
 	}
 
-	@GetMapping(value = "admin/producer/sort")
-	public String getManagerProducer_Sort(@RequestParam("name") Optional<String> n,
-			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = sessionService.get("keywords");
-		Integer p = sessionService.get("page");
-		String name = n.orElse("producerName");
-		Boolean sort = s.orElse(true);
-		Pageable pageable = PageRequest.of(p, 6, sort ? Direction.ASC : Direction.DESC, name);
-		Page<Producer> page = dao.findByProducerNameLikeOrProducerIdLike(
-				"%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
-		model.addAttribute("listProducer", page);
-		model.addAttribute("search", kwords);
-		return "Admin/Producer";
-	}
-	
 	@PostMapping(value = "admin/producer/check")
 	public @ResponseBody boolean getCheckProducer(Producer producer) {
-		if(dao.existsByProducerId(producer.getProducerId())) {
+		if (producerRepository.existsByProducerId(producer.getProducerId())) {
 			return true;
-		}else return false;
+		} else
+			return false;
 	}
 }

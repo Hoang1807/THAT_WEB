@@ -154,14 +154,15 @@ $("#form-dangky").on("submit", function (event) {
   event.preventDefault();
   if ($("#form-dangky").valid()) {
     $("#btn-dangky").text("Vui lòng chờ...").attr("disabled", true);
+    console.log($("#form-dangky input[name='userPhone]'").val());
     $.ajax({
       url: "/user/register",
       method: "POST",
       data: {
-        userPhone: $("#form-dangky input[name='userPhone'").val(),
-        userName: $("input[name='userName'").val(),
-        userEmail: $("input[name='userEmail'").val(),
-        userPassword: $("#form-dangky input[name='userPassword'").val(),
+        userPhone: $("#form-dangky input[name='userPhone']").val(),
+        userName: $("#form-dangky input[name='userName']").val(),
+        userEmail: $("#form-dangky input[name='userEmail']").val(),
+        userPassword: $("#form-dangky input[name='userPassword']").val(),
       },
       success: function (resultText) {
         bootstrapToast(
