@@ -2,14 +2,13 @@
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope) {
-  // edit Category
+  // edit category
   $scope.editCate = function (id, name) {
     $scope.cate = {
       id: id,
       name: name,
     };
   };
-  // edit Spec
   $scope.editSpec = function (id, key, value) {
     $scope.spec = {
       id: id,
@@ -34,6 +33,7 @@ app.controller("myCtrl", function ($scope) {
     };
   };
 });
+// end AngularJS
 
 //edit producer
 app.controller("myCtrlProducer", function ($scope) {

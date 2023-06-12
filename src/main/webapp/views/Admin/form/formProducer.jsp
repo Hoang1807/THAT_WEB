@@ -36,7 +36,7 @@
 
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h5 class="text-capitalize">Danh sách nhà sản xuất</h5>
+            <h2 class="text-capitalize">Danh sách nhà sản xuất</h2>
             <form class="input-group order-1 order-md-0" id="searchDataTable">
                 <input type="text" id="search" class="form-control shadow-none" name="search" placeholder="Tìm kiếm">
                 <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
