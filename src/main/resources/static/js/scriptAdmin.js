@@ -345,7 +345,6 @@ $(document).ready(function () {
                   url: "/admin/manager-spec/delete",
                   method: "POST",
                   data: {
-                    specId: $("input[name='specId']").val(),
                     specKey: $("input[name='specKey']").val(),
                     specValue: $("input[name='specValue']").val(),
                   },

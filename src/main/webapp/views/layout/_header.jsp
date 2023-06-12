@@ -189,7 +189,7 @@
 										</div>
 									</div>
 									<div class="list-group-item list-group-item-action border-bottom">
-										<a href="#"
+										<a href="/laptop/product"
 											class="list-group-item-link text-decoration-none text-dark d-flex column-gap-2 py-1 stretched-link">
 											<i class="bi bi-laptop"></i> <span
 												class="align-self-center text-capitalize">Laptop

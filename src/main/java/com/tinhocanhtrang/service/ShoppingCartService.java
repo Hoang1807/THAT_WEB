@@ -33,11 +33,11 @@ public class ShoppingCartService implements ShoppingCartDAO {
 	public Product add(String id) {
 		if (service.get(String.valueOf(id)) != null) {
 			Product item = service.get(String.valueOf(id));
-			item.setProductQuantity(item.getProductQuantity() + 1);
+			//item.setProductQuantity(item.getProductQuantity() + 1);
 			return item;
 		} else {
 			Product newItem = productRepository.findById(id).get();
-			newItem.setProductQuantity(1);;
+			//newItem.setProductQuantity(1);;
 			service.set(String.valueOf(id), newItem);
 			return newItem;
 		}
@@ -53,7 +53,7 @@ public class ShoppingCartService implements ShoppingCartDAO {
 	public Product update(Integer id, int qty) {
 		if (service.get(String.valueOf(id)) != null) {
 			Product item = service.get(String.valueOf(id));
-			item.setProductQuantity(qty);
+			//item.setProductQuantity(qty);
 			return item;
 		}
 		return null;

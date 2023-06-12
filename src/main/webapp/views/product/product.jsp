@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+    <%@ page isELIgnored="false" %>
       <!DOCTYPE html>
       <html>
-
       <head>
-        
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +13,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
           crossorigin="anonymous"></script>
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/flickity.css">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/styleUser.css">
         <link rel="stylesheet" href="/css/product.css">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <title>Insert title here</title>
       </head>
 
@@ -41,12 +38,49 @@
               <div class="col-12">
                 <span><Strong>Hãng sãn xuất</Strong></span>
               </div>
-              <div class="row d-flex column-gap-2">
-                <div class="col-3 col-lg-2">
-                  <input type="radio" class="btn-check btn-size col-3 col-lg-2" value="12312"> <label
-                    class="btn btn-outline-dark btn-size col-3 col-lg-2" for="12312">Hình
-                    hãng</label>
-                </div>
+            </div>
+            <div class="often_brand often_list">
+              <div class="item">
+                	<input type="radio" class="btn btn-check" name="cagetory" value="Asus" id="asus" onclick="findDM()">
+                    <label for="asus" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_2.png?v=2035" alt="Asus" >
+                    </label>
+              </div>
+              <div class="item">
+                  <input type="radio" class="btn btn-check" name="cagetory" value="Acer" id="acer" onclick="findDM()">
+                    <label for="acer" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_5.png?v=2035" alt="Acer">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="radio" class="btn btn-check" name="cagetory" value="dell" id="dell" onclick="findDM()">
+                    <label for="dell" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_6.png?v=2035" alt="Dell">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="radio" class="btn btn-check" name="cagetory" value="hp" id="hp" onclick="findDM()">
+                    <label for="hp" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_3.png?v=2035" alt="Hp">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="radio" class="btn btn-check" name="cagetory" value="msi" id="msi" onclick="findDM()">
+                    <label for="msi" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_7.png?v=2035" alt="Msi">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="radio" class="btn btn-check" name="cagetory" value="lenovo" id="lenovo" onclick="findDM()">
+                    <label for="lenovo" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_4.png?v=2035" alt="Lenovo">
+                    </label>
+              </div>
+              <div class="item">
+                    <input type="radio" class="btn btn-check" name="cagetory" value="gigabyte" id="Gigabyte" onclick="findDM()">
+                    <label for="Gigabyte" class="btn">
+                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_10.png?v=2035" alt="GIGABYTE">
+                    </label>
               </div>
             </div>
             <div class="w-100 mt-2">
@@ -54,8 +88,12 @@
                 <h5>Tổng số lượng sản phẩm</h5>
               </div>
               <div class="sp_order float-end">
-                <select name="" id="">
-                  <option value="">Sắp xếp theo</option>
+                <select  name="sort" onchange="findDM()">
+                  <option value="0" selected="selected">Theo</option>
+                  <option value="1" >Giá tăng</option>
+                  <option value="2">Giá giảm</option>
+                  <option value="3">A-Z</option>
+                  <option value="4">Z-A</option>
                 </select>
               </div>
             </div>
@@ -63,14 +101,12 @@
           <br>
           <hr>
           <div class="product-list_item">
-            <div class="row mt-2 p-1 pe-5 ps-5 w-auto ">
-              <c:forEach var="item" items="${items.content}">
+            <div class="row mt-2 p-1 pe-5 ps-5 w-auto" id="list_product">
+              <c:forEach var="item" items="${items}">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 product">
                   <div class="card mx-auto border-0 rounded-0 h-auto  position-relative">
                     <div class="card-img">
-                      <img class="card-img "
-                        src="https://res.cloudinary.com/dz9gzy7iz/image/upload/v1686224214/okk/kho.jpg" alt=""
-                        >
+                      <img class="card-img " src="${item.images[0].imageLink}" alt="">
                     </div>
                     <div class="card-body mx-auto mt-2">
                       <div class="loopName text-center ">
@@ -101,10 +137,10 @@
           <hr>
           <div class="row justify-content-end">
             <div class="col-3">
-              <a class="btn" href="/laptop/product?page=0"><i class="bi bi-chevron-double-left"></i></a>
-              <a class="btn" href="/laptop/product?page=${items.number - 1}"><i class="bi bi-chevron-left"></i></a>
-              <a class="btn" href="/laptop/product?page=${items.number + 1}"><i class="bi bi-chevron-right"></i></a>
-              <a class="btn" href="/laptop/product?page=${items.totalPages - 1}"><i
+              <a class="btn" href="/laptop/product?p=0"><i class="bi bi-chevron-double-left"></i></a>
+              <a class="btn" href="/laptop/product?p=${page.number - 1}"><i class="bi bi-chevron-left"></i></a>
+              <a class="btn" href="/laptop/product?p=${page.number + 1}"><i class="bi bi-chevron-right"></i></a>
+              <a class="btn" href="/laptop/product?p=${page.totalPages - 1}"><i
                   class="bi bi-chevron-double-right"></i></a>
             </div>
           </div>
@@ -113,10 +149,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
           integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
           </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-          integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-          </script>
+          <script src="/js/danhmuc.js"></script>
       </body>
 
       </html>
