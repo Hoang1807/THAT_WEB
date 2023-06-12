@@ -31,7 +31,7 @@ public class Category implements java.io.Serializable {
 	@Column(name = "category_name", nullable = false, length = 50)
 	private String categoryName;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	private Set<Product> products = new HashSet<Product>(0);
+	private List<Product> products ;
 
 	public Category(String categoryId, String categoryName) {
 		this.categoryId = categoryId;
