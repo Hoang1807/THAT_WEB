@@ -16,7 +16,30 @@ app.controller("myCtrl", function ($scope) {
 			value: value,
 		};
 	};
-	
+  $scope.account = {
+    role: "true",
+  };
+
+  // edit account
+  $scope.editAccount = function (phone, name, email, password, role) {
+    $scope.account = {
+      phone: phone,
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+    };
+  };
+
+  //edit producer
+  $scope.editProducer = function (id, name, email, phone) {
+    $scope.producer = {
+      id: id,
+      name: name,
+      email: email,
+      phone: phone,
+    };
+  };
 });
 // end AngularJS
 //Load hinh
