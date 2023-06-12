@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <!doctype html>
+    <!doctype html >
     <html lang="en" data-bs-theme="auto">
-
-    <head>
-
+    <head >
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +10,13 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/flickity.css">
         <link rel="stylesheet" href="/css/styleAdmin.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     </head>
 
-    <body>
+    <body ng-app="myApp" ng-controller="myCtrlImage">
         <jsp:include page="layout/_header.jsp"></jsp:include>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid" >
+            <div class="row" >
                 <div class="sidebar border border-right col-md-3  p-0 bg-body-tertiary">
                     <jsp:include page="layout/sidebar.jsp"></jsp:include>
                 </div>
@@ -26,6 +25,7 @@
                 </main>
             </div>
         </div>
+        <script src="/js/angularJSAdmin.js"></script>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
         <script src="/js/jquery.bootstrap-growl.min.js"></script>

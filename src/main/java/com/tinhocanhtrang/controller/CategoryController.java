@@ -90,9 +90,6 @@ public class CategoryController {
 		}
 	}
 
-	@GetMapping(value = "admin/manager-product")
-	public String getManagerProduct() {
-		return "Admin/Product";
-	}
+	
 
 }
