@@ -9,6 +9,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -17,53 +20,21 @@ import lombok.ToString;
 @Entity
 @Table(name = "CATEGORY", schema = "dbo", catalog = "THAT")
 @ToString
-public class Category {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Category implements java.io.Serializable {
 
+	@Id
+	@Column(name = "category_id", unique = true, nullable = false, length = 10)
 	private String categoryId;
+	@Column(name = "category_name", nullable = false, length = 50)
 	private String categoryName;
-	private List<Product> products;
-
-	public Category() {
-	}
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+	private List<Product> products ;
 
 	public Category(String categoryId, String categoryName) {
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
 	}
-
-	public Category(String categoryId, String categoryName, List<Product> products) {
-		this.categoryId = categoryId;
-		this.categoryName = categoryName;
-		this.products = products;
-	}
-
-	@Id
-
-	@Column(name = "category_id", unique = true, nullable = false, length = 10)
-	public String getCategoryId() {
-		return this.categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	@Column(name = "category_name", nullable = false, length = 50)
-	public String getCategoryName() {
-		return this.categoryName;
-	}
-
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	public List<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
 }

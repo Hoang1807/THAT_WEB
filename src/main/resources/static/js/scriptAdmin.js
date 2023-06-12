@@ -2,7 +2,26 @@
 if ($("#specs").length > 0) {
   new MultiSelectTag("specs");
 }
-
+//
+function loadFiles(event) {
+  $('#carousel-cell').empty();
+  var files = event.target.files;
+  var output = document.getElementById('carousel-cell');
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageUrl = URL.createObjectURL(file);
+    var img = document.createElement('img');
+    img.src = imageUrl;
+    img.setAttribute('class', 'anhyeu me-1');
+    img.alt = 'Preview Image';
+    img.width = '200';
+    img.height = '200';
+    output.append(img)
+  }
+}
+function editProduct(id){
+  $('input#productId').val(id).reload();
+}
 // start Jquery
 $(document).ready(function () {
   // showpassword form dangnhap
@@ -357,52 +376,8 @@ $(document).ready(function () {
     }
   });
 
-  // validate form account
-  $("#form-account").validate({
-    errorClass: "error fail-alert",
-    validClass: "valid success-alert",
-    rules: {
-      userPhone: {
-        required: true,
-        phone: true,
-      },
-      userName: {
-        required: true,
-        maxlength: 50,
-        minlength: 6,
-      },
-      userEmail: {
-        required: true,
-        email: true,
-      },
-      userPassword: {
-        required: true,
-        maxlength: 50,
-        minlength: 6,
-      },
-    },
-    messages: {
-      userPhone: {
-        required: "Vui lòng nhập sô điện thoại",
-      },
-      userName: {
-        required: "Vui lòng nhập họ tên",
-        maxlength: "Vui lòng nhập dưới 50 kí tự",
-        minlength: "Vui lòng nhập trên 6 kí tự",
-      },
-      userEmail: {
-        required: "Vui lòng nhập email",
-      },
-      userPassword: {
-        required: "Vui lòng nhập password",
-        maxlength: "Vui lòng nhập dưới 60 kí tự",
-        minlength: "Vui lòng nhập trên 6 kí tự",
-      },
-    },
-  });
-
-  // submit form account
-  $("#form-account").on("submit", function (event) {
+  // submit form producer
+  $("#form-nsx").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
       //   ajax create form spec
@@ -601,7 +576,7 @@ $(document).ready(function () {
                       location.reload();
                     }, 2000);
                   },
-                  error: function (jqXHR, textStatus) {},
+                  error: function (jqXHR, textStatus) { },
                 });
               }
             },
@@ -699,4 +674,43 @@ $(document).ready(function () {
     $(element).find("small").text(getDateNow());
     bootstrap.Toast.getOrCreateInstance($(element), option).show();
   }
+});
+//submit form product
+$("#form-product").on("submit", function (event) {
+  event.preventDefault();
+  //   ajax create form spec
+  if (event.originalEvent.submitter.innerText == "Add") {
+    $("#addPro").on("click", function () {
+      $("#form-product button").attr("disabled", true);
+      $.ajax({
+        url: "/admin/manager-product/create",
+        method: "POST",
+        data: {
+          productId: $("input[name='productId']").val(),
+          category: $("select[name='category']").val(),
+          producer: $("select[name='producer']").val(),
+          productName: $("input[name='productName']").val(),
+          productQuantity: $("input[name='productQuantity']").val(),
+          productPrice: $("input[name='productPrice']").val(),
+          specs: $("select[name='specs']").val(),
+          
+        },
+        success: function (resultText) {
+          console.log(productId)
+          console.log(category)
+          console.log(producer)
+          console.log(productName)
+          console.log(productQuantity)
+          console.log(productPrice)
+          console.log(specs)
+
+          bootstrapToast(
+            "#toast-success",
+            "Bạn đã thêm thành công.",
+            2000
+          )
+          }
+        }
+      )}
+  )}
 });

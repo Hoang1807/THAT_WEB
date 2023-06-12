@@ -29,63 +29,9 @@
         <jsp:include page="../layout/_header.jsp"></jsp:include>
         <div class="container mt-2 w-100">
           <div class="content">
-            <div class="row justify-content-start">
-              <div class="col-2 filter">
-                <span><Strong>Bộ lọc</Strong></span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <span><Strong>Hãng sãn xuất</Strong></span>
-              </div>
-            </div>
-            <div class="often_brand often_list">
-              <div class="item">
-                	<input type="radio" class="btn btn-check" name="cagetory" value="Asus" id="asus" onclick="findDM()">
-                    <label for="asus" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_2.png?v=2035" alt="Asus" >
-                    </label>
-              </div>
-              <div class="item">
-                  <input type="radio" class="btn btn-check" name="cagetory" value="Acer" id="acer" onclick="findDM()">
-                    <label for="acer" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_5.png?v=2035" alt="Acer">
-                    </label>
-              </div>
-              <div class="item">
-                    <input type="radio" class="btn btn-check" name="cagetory" value="dell" id="dell" onclick="findDM()">
-                    <label for="dell" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_6.png?v=2035" alt="Dell">
-                    </label>
-              </div>
-              <div class="item">
-                    <input type="radio" class="btn btn-check" name="cagetory" value="hp" id="hp" onclick="findDM()">
-                    <label for="hp" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_3.png?v=2035" alt="Hp">
-                    </label>
-              </div>
-              <div class="item">
-                    <input type="radio" class="btn btn-check" name="cagetory" value="msi" id="msi" onclick="findDM()">
-                    <label for="msi" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_7.png?v=2035" alt="Msi">
-                    </label>
-              </div>
-              <div class="item">
-                    <input type="radio" class="btn btn-check" name="cagetory" value="lenovo" id="lenovo" onclick="findDM()">
-                    <label for="lenovo" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_4.png?v=2035" alt="Lenovo">
-                    </label>
-              </div>
-              <div class="item">
-                    <input type="radio" class="btn btn-check" name="cagetory" value="gigabyte" id="Gigabyte" onclick="findDM()">
-                    <label for="Gigabyte" class="btn">
-                      <img src="//theme.hstatic.net/200000420363/1001015796/14/image_shop_brand_10.png?v=2035" alt="GIGABYTE">
-                    </label>
-              </div>
-            </div>
             <div class="w-100 mt-2">
               <div class="sp_all float-start">
-                <h5>Tổng số lượng sản phẩm</h5>
+                <h5>Tổng số lượng sản phẩm: ${size}</h5>
               </div>
               <div class="sp_order float-end">
                 <select  name="sort" onchange="findDM()">
