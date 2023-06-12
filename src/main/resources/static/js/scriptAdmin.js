@@ -539,15 +539,6 @@ $(document).ready(function () {
             method: "POST",
             data: {
               producerId: $("#form-producer input[name='producerId']").val(),
-              producerName: $(
-                "#form-producer input[name='producerName']"
-              ).val(),
-              producerEmail: $(
-                "#form-producer input[name='producerEmail']"
-              ).val(),
-              producerPhone: $(
-                "#form-producer input[name='producerPhone'"
-              ).val(),
             },
             success: function (resultText) {
               // show Toast
@@ -560,13 +551,21 @@ $(document).ready(function () {
                 // if click update
                 $("#btn-update").on("click", function () {
                   $.ajax({
-                    url: "/admin/producer/save",
+                    url: "/admin/manager-producer/create",
                     method: "POST",
                     data: {
-                      producerId: $("#form-nsx input[name='producerId'").val(),
-                      producerName: $("input[name='producerName'").val(),
-                      producerEmail: $("input[name='producerEmail'").val(),
-                      producerPhone: $("input[name='producerPhone'").val(),
+                      producerId: $(
+                        "#form-producer input[name='producerId']"
+                      ).val(),
+                      producerName: $(
+                        "#form-producer input[name='producerName'"
+                      ).val(),
+                      producerEmail: $(
+                        "#form-producer input[name='producerEmail'"
+                      ).val(),
+                      producerPhone: $(
+                        "#form-producer input[name='producerPhone'"
+                      ).val(),
                     },
                     success: function () {
                       location.reload();
@@ -576,13 +575,21 @@ $(document).ready(function () {
                 $("#form-producer button").attr("disabled", false);
               } else {
                 $.ajax({
-                  url: "/admin/producer/save",
+                  url: "/admin/manager-producer/create",
                   method: "POST",
                   data: {
-                    producerId: $("#form-nsx input[name='producerId'").val(),
-                    producerName: $("input[name='producerName'").val(),
-                    producerEmail: $("input[name='producerEmail'").val(),
-                    producerPhone: $("input[name='producerPhone'").val(),
+                    producerId: $(
+                      "#form-producer input[name='producerId']"
+                    ).val(),
+                    producerName: $(
+                      "#form-producer input[name='producerName'"
+                    ).val(),
+                    producerEmail: $(
+                      "#form-producer input[name='producerEmail'"
+                    ).val(),
+                    producerPhone: $(
+                      "#form-producer input[name='producerPhone'"
+                    ).val(),
                   },
                   success: function (resultText) {
                     bootstrapToast(
@@ -608,10 +615,7 @@ $(document).ready(function () {
             url: "/admin/producer/check",
             method: "POST",
             data: {
-              producerId: $("#form-nsx input[name='producerId'").val(),
-              producerName: $("input[name='producerName'").val(),
-              producerEmail: $("input[name='producerEmail'").val(),
-              producerPhone: $("input[name='producerPhone'").val(),
+              producerId: $("#form-producer input[name='producerId']").val(),
             },
             success: function (resultText) {
               // show Toast
@@ -621,16 +625,24 @@ $(document).ready(function () {
                   "Mã vừa nhập không có trông hệ thống",
                   1000
                 );
-                $("#form-nsx button").attr("disabled", false);
+                $("#form-producer button").attr("disabled", false);
               } else {
                 $.ajax({
-                  url: "/admin/producer/delete",
+                  url: "/admin/manager-producer/delete",
                   method: "POST",
                   data: {
-                    producerId: $("#form-nsx input[name='producerId'").val(),
-                    producerName: $("input[name='producerName'").val(),
-                    producerEmail: $("input[name='producerEmail'").val(),
-                    producerPhone: $("input[name='producerPhone'").val(),
+                    producerId: $(
+                      "#form-producer input[name='producerId']"
+                    ).val(),
+                    producerName: $(
+                      "#form-producer input[name='producerName'"
+                    ).val(),
+                    producerEmail: $(
+                      "#form-producer input[name='producerEmail'"
+                    ).val(),
+                    producerPhone: $(
+                      "#form-producer input[name='producerPhone'"
+                    ).val(),
                   },
                   success: function (resultText) {
                     bootstrapToast(
@@ -641,6 +653,13 @@ $(document).ready(function () {
                     setTimeout(function () {
                       location.reload();
                     }, 1000);
+                  },
+                  error: function (resultText) {
+                    bootstrapToast(
+                      "#toast-warning",
+                      "Thông số này đã liên kết một số sản phẩm không thể xóa!",
+                      2000
+                    );
                   },
                 });
               }

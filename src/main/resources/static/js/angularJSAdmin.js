@@ -32,11 +32,8 @@ app.controller("myCtrl", function ($scope) {
       role: role,
     };
   };
-});
-// end AngularJS
 
-//edit producer
-app.controller("myCtrlProducer", function ($scope) {
+  //edit producer
   $scope.editProducer = function (id, name, email, phone) {
     $scope.producer = {
       id: id,
@@ -46,5 +43,4 @@ app.controller("myCtrlProducer", function ($scope) {
     };
   };
 });
-
 // end AngularJS
