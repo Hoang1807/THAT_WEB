@@ -8,6 +8,7 @@ import com.tinhocanhtrang.entity.Producer;
 
 public interface ProducerRepository extends JpaRepository<Producer, String> {
 	public boolean existsByProducerId(String producerId);
-	
-	public Page<Producer> findByProducerNameLikeOrProducerIdLike(String producerName, String producerId,Pageable pageble);
+
+	public Page<Producer> findByProducerNameContainingOrProducerIdContaining(String producerName, String producerId,
+			Pageable pageble);
 }

@@ -1,7 +1,7 @@
 package com.tinhocanhtrang.controller;
 
-import java.io.IOException;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,51 +15,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tinhocanhtrang.entity.Category;
 import com.tinhocanhtrang.entity.Spec;
-import com.tinhocanhtrang.repository.SpecRepository;
+import com.tinhocanhtrang.entity.User;
+import com.tinhocanhtrang.repository.UserRepository;
+import com.tinhocanhtrang.service.SecurityService;
 import com.tinhocanhtrang.service.SessionService;
-import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
-public class SpecController {
+public class AccountController {
 	@Autowired
-	SpecRepository specRepository;
+	UserRepository userRepository;
 	@Autowired
-	HttpServletResponse response;
+	SecurityService securityService;
 	@Autowired
 	SessionService sessionService;
 
-	@ModelAttribute("listSpec")
-	public Page<Spec> getAllSpec() {
+	@ModelAttribute("listAccount")
+	public Page<User> getAllAccount() {
 		Pageable pageable = PageRequest.of(0, 6);
-		return specRepository.findBySpecKeyContainingOrSpecValueContaining("", "", pageable);
+		return userRepository.findByUserNameContainingOrUserEmailContaining("", "", pageable);
 	}
 
-	@GetMapping(value = "admin/manager-spec")
-	public String getSpec() {
-		return "Admin/Spec";
+	@PostMapping(value = "admin/manager-account/create")
+	public String getManagerAccount_Create(User account) {
+		account.setUserPhone(securityService.sha256(account.getUserPhone()));
+		account.setUserPassword(securityService.encodePassword(account.getUserPassword()));
+		userRepository.save(account);
+		return "redirect:/admin/manager-account";
 	}
 
-	@PostMapping(value = "admin/manager-spec/create")
-	public String getManagerSpec_Create(Spec spec) {
-		specRepository.save(spec);
-		return "redirect:/admin/manager-spec";
+	@GetMapping(value = "admin/manager-account")
+	public String getManagerAccount() {
+		return "Admin/Account";
 	}
 
-	@PostMapping(value = "admin/manager-spec/delete")
-	public String getManagerspec_Delete(Spec spec) throws IOException {
-		Spec specData = specRepository.findBySpecKeyAndSpecValue(spec.getSpecKey(), spec.getSpecValue());
-		if (specData != null && specData.getProducts().size() > 0) {
-			response.sendError(500);
-		} else if (specData != null && specData.getProducts().size() == 0) {
-			specRepository.delete(specData);
-		}
-		return "redirect:/admin/manager-spec";
-	}
-
-	@GetMapping(value = "admin/manager-spec/search")
-	public String getManagerSpec_Search(@RequestParam("search") Optional<String> kw,
+	@GetMapping(value = "admin/manager-account/search")
+	public String getManagerAccount_Search(@RequestParam("search") Optional<String> kw,
 			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
 		String kwords = kw.orElse(sessionService.get("keywords"));
@@ -80,23 +71,25 @@ public class SpecController {
 		String name = n.orElse(sessionService.get("name"));
 		sessionService.set("name", name);
 		if (name == null) {
-			name = "specId";
+			name = "userName";
 		}
 
 		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
-		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
+		Page<User> page = userRepository.findByUserNameContainingOrUserEmailContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
-		model.addAttribute("listSpec", page);
+		model.addAttribute("listAccount", page);
 		model.addAttribute("search", kwords);
-		return "Admin/Spec";
+		return "Admin/Account";
 	}
 
-	@PostMapping(value = "admin/manager-spec/check")
-	public @ResponseBody boolean getManagerSpec_Check(Spec spec) {
-		if (specRepository.existsBySpecIdOrSpecKeyLikeAndSpecValueLike(spec.getSpecId(), spec.getSpecKey(),
-				spec.getSpecValue())) {
+	@PostMapping(value = "admin/manager-account/check")
+	public @ResponseBody boolean getManagerAccount_Check(User account) {
+		account.setUserPhone(securityService.sha256(account.getUserPhone()));
+		if (userRepository.existsByUserPhone(account.getUserPhone())) {
+			System.out.println("true");
 			return true;
 		} else {
+			System.out.println("false");
 			return false;
 		}
 	}

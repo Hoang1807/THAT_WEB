@@ -28,7 +28,7 @@ public class HuyController {
 	@ModelAttribute("productInStore")
 	public Page<Product> getListTable(){
 		Pageable pageable = PageRequest.of(0, 6);
-		return dao.findByProductIdLike("%", pageable);
+		return dao.findByProducerIdContaining("%", pageable);
 	}
 	
 	@ModelAttribute("cboProduct")
@@ -64,7 +64,7 @@ public class HuyController {
 		Pageable pageable = PageRequest.of(p.orElse(0), 6);
 //		Page<Product> page = dao.findByProductIdLike("%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
 				
-		model.addAttribute("listProducer", page);
+//		model.addAttribute("listProducer", page);
 		model.addAttribute("search", kwords);
 		return "Admin/ReportLayout2";
 	}

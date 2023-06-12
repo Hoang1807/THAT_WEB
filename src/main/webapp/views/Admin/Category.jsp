@@ -25,7 +25,7 @@
                 </main>
             </div>
         </div>
-        <jsp:include page="Notifications/NotificationCate.jsp"></jsp:include>
+        <jsp:include page="Notifications/Notification.jsp"></jsp:include>
         <script src="/js/jquery-3.7.0.min.js"></script>
         <script src="/js/jquery.validate.min.js"></script>
         <script src="/js/angular.min.js"></script>

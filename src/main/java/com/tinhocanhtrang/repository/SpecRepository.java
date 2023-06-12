@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+
 
 import com.tinhocanhtrang.entity.Spec;
 
@@ -15,5 +15,7 @@ public interface SpecRepository extends JpaRepository<Spec, Integer> {
 	public Spec findBySpecKeyAndSpecValue(String specKey, String specValue);
 
 	public Page<Spec> findBySpecKeyContainingOrSpecValueContaining(String specKey, String specValue, Pageable pageable);
+	
+	public Spec findBySpecId(Integer specId);
 
 }

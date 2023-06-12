@@ -22,7 +22,7 @@
             </div>
             <div class="toast-body bg-white d-flex px-2">
                 <span class="fw-lighter toast-title me-auto align-self-center"></span>
-                <button type="button" id="btn-update-cate" class="btn btn-primary p-1" style="font-size: 1rem;">
+                <button type="button" id="btn-update" class="btn btn-primary p-1" style="font-size: 1rem;">
                     Cập nhật
                 </button>
             </div>
@@ -32,7 +32,7 @@
         <div id="toast-warning" class="toast">
             <div class="toast-header">
                 <i class="bi bi-exclamation-diamond-fill text-danger me-2" style="font-size: 1.5rem;"></i>
-                <strong class="me-auto">Tin Học Ánh Trăng</strong> <small>11 mins ago</small>
+                <strong class="me-auto">Tin Học Ánh Trăng</strong> <small></small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body bg-white">
