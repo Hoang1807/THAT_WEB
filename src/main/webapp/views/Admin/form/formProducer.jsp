@@ -24,17 +24,17 @@
             <hr class="my-4">
 
             <div class="d-flex gap-2">
-                <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Lưu</button>
-                <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Xóa</button>
-                <button class="btn btn-primary text-capitalize" type="reset">Làm mới</button>
+                <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Add</button>
+                <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Delete</button>
+                <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
             </div>
         </form>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2 class="text-capitalize">Danh sách nhà sản xuất</h2>
-        <form class="input-group order-1 order-md-0" id="searchDataTable">
+        <form class="input-group order-1 order-md-0" action="/admin/producer/search" id="searchDataTable" autocomplete="off" ng-init="search = '${search}'">
             <input type="text" id="search" class="form-control shadow-none" name="search" placeholder="Tìm kiếm">
-            <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
+            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-search"></i></button>
         </form>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="dropdown me-2">
@@ -43,8 +43,8 @@
                     Mã
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">A->Z</a></li>
-                    <li><a class="dropdown-item" href="#">Z->A</a></li>
+                    <li><a class="dropdown-item" href="/admin/producer/sort?name=producerId&sort=true">Tăng dần</a></li>
+                    <li><a class="dropdown-item" href="/admin/producer/sort?name=producerId&sort=false">Giảm dần</a></li>
                 </ul>
             </div>
             <div class="dropdown me-2">
@@ -53,8 +53,8 @@
                     Tên
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">A->Z</a></li>
-                    <li><a class="dropdown-item" href="#">Z->A</a></li>
+                    <li><a class="dropdown-item" href="/admin/producer/sort?name=producerName&sort=true">Tăng dần</a></li>
+                    <li><a class="dropdown-item" href="/admin/producer/sort?name=producerName&sort=false">Giảm dần</a></li>
                 </ul>
             </div>
         </div>
@@ -71,9 +71,9 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="item" items="${listProducer}" varStatus="loop" >
+                <c:forEach var="item" items="${listProducer.content}" varStatus="loop" >
                     <tr style="cursor: pointer;" ng-click="editProducer('${item.producerId}','${item.producerName}','${item.producerEmail}','${item.producerPhone}')">
-                        <td class="align-middle text-center">${loop.index}</td>
+                        <td class="align-middle text-center">${loop.index+1}</td>
                         <td class="align-middle text-center">${item.producerId}</td>
                         <td class="align-middle text-center">${item.producerName}</td>
                         <td class="align-middle text-center">${item.producerEmail}</td>
@@ -82,4 +82,25 @@
                 </c:forEach>
             </tbody>
         </table>
+        <nav class="d-flex flex-column">
+                <span class="m-auto mb-2">Page ${listProducer.number+1}/${listProducer.totalPages}</span>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}" href="
+                            /admin/producer/search?page=0">&#8676</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/producer/search?page=${listProducer.number<=0?listProducer.totalPages-1:listProducer.number-1}">&laquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listCate.totalPages ==0?'disabled':''}"
+                            href="/admin/producer/search?page=${listProducer.number>=listProducer.totalPages-1?0:listCate.number+1}">&raquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/producer/search?page=${listProducer.totalPages-1}">&#8677</a>
+                    </li>
+                </ul>
+            </nav>
     </div>
