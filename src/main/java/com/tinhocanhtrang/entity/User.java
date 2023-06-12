@@ -1,7 +1,6 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.Column;
@@ -18,10 +17,10 @@ import lombok.ToString;
 @Entity
 @Table(name = "_USER", schema = "dbo", catalog = "THAT")
 @ToString
-public class User implements java.io.Serializable {
+public class User {
 
 	private String userPhone;
-	private Serializable userName;
+	private String userName;
 	private String userEmail;
 	private String userPassword;
 	private boolean userRole;
@@ -30,7 +29,7 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	public User(String userPhone, Serializable userName, String userEmail, String userPassword, boolean userRole) {
+	public User(String userPhone, String userName, String userEmail, String userPassword, boolean userRole) {
 		this.userPhone = userPhone;
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -38,7 +37,7 @@ public class User implements java.io.Serializable {
 		this.userRole = userRole;
 	}
 
-	public User(String userPhone, Serializable userName, String userEmail, String userPassword, boolean userRole,
+	public User(String userPhone, String userName, String userEmail, String userPassword, boolean userRole,
 			Set<Bill> bills) {
 		this.userPhone = userPhone;
 		this.userName = userName;
@@ -60,11 +59,11 @@ public class User implements java.io.Serializable {
 	}
 
 	@Column(name = "user_name", nullable = false)
-	public Serializable getUserName() {
+	public String getUserName() {
 		return this.userName;
 	}
 
-	public void setUserName(Serializable userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 

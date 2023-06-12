@@ -39,9 +39,11 @@
                         Mã
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=true">Tăng
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-category/search?name=categoryId&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-category/sort?name=categoryId&sort=false">Giảm
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-category/search?name=categoryId&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
@@ -52,10 +54,10 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item"
-                                href="/admin/manager-category/sort?name=categoryName&sort=true">Tăng
+                                href="/admin/manager-category/search?name=categoryName&sort=true">Tăng
                                 dần</a></li>
                         <li><a class="dropdown-item"
-                                href="/admin/manager-category/sort?name=categoryName&sort=false">Giảm
+                                href="/admin/manager-category/search?name=categoryName&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>

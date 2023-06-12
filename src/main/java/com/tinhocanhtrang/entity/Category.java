@@ -1,7 +1,7 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

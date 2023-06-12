@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.hibernate.annotations.Nationalized;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -88,6 +91,7 @@ public class Product implements Serializable {
 	}
 
 	@Column(name = "product_name", nullable = false)
+	@Nationalized
 	public String getProductName() {
 		return this.productName;
 	}
