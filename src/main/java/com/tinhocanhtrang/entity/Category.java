@@ -1,7 +1,7 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,11 +17,11 @@ import lombok.ToString;
 @Entity
 @Table(name = "CATEGORY", schema = "dbo", catalog = "THAT")
 @ToString
-public class Category implements java.io.Serializable {
+public class Category {
 
 	private String categoryId;
 	private String categoryName;
-	private Set<Product> products = new HashSet<Product>(0);
+	private List<Product> products;
 
 	public Category() {
 	}
@@ -31,7 +31,7 @@ public class Category implements java.io.Serializable {
 		this.categoryName = categoryName;
 	}
 
-	public Category(String categoryId, String categoryName, Set<Product> products) {
+	public Category(String categoryId, String categoryName, List<Product> products) {
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
 		this.products = products;
@@ -58,11 +58,11 @@ public class Category implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	public Set<Product> getProducts() {
+	public List<Product> getProducts() {
 		return this.products;
 	}
 
-	public void setProducts(Set<Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 

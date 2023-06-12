@@ -39,9 +39,9 @@
                         Mã
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specId&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specId&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specId&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specId&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
@@ -51,9 +51,9 @@
                         Key
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specKey&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specKey&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specKey&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specKey&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>
@@ -63,9 +63,9 @@
                         Giá trị
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specValue&sort=true">Tăng
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specValue&sort=true">Tăng
                                 dần</a></li>
-                        <li><a class="dropdown-item" href="/admin/manager-spec/sort?name=specValue&sort=false">Giảm
+                        <li><a class="dropdown-item" href="/admin/manager-spec/search?name=specValue&sort=false">Giảm
                                 dần</a></li>
                     </ul>
                 </div>

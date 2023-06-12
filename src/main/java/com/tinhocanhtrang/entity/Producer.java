@@ -1,10 +1,12 @@
 package com.tinhocanhtrang.entity;
 // Generated Jun 8, 2023, 11:31:01 PM by Hibernate Tools 4.3.6.Final
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.hibernate.annotations.Nationalized;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,15 +25,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "PRODUCER", schema = "dbo", catalog = "THAT")
-public class Producer implements Serializable {
+public class Producer {
 
 	private String producerId;
 	private String producerEmail;
 	private String producerName;
 	private String producerPhone;
-	private List<Product> products ;
-
-	
+	private List<Product> products;
 
 	public Producer(String producerId, String producerEmail, String producerName, String producerPhone) {
 		this.producerId = producerId;
@@ -39,8 +39,6 @@ public class Producer implements Serializable {
 		this.producerName = producerName;
 		this.producerPhone = producerPhone;
 	}
-
-	
 
 	@Id
 	@Column(name = "producer_id", unique = true, nullable = false, length = 30)
@@ -62,6 +60,7 @@ public class Producer implements Serializable {
 	}
 
 	@Column(name = "producer_name", nullable = false)
+	@Nationalized
 	public String getProducerName() {
 		return this.producerName;
 	}

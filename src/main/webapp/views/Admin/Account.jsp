@@ -21,7 +21,7 @@
                     <jsp:include page="layout/sidebar.jsp"></jsp:include>
                 </div>
                 <main class="col-md-9 col-lg- ms-sm-auto px-md-4">
-                    <jsp:include page="form/formSpec.jsp"></jsp:include>
+                    <jsp:include page="form/formAccount.jsp"></jsp:include>
                 </main>
             </div>
         </div>

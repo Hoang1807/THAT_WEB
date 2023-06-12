@@ -5,6 +5,32 @@ if ($("#specs").length > 0) {
 
 // start Jquery
 $(document).ready(function () {
+  // showpassword form dangnhap
+  $(".btn-show-pw").on("click", "i", function () {
+    if (!$(this).hasClass("bi-eye-slash")) {
+      $(this)
+        .toggleClass("bi-eye bi-eye-slash")
+        .closest("div")
+        .children("input")
+        .prop("type", "password");
+    } else {
+      $(this)
+        .toggleClass("bi-eye bi-eye-slash")
+        .closest("div")
+        .children("input")
+        .prop("type", "text");
+    }
+  });
+
+  // change icon showpassword
+  $(".btn-show-pw")
+    .on("mouseenter", function () {
+      $(this).toggleClass("d-block");
+    })
+    .on("mouseleave", function () {
+      $(this).toggleClass("d-none");
+    });
+
   // validate phone
   $.validator.addMethod(
     "phone",
@@ -58,51 +84,6 @@ $(document).ready(function () {
     },
   });
 
-  //validate form producer
-  $("#form-nsx").validate({
-    errorClass: "error fail-alert",
-    validClass: "valid success-alert",
-    rules: {
-      producerId: {
-        required: true,
-        noSpace: true,
-      },
-      producerName: {
-        required: true,
-        maxlength: 50,
-      },
-      producerEmail: {
-        required: true,
-        email: true,
-        noSpace: true,
-      },
-      producerPhone: {
-        required: true,
-        phone: true,
-      },
-    },
-    messages: {
-      producerId: {
-        required: "Vui lòng nhập mã nsx",
-      },
-      producerName: {
-        required: "Vui lòng nhập tên",
-        maxlength: "Vui lòng nhập dưới 50 kí tự",
-      },
-      producerEmail: {
-        required: "vui lòng nhập email",
-      },
-      producerPhone: {
-        required: "Vui lòng nhập số điện thoại",
-        maxlength: "vui lòng dưới 10 ký tự",
-      },
-      categoryName: {
-        required: "Vui lòng nhập tên",
-        minlength: "vui lòng nhập dưới 50 kí tự",
-      },
-    },
-  });
-
   // submit form category
   $("#form-loai").on("submit", function (event) {
     event.preventDefault();
@@ -128,7 +109,7 @@ $(document).ready(function () {
                   3000
                 );
                 // if click update
-                $("#btn-update-cate").on("click", function () {
+                $("#btn-update").on("click", function () {
                   $.ajax({
                     url: "/admin/manager-category/create",
                     method: "POST",
@@ -280,7 +261,7 @@ $(document).ready(function () {
                     "Cặp giá trị này đã tồn tại. Bạn muốn cập nhật?",
                     1000
                   );
-                  $("#btn-update-spec").on("click", function () {
+                  $("#btn-update").on("click", function () {
                     $.ajax({
                       url: "/admin/manager-spec/create",
                       method: "POST",
@@ -376,12 +357,180 @@ $(document).ready(function () {
     }
   });
 
-   // submit form producer
-  $("#form-nsx").on("submit", function (event) {
+  // validate form account
+  $("#form-account").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      userPhone: {
+        required: true,
+        phone: true,
+      },
+      userName: {
+        required: true,
+        maxlength: 50,
+        minlength: 6,
+      },
+      userEmail: {
+        required: true,
+        email: true,
+      },
+      userPassword: {
+        required: true,
+        maxlength: 50,
+        minlength: 6,
+      },
+    },
+    messages: {
+      userPhone: {
+        required: "Vui lòng nhập sô điện thoại",
+      },
+      userName: {
+        required: "Vui lòng nhập họ tên",
+        maxlength: "Vui lòng nhập dưới 50 kí tự",
+        minlength: "Vui lòng nhập trên 6 kí tự",
+      },
+      userEmail: {
+        required: "Vui lòng nhập email",
+      },
+      userPassword: {
+        required: "Vui lòng nhập password",
+        maxlength: "Vui lòng nhập dưới 60 kí tự",
+        minlength: "Vui lòng nhập trên 6 kí tự",
+      },
+    },
+  });
+
+  // submit form account
+  $("#form-account").on("submit", function (event) {
+    event.preventDefault();
+    if ($(this).valid()) {
+      //   ajax create form spec
+      if (event.originalEvent.submitter.innerText == "Add") {
+        $("#btn-addAccount").on("click", function () {
+          // wait for toast
+          $("#form-account button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/manager-account/check",
+            method: "POST",
+            data: {
+              userPhone: $("#form-account input[name='userPhone']").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (resultText) {
+                bootstrapToast(
+                  "#toast-update",
+                  "Tài khoản đã tồn tại. Bạn muốn cập nhật?",
+                  3000
+                );
+                // if click update
+                $("#btn-update").on("click", function () {
+                  $.ajax({
+                    url: "/admin/manager-account/create",
+                    method: "POST",
+                    data: {
+                      userPhone: $(
+                        "#form-account input[name='userPhone']"
+                      ).val(),
+                      userName: $("#form-account input[name='userName']").val(),
+                      userEmail: $(
+                        "#form-account input[name='userEmail']"
+                      ).val(),
+                      userPassword: $(
+                        "#form-account input[name='userPassword']"
+                      ).val(),
+                      userRole: $("#form-account #Admin").prop("checked"),
+                    },
+                    success: function () {
+                      location.reload();
+                    },
+                  });
+                });
+                $("#form-account button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/manager-account/create",
+                  method: "POST",
+                  data: {
+                    userPhone: $("#form-account input[name='userPhone']").val(),
+                    userName: $("#form-account input[name='userName']").val(),
+                    userEmail: $("#form-account input[name='userEmail']").val(),
+                    userPassword: $(
+                      "#form-account input[name='userPassword']"
+                    ).val(),
+                    userRole: $("#form-account #Admin").prop("checked"),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã thêm thành công.",
+                      2000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 2000);
+                  },
+                });
+              }
+            },
+          });
+        });
+        $("#btn-addAccount").trigger("click");
+        //   ajax delete form category
+      }
+    }
+  });
+
+  //validate form producer
+  $("#form-producer").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      producerId: {
+        required: true,
+        maxlength: 30,
+        noSpace: true,
+      },
+      producerName: {
+        required: true,
+        maxlength: 50,
+      },
+      producerEmail: {
+        required: true,
+        email: true,
+        noSpace: true,
+      },
+      producerPhone: {
+        required: true,
+        phone: true,
+      },
+    },
+    messages: {
+      producerId: {
+        required: "Vui lòng nhập mã nhà sản xuất",
+        maxlength: "Vui lòng nhập dưới 30 kí tự",
+      },
+      producerName: {
+        required: "Vui lòng nhập tên",
+        maxlength: "Vui lòng nhập dưới 50 kí tự",
+      },
+      producerEmail: {
+        required: "vui lòng nhập email",
+      },
+      producerPhone: {
+        required: "Vui lòng nhập số điện thoại",
+        maxlength: "vui lòng dưới 10 ký tự",
+      },
+    },
+  });
+
+  // submit form producer
+  $("#form-producer").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
       if (event.originalEvent.submitter.innerText == "Add") {
-        //   ajax create form category
+        //   ajax create form producer
         $("#btn-saveProducer").on("click", function () {
           // wait for toast
           $("#form-nsx button").attr("disabled", true);
@@ -389,10 +538,16 @@ $(document).ready(function () {
             url: "/admin/producer/check",
             method: "POST",
             data: {
-              producerId: $("#form-nsx input[name='producerId'").val(),
-              producerName: $("input[name='producerName'").val(),
-              producerEmail: $("input[name='producerEmail'").val(),
-              producerPhone: $("input[name='producerPhone'").val(),
+              producerId: $("#form-producer input[name='producerId']").val(),
+              producerName: $(
+                "#form-producer input[name='producerName']"
+              ).val(),
+              producerEmail: $(
+                "#form-producer input[name='producerEmail']"
+              ).val(),
+              producerPhone: $(
+                "#form-producer input[name='producerPhone'"
+              ).val(),
             },
             success: function (resultText) {
               // show Toast
@@ -403,7 +558,7 @@ $(document).ready(function () {
                   3000
                 );
                 // if click update
-                $("#btn-update-cate").on("click", function () {
+                $("#btn-update").on("click", function () {
                   $.ajax({
                     url: "/admin/producer/save",
                     method: "POST",
@@ -418,7 +573,7 @@ $(document).ready(function () {
                     },
                   });
                 });
-                $("#form-nsx button").attr("disabled", false);
+                $("#form-producer button").attr("disabled", false);
               } else {
                 $.ajax({
                   url: "/admin/producer/save",

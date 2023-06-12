@@ -10,11 +10,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.hibernate.annotations.Nationalized;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -76,6 +80,7 @@ public class Product implements Serializable {
 	}
 
 	@Column(name = "product_name", nullable = false)
+	@Nationalized
 	public String getProductName() {
 		return this.productName;
 	}
@@ -111,7 +116,10 @@ public class Product implements Serializable {
 		this.billDetails = billDetails;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "products")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SPEC_DETAIL", schema = "dbo", catalog = "THAT", joinColumns = {
+	        @JoinColumn(name = "product_id", nullable = false, updatable = false) },
+	        inverseJoinColumns = { @JoinColumn(name = "spec_id", nullable = false, updatable = false) })
 	public List<Spec> getSpecs() {
 		return this.specs;
 	}

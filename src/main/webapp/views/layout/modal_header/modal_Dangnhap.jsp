@@ -51,7 +51,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="dangky">
-                                <form action="" id="form-dangky" method="POST">
+                                <form id="form-dangky" method="POST">
                                     <div class="mb-3">
                                         <input type="text" name="userPhone"
                                             class="form-control border-0 border-bottom border-danger rounded-0"
