@@ -28,28 +28,28 @@ public class CartController {
 		return "cart";
 	}
 
-	@RequestMapping("/cart/add/{id}")
-	public String add(@PathVariable(value = "id") String id) {
+	@RequestMapping("/cart/add")
+	public String add(@RequestParam("prid") String id) {
 		cart.add(id);
-		return "redirect:/cart/view";
+		return "redirect:/cart/index";
 	}
 
-	@RequestMapping("/cart/remove/{id}")
-	public String remove(@PathVariable("id") Integer id) {
+	@RequestMapping("/cart/remove")
+	public String remove(@RequestParam("prid") Integer id) {
 		cart.remove(id);
-		return "redirect:/cart/view";
+		return "redirect:/cart/index";
 	}
 
-	@RequestMapping("/cart/update/{id}")
-	public String update(@PathVariable("id") Integer id, @RequestParam("qty") Integer qty) {
+	@RequestMapping("/cart/update")
+	public String update(@RequestParam("prid") Integer id, @RequestParam("qty") Integer qty) {
 		cart.update(id, qty);
-		return "redirect:/cart/view";
+		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/clear")
 	public String clear() {
 		cart.clear();
-		return "redirect:/cart/view";
+		return "redirect:/cart/index";
 	}
 
 }

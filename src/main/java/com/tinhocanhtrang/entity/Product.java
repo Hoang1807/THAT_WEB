@@ -41,9 +41,6 @@ public class Product implements Serializable {
 	private List<BillDetail> billDetails;
 	private List<Spec> specs;
 	private List<Image> images;
-	
-	
-	
 
 	@Id
 	@Column(name = "product_id", unique = true, nullable = false, length = 20)

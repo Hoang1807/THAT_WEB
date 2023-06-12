@@ -101,7 +101,8 @@
                                                     VND</span>
                                             </div>
                                             <hr>
-                                            <div class="mb-3 d-grid">
+                                            <div class="mb-3 d-grid"> 
+                                                <form action="/cart/add?prid=${pro.productId}" method="post"></form>
                                                 <button id="btn-login" class="btn text-bg-danger text-uppercase p-2">
                                                     Thêm vào giỏ hàng
                                                 </button>
