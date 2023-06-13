@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tinhocanhtrang.entity.Category;
+
 import com.tinhocanhtrang.entity.Producer;
 import com.tinhocanhtrang.repository.ProducerRepository;
 import com.tinhocanhtrang.service.SessionService;
