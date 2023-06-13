@@ -26,14 +26,14 @@ import com.tinhocanhtrang.service.ShoppingCartService;
 public class CartController {
 	List<Product> carts = new ArrayList<>();
 
-	@Autowired
-	ProductRepository productRepository;
-
 	@Autowired 
 	SessionService session;
 
-	// @Autowired
-	// ShoppingCartService cart;
+	@Autowired
+	ShoppingCartService cart;
+
+	@Autowired
+	ProductRepository productRepository;
 	
 	// Collection<Object> carts = session.getAll("ShoppingCartService");
 
@@ -44,7 +44,7 @@ public class CartController {
 
 	@RequestMapping("/cart/index")
 	public String view(Model model) {
-		model.addAttribute("cart", carts);
+		model.addAttribute("cart", cart);
 		// model.addAttribute(getHome(), model)
 		return "cart/index";
 	}
@@ -53,41 +53,29 @@ public class CartController {
 	public String add(@RequestParam("prid") String id) {
 		// System.out.println(id);
 		// cart.add(id);
-		Product pro = productRepository.findById(id).get();
+		Product pro = productRepository.findProdById(id);
+		// System.out.println(pro);
 		carts.add(pro);
-		// System.out.println(cart +"done");
+		// System.out.println(carts.get(0) +"done");
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/remove")
 	public String remove(@RequestParam("prid") Integer id) {
-		// carts.remove(id);
+		cart.remove(id);
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/update")
 	public String update(@RequestParam("prid") Integer id, @RequestParam("qty") Integer qty) {
-		// carts.update(id, qty);
+		cart.update(id, qty);
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/clear")
 	public String clear() {
-		// carts.clear();
+		cart.clear();
 		return "redirect:/cart/index";
 	}
-
-	// Product findProdById(String id){
-	// 	for (Product product : carts) {
-	// 		if(product.getProductId().equals(id)){
-	// 			int proQuantity = product.getProductQuantity() + 1;
-	// 			product.setProductQuantity(proQuantity);
-	// 			return product;
-	// 		}else{
-	// 			return product;
-	// 		}
-	// 	}
-	// 	return product;
-	// }
 
 }
