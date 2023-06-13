@@ -4,23 +4,23 @@ if ($("#specs").length > 0) {
 }
 //
 function loadFiles(event) {
-  $('#carousel-cell').empty();
+  $("#carousel-cell").empty();
   var files = event.target.files;
-  var output = document.getElementById('carousel-cell');
+  var output = document.getElementById("carousel-cell");
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var imageUrl = URL.createObjectURL(file);
-    var img = document.createElement('img');
+    var img = document.createElement("img");
     img.src = imageUrl;
-    img.setAttribute('class', 'anhyeu me-1');
-    img.alt = 'Preview Image';
-    img.width = '200';
-    img.height = '200';
-    output.append(img)
+    img.setAttribute("class", "anhyeu me-1");
+    img.alt = "Preview Image";
+    img.width = "200";
+    img.height = "200";
+    output.append(img);
   }
 }
-function editProduct(id){
-  $('input#productId').val(id).reload();
+function editProduct(id) {
+  $("input#productId").val(id).reload();
 }
 // start Jquery
 $(document).ready(function () {
@@ -576,7 +576,7 @@ $(document).ready(function () {
                       location.reload();
                     }, 2000);
                   },
-                  error: function (jqXHR, textStatus) { },
+                  error: function (jqXHR, textStatus) {},
                 });
               }
             },
@@ -693,24 +693,19 @@ $("#form-product").on("submit", function (event) {
           productQuantity: $("input[name='productQuantity']").val(),
           productPrice: $("input[name='productPrice']").val(),
           specs: $("select[name='specs']").val(),
-          
         },
         success: function (resultText) {
-          console.log(productId)
-          console.log(category)
-          console.log(producer)
-          console.log(productName)
-          console.log(productQuantity)
-          console.log(productPrice)
-          console.log(specs)
+          console.log(productId);
+          console.log(category);
+          console.log(producer);
+          console.log(productName);
+          console.log(productQuantity);
+          console.log(productPrice);
+          console.log(specs);
 
-          bootstrapToast(
-            "#toast-success",
-            "Bạn đã thêm thành công.",
-            2000
-          )
-          }
-        }
-      )}
-  )}
+          bootstrapToast("#toast-success", "Bạn đã thêm thành công.", 2000);
+        },
+      });
+    });
+  }
 });
