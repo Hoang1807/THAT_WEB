@@ -53,23 +53,23 @@ public class AccountController {
 	public String getManagerAccount_Search(@RequestParam("search") Optional<String> kw,
 			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = kw.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
+		String kwords = kw.orElse(sessionService.get("keywordsAccount"));
+		sessionService.set("keywordsAccount", kwords);
 
-		Integer pe = p.orElse(sessionService.get("page"));
-		sessionService.set("page", pe);
+		Integer pe = p.orElse(sessionService.get("pageAccount"));
+		sessionService.set("pageAccount", pe);
 		if (pe == null) {
 			pe = 0;
 		}
 
-		Boolean sort = s.orElse(sessionService.get("sort"));
-		sessionService.set("sort", sort);
+		Boolean sort = s.orElse(sessionService.get("sortAccount"));
+		sessionService.set("sortAccount", sort);
 		if (sort == null) {
 			sort = true;
 		}
 
-		String name = n.orElse(sessionService.get("name"));
-		sessionService.set("name", name);
+		String name = n.orElse(sessionService.get("nameAccount"));
+		sessionService.set("nameAccount", name);
 		if (name == null) {
 			name = "userName";
 		}
@@ -78,7 +78,7 @@ public class AccountController {
 		Page<User> page = userRepository.findByUserNameContainingOrUserEmailContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listAccount", page);
-		model.addAttribute("search", kwords);
+		model.addAttribute("searchAccount", kwords);
 		return "Admin/Account";
 	}
 
@@ -86,10 +86,8 @@ public class AccountController {
 	public @ResponseBody boolean getManagerAccount_Check(User account) {
 		account.setUserPhone(securityService.sha256(account.getUserPhone()));
 		if (userRepository.existsByUserPhone(account.getUserPhone())) {
-			System.out.println("true");
 			return true;
 		} else {
-			System.out.println("false");
 			return false;
 		}
 	}

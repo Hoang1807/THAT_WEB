@@ -56,23 +56,23 @@ public class CategoryController {
 	public String getManagerCategory_Search(@RequestParam("search") Optional<String> kw,
 			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = kw.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
+		String kwords = kw.orElse(sessionService.get("keywordsCate"));
+		sessionService.set("keywordsCate", kwords);
 
-		Integer pe = p.orElse(sessionService.get("page"));
-		sessionService.set("page", pe);
+		Integer pe = p.orElse(sessionService.get("pageCate"));
+		sessionService.set("pageCate", pe);
 		if (pe == null) {
 			pe = 0;
 		}
 
-		Boolean sort = s.orElse(sessionService.get("sort"));
-		sessionService.set("sort", sort);
+		Boolean sort = s.orElse(sessionService.get("sortCate"));
+		sessionService.set("sortCate", sort);
 		if (sort == null) {
 			sort = true;
 		}
 
-		String name = n.orElse(sessionService.get("name"));
-		sessionService.set("name", name);
+		String name = n.orElse(sessionService.get("nameCate"));
+		sessionService.set("nameCate", name);
 		if (name == null) {
 			name = "categoryName";
 		}
@@ -81,7 +81,7 @@ public class CategoryController {
 		Page<Category> page = categoryRepository.findByCategoryNameContainingOrCategoryIdContaining(
 				(kwords == null ? "" : kwords), (kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listCate", page);
-		model.addAttribute("search", kwords);
+		model.addAttribute("searchCate", kwords);
 		return "Admin/Category";
 	}
 
