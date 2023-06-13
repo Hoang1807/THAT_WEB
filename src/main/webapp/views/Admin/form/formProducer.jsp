@@ -38,7 +38,7 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h5 class="text-capitalize">Danh sách nhà sản xuất</h5>
             <form class="input-group order-1 order-md-0" action="/admin/manager-producer/search" id="searchDataTable"
-                autocomplete="off" ng-init="search = '${search}'">
+                autocomplete="off" ng-init="search = '${searchProducer}'">
                 <input type="text" id="searchProducer" ng-model="search" class="form-control shadow-none" name="search"
                     placeholder="Tìm kiếm">
                 <button class="btn btn-sm btn-outline-secondary"> <i class="bi bi-search"></i></button>
@@ -64,8 +64,10 @@
                         Tên
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">A->Z</a></li>
-                        <li><a class="dropdown-item" href="#">Z->A</a></li>
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-producer/search?name=producerName&sort=true">Tăng dần</a></li>
+                        <li><a class="dropdown-item"
+                                href="/admin/manager-producer/search?name=producerName&sort=false">Giảm dần</a></li>
                     </ul>
                 </div>
             </div>
