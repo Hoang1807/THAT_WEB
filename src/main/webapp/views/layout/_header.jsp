@@ -158,14 +158,14 @@
 													<div class="main-child__item col">
 														<span class="fw-bold d-block py-1">CPU - bộ vi sử lý</span>
 														<div class="list-group list-group-flush">
-															<a href="/product/category?cate=CPU01&pro=Intel" class="list-group-item border-0 px-0 py-2">
-																Intel
-																thế hệ
-																13 </a>
-															<a href="/product/category?cate=CPU01&pro=AMD" class="list-group-item border-0 px-0 py-2">
-																Intel
-																thế hệ
-																12 </a>
+															<a href="/product/category?cate=CPU01&pro=Intel"
+																class="list-group-item border-0 px-0 py-2">
+																Intel thế hệ 13
+															</a>
+															<a href="/product/category?cate=CPU01&pro=AMD"
+																class="list-group-item border-0 px-0 py-2">
+																Intel thế hệ 12
+															</a>
 														</div>
 													</div>
 													<div class="main-child__item col">
@@ -173,8 +173,7 @@
 															chủ</span>
 														<div class="list-group list-group-flush">
 															<a href="#" class="list-group-item border-0 px-0 py-2">
-																Mainboard
-																Intel </a>
+																Mainboard Intel </a>
 															<a href="#" class="list-group-item border-0 px-0 py-2">
 																Mainboard
 																AMD </a>
@@ -198,15 +197,18 @@
 													<div class="main-child__item col">
 														<span class="fw-bold d-block py-1">laptop theo hãng</span>
 														<div class="list-group list-group-flush">
-															<a href="/product/category?cate=LT01&pro=Acer" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=LT01&pro=Acer"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																13 </a>
-															<a href="/product/category?cate=LT01&pro=Lenovo" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=LT01&pro=Lenovo"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																12 </a>
-															<a href="/product/category?cate=LT01&pro=Gigabyte" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=LT01&pro=Gigabyte"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																11 </a>
@@ -230,15 +232,18 @@
 													<div class="main-child__item col">
 														<span class="fw-bold d-block py-1">CPU - bộ vi sử lý</span>
 														<div class="list-group list-group-flush">
-															<a href="/product/category?cate=RAM01&pro=Samsung" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=RAM01&pro=Samsung"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																13 </a>
-															<a href="/product/category?cate=RAM01&pro=Corsair" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=RAM01&pro=Corsair"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																12 </a>
-															<a href="/product/category?cate=RAM01&pro=Kingston" class="list-group-item border-0 px-0 py-2">
+															<a href="/product/category?cate=RAM01&pro=Kingston"
+																class="list-group-item border-0 px-0 py-2">
 																Intel
 																thế hệ
 																11 </a>

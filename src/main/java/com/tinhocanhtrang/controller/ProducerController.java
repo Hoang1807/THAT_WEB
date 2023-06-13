@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tinhocanhtrang.entity.Category;
+
 import com.tinhocanhtrang.entity.Producer;
 import com.tinhocanhtrang.repository.ProducerRepository;
 import com.tinhocanhtrang.service.SessionService;
@@ -55,23 +55,23 @@ public class ProducerController {
 	public String getManagerProducer_Search(@RequestParam("search") Optional<String> kw,
 			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = kw.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
+		String kwords = kw.orElse(sessionService.get("keywordsProducer"));
+		sessionService.set("keywordsProducer", kwords);
 
-		Integer pe = p.orElse(sessionService.get("page"));
-		sessionService.set("page", pe);
+		Integer pe = p.orElse(sessionService.get("pageProducer"));
+		sessionService.set("pageProducer", pe);
 		if (pe == null) {
 			pe = 0;
 		}
 
-		Boolean sort = s.orElse(sessionService.get("sort"));
-		sessionService.set("sort", sort);
+		Boolean sort = s.orElse(sessionService.get("sortProducer"));
+		sessionService.set("sortProducer", sort);
 		if (sort == null) {
 			sort = true;
 		}
 
-		String name = n.orElse(sessionService.get("name"));
-		sessionService.set("name", name);
+		String name = n.orElse(sessionService.get("nameProducer"));
+		sessionService.set("nameProducer", name);
 		if (name == null) {
 			name = "producerId";
 		}
@@ -80,7 +80,7 @@ public class ProducerController {
 		Page<Producer> page = producerRepository.findByProducerNameContainingOrProducerIdContaining(
 				(kwords == null ? "" : kwords), (kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listProducer", page);
-		model.addAttribute("search", kwords);
+		model.addAttribute("searchProducer", kwords);
 		return "Admin/Producer";
 	}
 

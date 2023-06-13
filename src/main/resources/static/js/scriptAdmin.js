@@ -10,17 +10,17 @@ function loadFiles(event) {
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var imageUrl = URL.createObjectURL(file);
-    var img = document.createElement('img');
+    var img = document.createElement("img");
     img.src = imageUrl;
-    img.setAttribute('class', 'anhyeu me-1');
-    img.alt = 'Preview Image';
-    img.width = '200';
-    img.height = '200';
-    output.append(img)
+    img.setAttribute("class", "anhyeu me-1");
+    img.alt = "Preview Image";
+    img.width = "200";
+    img.height = "200";
+    output.append(img);
   }
 }
-function editProduct(event,){
-  $ajax()
+function editProduct(id) {
+  $("input#productId").val(id).reload();
 }
 // start Jquery
 $(document).ready(function () {
@@ -376,8 +376,241 @@ $(document).ready(function () {
     }
   });
 
+  //validate form producer
+  $("#form-producer").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      producerId: {
+        required: true,
+        maxlength: 30,
+        noSpace: true,
+      },
+      producerName: {
+        required: true,
+        maxlength: 50,
+      },
+      producerEmail: {
+        required: true,
+        email: true,
+        noSpace: true,
+      },
+      producerPhone: {
+        required: true,
+        phone: true,
+      },
+    },
+    messages: {
+      producerId: {
+        required: "Vui lòng nhập mã nhà sản xuất",
+        maxlength: "Vui lòng nhập dưới 30 kí tự",
+      },
+      producerName: {
+        required: "Vui lòng nhập tên",
+        maxlength: "Vui lòng nhập dưới 50 kí tự",
+      },
+      producerEmail: {
+        required: "vui lòng nhập email",
+      },
+      producerPhone: {
+        required: "Vui lòng nhập số điện thoại",
+        maxlength: "vui lòng dưới 10 ký tự",
+      },
+    },
+  });
+
   // submit form producer
-  $("#form-nsx").on("submit", function (event) {
+  $("#form-producer").on("submit", function (event) {
+    event.preventDefault();
+    if ($(this).valid()) {
+      if (event.originalEvent.submitter.innerText == "Add") {
+        //   ajax create form producer
+        $("#btn-saveProducer").on("click", function () {
+          // wait for toast
+          $("#form-producer button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/producer/check",
+            method: "POST",
+            data: {
+              producerId: $("#form-producer input[name='producerId']").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (resultText) {
+                bootstrapToast(
+                  "#toast-update",
+                  "Mã này đã tồn tại. Bạn muốn cập nhật?",
+                  3000
+                );
+                // if click update
+                $("#btn-update").on("click", function () {
+                  $.ajax({
+                    url: "/admin/manager-producer/create",
+                    method: "POST",
+                    data: {
+                      producerId: $(
+                        "#form-producer input[name='producerId']"
+                      ).val(),
+                      producerName: $(
+                        "#form-producer input[name='producerName'"
+                      ).val(),
+                      producerEmail: $(
+                        "#form-producer input[name='producerEmail'"
+                      ).val(),
+                      producerPhone: $(
+                        "#form-producer input[name='producerPhone'"
+                      ).val(),
+                    },
+                    success: function () {
+                      location.reload();
+                    },
+                  });
+                });
+                $("#form-producer button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/manager-producer/create",
+                  method: "POST",
+                  data: {
+                    producerId: $(
+                      "#form-producer input[name='producerId']"
+                    ).val(),
+                    producerName: $(
+                      "#form-producer input[name='producerName'"
+                    ).val(),
+                    producerEmail: $(
+                      "#form-producer input[name='producerEmail'"
+                    ).val(),
+                    producerPhone: $(
+                      "#form-producer input[name='producerPhone'"
+                    ).val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã thêm thành công.",
+                      3000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 2000);
+                  },
+                });
+              }
+            },
+          });
+        });
+        $("#btn-saveProducer").trigger("click");
+      } else if (event.originalEvent.submitter.innerText == "Delete") {
+        $("#btn-deleteProducer").on("click", function () {
+          $("#form-producer button").attr("disabled", true);
+          $.ajax({
+            url: "/admin/producer/check",
+            method: "POST",
+            data: {
+              producerId: $("#form-producer input[name='producerId']").val(),
+            },
+            success: function (resultText) {
+              // show Toast
+              if (!resultText) {
+                bootstrapToast(
+                  "#toast-warning",
+                  "Mã vừa nhập không có trông hệ thống",
+                  1000
+                );
+                $("#form-producer button").attr("disabled", false);
+              } else {
+                $.ajax({
+                  url: "/admin/manager-producer/delete",
+                  method: "POST",
+                  data: {
+                    producerId: $(
+                      "#form-producer input[name='producerId']"
+                    ).val(),
+                    producerName: $(
+                      "#form-producer input[name='producerName'"
+                    ).val(),
+                    producerEmail: $(
+                      "#form-producer input[name='producerEmail'"
+                    ).val(),
+                    producerPhone: $(
+                      "#form-producer input[name='producerPhone'"
+                    ).val(),
+                  },
+                  success: function (resultText) {
+                    bootstrapToast(
+                      "#toast-success",
+                      "Bạn đã xóa thành công.",
+                      2000
+                    );
+                    setTimeout(function () {
+                      location.reload();
+                    }, 1000);
+                  },
+                  error: function (resultText) {
+                    bootstrapToast(
+                      "#toast-warning",
+                      "Thông số này đã liên kết một số sản phẩm không thể xóa!",
+                      2000
+                    );
+                  },
+                });
+                $("#form-producer button").attr("disabled", false);
+              }
+            },
+          });
+        });
+        $("#btn-deleteProducer").trigger("click");
+      }
+    }
+  });
+
+  // validate form account
+  $("#form-account").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+      userPhone: {
+        required: true,
+        phone: true,
+      },
+      userName: {
+        required: true,
+        maxlength: 50,
+        minlength: 6,
+      },
+      userEmail: {
+        required: true,
+        email: true,
+      },
+      userPassword: {
+        required: true,
+        maxlength: 50,
+        minlength: 6,
+      },
+    },
+    messages: {
+      userPhone: {
+        required: "Vui lòng nhập sô điện thoại",
+      },
+      userName: {
+        required: "Vui lòng nhập họ tên",
+        maxlength: "Vui lòng nhập dưới 50 kí tự",
+        minlength: "Vui lòng nhập trên 6 kí tự",
+      },
+      userEmail: {
+        required: "Vui lòng nhập email",
+      },
+      userPassword: {
+        required: "Vui lòng nhập password",
+        maxlength: "Vui lòng nhập dưới 60 kí tự",
+        minlength: "Vui lòng nhập trên 6 kí tự",
+      },
+    },
+  });
+
+  // submit form account
+  $("#form-account").on("submit", function (event) {
     event.preventDefault();
     if ($(this).valid()) {
       //   ajax create form spec
@@ -457,195 +690,6 @@ $(document).ready(function () {
     }
   });
 
-  //validate form producer
-  $("#form-producer").validate({
-    errorClass: "error fail-alert",
-    validClass: "valid success-alert",
-    rules: {
-      producerId: {
-        required: true,
-        maxlength: 30,
-        noSpace: true,
-      },
-      producerName: {
-        required: true,
-        maxlength: 50,
-      },
-      producerEmail: {
-        required: true,
-        email: true,
-        noSpace: true,
-      },
-      producerPhone: {
-        required: true,
-        phone: true,
-      },
-    },
-    messages: {
-      producerId: {
-        required: "Vui lòng nhập mã nhà sản xuất",
-        maxlength: "Vui lòng nhập dưới 30 kí tự",
-      },
-      producerName: {
-        required: "Vui lòng nhập tên",
-        maxlength: "Vui lòng nhập dưới 50 kí tự",
-      },
-      producerEmail: {
-        required: "vui lòng nhập email",
-      },
-      producerPhone: {
-        required: "Vui lòng nhập số điện thoại",
-        maxlength: "vui lòng dưới 10 ký tự",
-      },
-    },
-  });
-
-  // submit form producer
-  $("#form-producer").on("submit", function (event) {
-    event.preventDefault();
-    if ($(this).valid()) {
-      if (event.originalEvent.submitter.innerText == "Add") {
-        //   ajax create form producer
-        $("#btn-saveProducer").on("click", function () {
-          // wait for toast
-          $("#form-nsx button").attr("disabled", true);
-          $.ajax({
-            url: "/admin/producer/check",
-            method: "POST",
-            data: {
-              producerId: $("#form-producer input[name='producerId']").val(),
-            },
-            success: function (resultText) {
-              // show Toast
-              if (resultText) {
-                bootstrapToast(
-                  "#toast-update",
-                  "Mã này đã tồn tại. Bạn muốn cập nhật?",
-                  3000
-                );
-                // if click update
-                $("#btn-update").on("click", function () {
-                  $.ajax({
-                    url: "/admin/manager-producer/create",
-                    method: "POST",
-                    data: {
-                      producerId: $(
-                        "#form-producer input[name='producerId']"
-                      ).val(),
-                      producerName: $(
-                        "#form-producer input[name='producerName'"
-                      ).val(),
-                      producerEmail: $(
-                        "#form-producer input[name='producerEmail'"
-                      ).val(),
-                      producerPhone: $(
-                        "#form-producer input[name='producerPhone'"
-                      ).val(),
-                    },
-                    success: function () {
-                      location.reload();
-                    },
-                  });
-                });
-                $("#form-producer button").attr("disabled", false);
-              } else {
-                $.ajax({
-                  url: "/admin/manager-producer/create",
-                  method: "POST",
-                  data: {
-                    producerId: $(
-                      "#form-producer input[name='producerId']"
-                    ).val(),
-                    producerName: $(
-                      "#form-producer input[name='producerName'"
-                    ).val(),
-                    producerEmail: $(
-                      "#form-producer input[name='producerEmail'"
-                    ).val(),
-                    producerPhone: $(
-                      "#form-producer input[name='producerPhone'"
-                    ).val(),
-                  },
-                  success: function (resultText) {
-                    bootstrapToast(
-                      "#toast-success",
-                      "Bạn đã thêm thành công.",
-                      3000
-                    );
-                    setTimeout(function () {
-                      location.reload();
-                    }, 2000);
-                  },
-                  error: function (jqXHR, textStatus) { },
-                });
-              }
-            },
-          });
-        });
-        $("#btn-saveProducer").trigger("click");
-      } else if (event.originalEvent.submitter.innerText == "Delete") {
-        $("#btn-deleteProducer").on("click", function () {
-          $("#form-nsx button").attr("disabled", true);
-          $.ajax({
-            url: "/admin/producer/check",
-            method: "POST",
-            data: {
-              producerId: $("#form-producer input[name='producerId']").val(),
-            },
-            success: function (resultText) {
-              // show Toast
-              if (!resultText) {
-                bootstrapToast(
-                  "#toast-warning",
-                  "Mã vừa nhập không có trông hệ thống",
-                  1000
-                );
-                $("#form-producer button").attr("disabled", false);
-              } else {
-                $.ajax({
-                  url: "/admin/manager-producer/delete",
-                  method: "POST",
-                  data: {
-                    producerId: $(
-                      "#form-producer input[name='producerId']"
-                    ).val(),
-                    producerName: $(
-                      "#form-producer input[name='producerName'"
-                    ).val(),
-                    producerEmail: $(
-                      "#form-producer input[name='producerEmail'"
-                    ).val(),
-                    producerPhone: $(
-                      "#form-producer input[name='producerPhone'"
-                    ).val(),
-                  },
-                  success: function (resultText) {
-                    bootstrapToast(
-                      "#toast-success",
-                      "Bạn đã xóa thành công.",
-                      2000
-                    );
-                    setTimeout(function () {
-                      location.reload();
-                    }, 1000);
-                  },
-                  error: function (resultText) {
-                    bootstrapToast(
-                      "#toast-warning",
-                      "Thông số này đã liên kết một số sản phẩm không thể xóa!",
-                      2000
-                    );
-                  },
-                });
-              }
-            },
-          });
-        });
-        $("#btn-deleteProducer").trigger("click");
-      }
-    }
-  });
-
   function getDateNow() {
     let date = new Date();
     let dateString =
@@ -693,24 +737,19 @@ $("#form-product").on("submit", function (event) {
           productQuantity: $("input[name='productQuantity']").val(),
           productPrice: $("input[name='productPrice']").val(),
           specs: $("select[name='specs']").val(),
-          
         },
         success: function (resultText) {
-          console.log(productId)
-          console.log(category)
-          console.log(producer)
-          console.log(productName)
-          console.log(productQuantity)
-          console.log(productPrice)
-          console.log(specs)
+          console.log(productId);
+          console.log(category);
+          console.log(producer);
+          console.log(productName);
+          console.log(productQuantity);
+          console.log(productPrice);
+          console.log(specs);
 
-          bootstrapToast(
-            "#toast-success",
-            "Bạn đã thêm thành công.",
-            2000
-          )
-          }
-        }
-      )}
-  )}
+          bootstrapToast("#toast-success", "Bạn đã thêm thành công.", 2000);
+        },
+      });
+    });
+  }
 });

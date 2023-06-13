@@ -53,6 +53,7 @@ public class UserController {
 		if (userData != null) {
 			if (securityService.matches(user.getUserPassword(), userData.getUserPassword())) {
 				sessionService.set("current_account", userData);
+				sessionService.setTimeOut(1*24*60*60);
 			} else {
 				model.addAttribute("userErr", "số điện thoại hoặc mật khẩu không hợp lệ");
 				model.addAttribute("userPhone", user.getUserPhone());

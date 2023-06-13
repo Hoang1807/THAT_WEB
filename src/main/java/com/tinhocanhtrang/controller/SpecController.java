@@ -62,23 +62,23 @@ public class SpecController {
 	public String getManagerSpec_Search(@RequestParam("search") Optional<String> kw,
 			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
 			@RequestParam("sort") Optional<Boolean> s, Model model) {
-		String kwords = kw.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
+		String kwords = kw.orElse(sessionService.get("keywordsSpec"));
+		sessionService.set("keywordsSpec", kwords);
 
-		Integer pe = p.orElse(sessionService.get("page"));
-		sessionService.set("page", pe);
+		Integer pe = p.orElse(sessionService.get("pageSpec"));
+		sessionService.set("pageSpec", pe);
 		if (pe == null) {
 			pe = 0;
 		}
 
 		Boolean sort = s.orElse(sessionService.get("sort"));
-		sessionService.set("sort", sort);
+		sessionService.set("sortSpec", sort);
 		if (sort == null) {
 			sort = true;
 		}
 
-		String name = n.orElse(sessionService.get("name"));
-		sessionService.set("name", name);
+		String name = n.orElse(sessionService.get("nameSpec"));
+		sessionService.set("nameSpec", name);
 		if (name == null) {
 			name = "specId";
 		}
@@ -87,7 +87,7 @@ public class SpecController {
 		Page<Spec> page = specRepository.findBySpecKeyContainingOrSpecValueContaining((kwords == null ? "" : kwords),
 				(kwords == null ? "" : kwords), pageable);
 		model.addAttribute("listSpec", page);
-		model.addAttribute("search", kwords);
+		model.addAttribute("searchSpec", kwords);
 		return "Admin/Spec";
 	}
 
