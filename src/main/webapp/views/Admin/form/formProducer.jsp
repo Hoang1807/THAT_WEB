@@ -1,40 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý nhà sản xuất</h1>
-        <form id="form-producer" method="POST" autocomplete="off">
-            <div class="row g-3">
-                <div class="col-sm-6">
-                    <label for="producerId" class="form-label">Mã nhà sản xuất</label>
-                    <input type="text" id="producerId" class="form-control shadow-none" name="producerId"
-                        ng-model="producer.id">
-                </div>
-                <div class="col-sm-6">
-                    <label for="producerName" class="form-label">Tên nhà sản xuất</label>
-                    <input type="text" id="producerName" class="form-control shadow-none" name="producerName"
-                        ng-model="producer.name">
-                </div>
-                <div class="col-sm-6">
-                    <label for="producerEmail" class="form-label">Email</label>
-                    <input type="email" id="producerEmail" class="form-control shadow-none" name="producerEmail"
-                        ng-model="producer.email">
-                </div>
-                <div class="col-sm-6">
-                    <label for="producerPhone" class="form-label">Số điện thoại</label>
-                    <input type="text" id="producerPhone" class="form-control shadow-none" name="producerPhone"
-                        ng-model="producer.phone">
-                </div>
+    <h1 class="h2 pt-3 pb-2 mb-3 border-bottom text-capitalize">Quản lý nhà sản xuất</h1>
+    <form id="form-producer" method="POST" autocomplete="off">
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label for="producerId" class="form-label">Mã nhà sản xuất</label>
+                <input type="text" id="producerId" class="form-control shadow-none" name="producerId"
+                    ng-model="producer.id">
             </div>
-
-            <hr class="my-4">
-
-            <div class="d-flex gap-2">
-                <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Add</button>
-                <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Delete</button>
-                <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
+            <div class="col-sm-6">
+                <label for="producerName" class="form-label">Tên nhà sản xuất</label>
+                <input type="text" id="producerName" class="form-control shadow-none" name="producerName"
+                    ng-model="producer.name">
             </div>
-        </form>
+            <div class="col-sm-6">
+                <label for="producerEmail" class="form-label">Email</label>
+                <input type="email" id="producerEmail" class="form-control shadow-none" name="producerEmail"
+                    ng-model="producer.email">
+            </div>
+            <div class="col-sm-6">
+                <label for="producerPhone" class="form-label">Số điện thoại</label>
+                <input type="text" id="producerPhone" class="form-control shadow-none" name="producerPhone"
+                    ng-model="producer.phone">
+            </div>
+        </div>
 
-        <div
+        <hr class="my-4">
+
+        <div class="d-flex gap-2">
+            <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Add</button>
+            <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Delete</button>
+            <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
+        </div>
+    </form>
+
+    <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h5 class="text-capitalize">Danh sách nhà sản xuất</h5>
         <form class="input-group order-1 order-md-0" action="/admin/manager-producer/search" id="searchDataTable"

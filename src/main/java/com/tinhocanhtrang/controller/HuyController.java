@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tinhocanhtrang.entity.Product;
 import com.tinhocanhtrang.repository.ProductRepository;
@@ -28,7 +29,7 @@ public class HuyController {
 	@ModelAttribute("productInStore")
 	public Page<Product> getListTable(){
 		Pageable pageable = PageRequest.of(0, 6);
-		return dao.findByProducerIdContaining("%", pageable);
+		return dao.findByProductIdContaining("", pageable);
 	}
 	
 	@ModelAttribute("cboProduct")
@@ -56,18 +57,40 @@ public class HuyController {
 	}
 	
 	@GetMapping("/admin/statistical_two/search")
-	public String getManagerProducer_Search(@RequestParam("search") Optional<String> s,
-			@RequestParam("page") Optional<Integer> p, Model model) {
-		String kwords = s.orElse(sessionService.get("keywords"));
-		sessionService.set("keywords", kwords);
-		sessionService.set("page", p.orElse(0));
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
-//		Page<Product> page = dao.findByProductIdLike("%" + (kwords == null ? "" : kwords) + "%", "%" + (kwords == null ? "" : kwords) + "%", pageable);
-				
-//		model.addAttribute("listProducer", page);
+	public String getManagerProduct_Search(@RequestParam("search") Optional<String> kw,
+			@RequestParam("page") Optional<Integer> p, @RequestParam("name") Optional<String> n,
+			@RequestParam("sort") Optional<Boolean> s, Model model) {
+		String kwords = kw.orElse(sessionService.get("keywordsRp2"));
+		sessionService.set("keywordsRp2", kwords);
+
+		Integer pe = p.orElse(sessionService.get("pageRp2"));
+		sessionService.set("pageRp2", pe);
+		if (pe == null) {
+			pe = 0;
+		}
+
+		Boolean sort = s.orElse(sessionService.get("sortRp2"));
+		sessionService.set("sortRp2", sort);
+		if (sort == null) {
+			sort = true;
+		}
+//chờ xíu an
+		String name = n.orElse(sessionService.get("nameRp2"));
+		sessionService.set("nameRp2", name);
+		if (name == null) {
+			name = "productId";
+		}
+
+		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
+//		Page<Product> page = dao.findByProductIdContaining((kwords != null ? "%"+kwords+"%" : ""), pageable);
+		System.out.println(kwords);
+		Page<Product> page = dao.findByProductIdContaining((kwords != null ? "" : kwords), pageable);
+		System.out.println(page.getTotalElements());
+		model.addAttribute("productInStore", page);
 		model.addAttribute("search", kwords);
 		return "Admin/ReportLayout2";
 	}
+
 	
 //	@GetMapping("/admin/statistical_two/search")
 //	public String cboProduct(@RequestParam("productId") String id,Model model,@RequestParam("page") Optional<Integer> p) {

@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 
 import com.tinhocanhtrang.entity.Product;
-import com.tinhocanhtrang.entity.Spec;
+
 
 
 public interface ProductRepository extends JpaRepository<Product, String> {
@@ -25,6 +25,8 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 	
 	@Query(value="select o from Product o where o.category.categoryId=?1 and o.producer.producerId=?2")
 	Page<Product> findbyCategoryandProducer(String cate,String prod,Pageable pageable);
+	
 
-	public Page<Product> findByProducerIdContaining(String producerId,Pageable pageble);
+	Page<Product> findByProductIdContaining(String productId,Pageable pageble);
+	
 }
