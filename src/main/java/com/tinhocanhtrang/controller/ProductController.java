@@ -17,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -150,5 +152,30 @@ public class ProductController {
 		} else {
 			return false;
 		}
+	}
+	@PostMapping("/admin/manager-product/listSpec/{id}")
+	public @ResponseBody List<String> findSpecbyId(@PathVariable String id) {
+		System.out.println(id);
+		Product pro= proDAO.findById(id).get();
+		List<Spec> list= pro.getSpecs();
+		List<String> list2 =new ArrayList<>();
+		for(Spec str:list) {
+			list2.add(str.getSpecId().toString());
+		}
+		System.out.println(list2.size());
+		return list2;
+	}
+	@PostMapping("/admin/manager-product/listImg/{id}")
+	public @ResponseBody List<String> findImgbyId(@PathVariable String id,Model model) {
+		System.out.println(id);
+		Product pro= proDAO.findById(id).get();
+		List<Image> list=pro.getImages();
+		List<String>list1=new ArrayList<>();
+		for(Image str:list) {
+			list1.add(str.getImageLink());
+		}
+		model.addAttribute("image",list);
+		System.out.println(list1.size());
+		return list1;
 	}
 }

@@ -73,3 +73,38 @@ app.controller("myCtrlProducer", function ($scope) {
 		};
 	};
 });
+app.controller("myCtrlProduct",function($scope,$http){
+	$scope.editProduct=function(id,name,price,quantity,producerId,categoryId){
+		var data=id
+		$scope.product={
+			id:id,
+			name:name,
+			price:parseFloat(price),
+			quantity:parseInt(quantity),
+			producerId:producerId,
+			categoryId:categoryId,
+		};
+		console.log(data)
+		$http.post('/admin/manager-product/listSpec/'+ data)
+		.then(function(response) {
+			$scope.product.specs= response.data
+			$scope.isSelectedSpec = function(specId) {
+				return $scope.product.specs.includes(specId);
+			};
+		  })
+		  .catch(function(error) {
+			// Xử lý lỗi nếu có
+			console.error(error);
+		  });
+		$http.post('/admin/manager-product/listImg/' + data)
+		.then(function(response) {
+			 // Nhận phản hồi từ backend controller
+			$scope.product.images=response.data;
+			console.log($scope.product.images)
+		  })
+		  .catch(function(error) {
+			// Xử lý lỗi nếu có
+			
+		  });
+	}
+})

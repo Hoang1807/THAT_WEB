@@ -4,9 +4,9 @@ if ($("#specs").length > 0) {
 }
 //
 function loadFiles(event) {
-  $('#carousel-cell').empty();
+  $('#option-image').empty();
   var files = event.target.files;
-  var output = document.getElementById('carousel-cell');
+  var output = document.getElementById('option-image');
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var imageUrl = URL.createObjectURL(file);
@@ -19,8 +19,8 @@ function loadFiles(event) {
     output.append(img)
   }
 }
-function editProduct(id){
-  $('input#productId').val(id).reload();
+function editProduct(event,){
+  $ajax()
 }
 // start Jquery
 $(document).ready(function () {

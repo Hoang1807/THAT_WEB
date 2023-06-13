@@ -8,14 +8,15 @@
         <title>Admin - Name</title>
         <link rel="stylesheet" href="/css/multi-select-tag.css">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/flickity.css">
         <link rel="stylesheet" href="/css/styleAdmin.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </head>
 
-    <body ng-app="myApp" ng-controller="myCtrlImage">
+    <body ng-app="myApp">
         <jsp:include page="layout/_header.jsp"></jsp:include>
-        <div class="container-fluid" >
+        <div class="container-fluid" ng-controller="myCtrlProduct">
             <div class="row" >
                 <div class="sidebar border border-right col-md-3  p-0 bg-body-tertiary">
                     <jsp:include page="layout/sidebar.jsp"></jsp:include>
@@ -30,7 +31,6 @@
         <script src="/js/jquery.validate.min.js"></script>
         <script src="/js/angular.min.js"></script>
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
-        <script src="/js/flickity.pkgd.min.js"></script>
         <script src="/js/isotope.pkgd.min.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/multi-select-tag.js"></script>

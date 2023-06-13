@@ -24,7 +24,6 @@
                 <link rel="stylesheet" href="/css/bootstrap.min.css">
                 <link rel="stylesheet" href="/css/flickity.css">
                 <link rel="stylesheet" href="/css/styleUser.css">
-
             </head>
 
             <body>
