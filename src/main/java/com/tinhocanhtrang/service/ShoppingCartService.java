@@ -48,8 +48,8 @@ public class ShoppingCartService implements ShoppingCartDAO {
 
 				newItem.setProductQuantity(1);
 
-				service.set(String.valueOf(id), newItem);
-				service.setTimeOut(1000);
+				// service.set(String.valueOf(id), newItem);
+				// service.setTimeOut(1000);
 			}	
 		} catch (Exception e) {
 			System.out.println(e);

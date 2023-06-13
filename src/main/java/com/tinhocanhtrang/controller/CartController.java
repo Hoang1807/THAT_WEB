@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.SessionScope;
 
 import com.tinhocanhtrang.entity.Product;
+import com.tinhocanhtrang.repository.ProductRepository;
 import com.tinhocanhtrang.service.SessionService;
 import com.tinhocanhtrang.service.ShoppingCartService;
 
@@ -23,11 +24,16 @@ import com.tinhocanhtrang.service.ShoppingCartService;
 
 @Controller
 public class CartController {
+	List<Product> carts = new ArrayList<>();
+
+	@Autowired
+	ProductRepository productRepository;
+
 	@Autowired 
 	SessionService session;
 
-	@Autowired
-	ShoppingCartService cart;
+	// @Autowired
+	// ShoppingCartService cart;
 	
 	// Collection<Object> carts = session.getAll("ShoppingCartService");
 
@@ -38,7 +44,7 @@ public class CartController {
 
 	@RequestMapping("/cart/index")
 	public String view(Model model) {
-		model.addAttribute("cart", cart);
+		model.addAttribute("cart", carts);
 		// model.addAttribute(getHome(), model)
 		return "cart/index";
 	}
@@ -46,27 +52,42 @@ public class CartController {
 	@PostMapping("/cart/add")
 	public String add(@RequestParam("prid") String id) {
 		// System.out.println(id);
-		cart.add(id);
+		// cart.add(id);
+		Product pro = productRepository.findById(id).get();
+		carts.add(pro);
 		// System.out.println(cart +"done");
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/remove")
 	public String remove(@RequestParam("prid") Integer id) {
-		cart.remove(id);
+		// carts.remove(id);
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/update")
 	public String update(@RequestParam("prid") Integer id, @RequestParam("qty") Integer qty) {
-		cart.update(id, qty);
+		// carts.update(id, qty);
 		return "redirect:/cart/index";
 	}
 
 	@RequestMapping("/cart/clear")
 	public String clear() {
-		cart.clear();
+		// carts.clear();
 		return "redirect:/cart/index";
 	}
+
+	// Product findProdById(String id){
+	// 	for (Product product : carts) {
+	// 		if(product.getProductId().equals(id)){
+	// 			int proQuantity = product.getProductQuantity() + 1;
+	// 			product.setProductQuantity(proQuantity);
+	// 			return product;
+	// 		}else{
+	// 			return product;
+	// 		}
+	// 	}
+	// 	return product;
+	// }
 
 }

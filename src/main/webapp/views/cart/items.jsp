@@ -12,7 +12,8 @@
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="item" items="${cart}">
+        ahejkhfkdjsah
+        <!-- <c:forEach var="item" items="${cart}">
             <tr>
                 <td class="col-sm-8 col-md-1">
                     <strong>${item.productId}</strong>
@@ -33,7 +34,7 @@
                     <a href="/cart/remove/?prid=${pro.productId}" class="btn btn-danger"> Remove </a>
                 </td>
             </tr>
-        </c:forEach>
+        </c:forEach> -->
         <!-- <tr>
             <th scope="row">1</th>
             <td><img src="#"/></td>
