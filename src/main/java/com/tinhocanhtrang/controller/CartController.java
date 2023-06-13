@@ -1,36 +1,53 @@
 package com.tinhocanhtrang.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.SessionScope;
 
+import com.tinhocanhtrang.entity.Product;
+import com.tinhocanhtrang.service.SessionService;
 import com.tinhocanhtrang.service.ShoppingCartService;
 
 
 
 @Controller
 public class CartController {
+	@Autowired 
+	SessionService session;
+
 	@Autowired
-		ShoppingCartService cart;
-		
+	ShoppingCartService cart;
+	
+	// Collection<Object> carts = session.getAll("ShoppingCartService");
+
 	@RequestMapping(value = "cart", method = RequestMethod.GET)
 	public String getHome() throws Exception {
 		return "cart/index";
 	}
 
-	@RequestMapping("/cart/view")
+	@RequestMapping("/cart/index")
 	public String view(Model model) {
 		model.addAttribute("cart", cart);
-		return "cart";
+		// model.addAttribute(getHome(), model)
+		return "cart/index";
 	}
 
-	@RequestMapping("/cart/add")
+	@PostMapping("/cart/add")
 	public String add(@RequestParam("prid") String id) {
+		// System.out.println(id);
 		cart.add(id);
+		// System.out.println(cart +"done");
 		return "redirect:/cart/index";
 	}
 

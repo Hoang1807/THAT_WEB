@@ -144,7 +144,8 @@
                                                 <div class="col-12">
                                                     <form action="/cart/add?prid=${pro.productId}" method="post">
                                                         <button class="btn col-12 text-info border-info">Thêm vào giỏ
-                                                            hàng</button>
+                                                            hàng
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>

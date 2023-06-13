@@ -12,10 +12,10 @@
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="item" items="${cart.items}">
+        <c:forEach var="item" items="${cart}">
             <tr>
                 <td class="col-sm-8 col-md-1">
-                    <strong>${item.id}</strong>
+                    <strong>${item.productId}</strong>
                 </td>
                 <td class="col-3 text-left">
                     <strong class="text-danger">${item.productName}</strong>

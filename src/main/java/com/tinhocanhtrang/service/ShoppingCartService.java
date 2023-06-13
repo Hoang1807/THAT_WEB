@@ -24,23 +24,37 @@ import jakarta.servlet.http.HttpSession;
 public class ShoppingCartService implements ShoppingCartDAO {
 	String nameClass = "ShoppingCartService";
 
+	int time = 10000;
+	Product newItem, item;
+	// private CartRepository cartRepository;
+	@Autowired
+	ProductRepository productRepository;
+
+
+
 	@Autowired
 	SessionService service;
-	CartRepository cartRepository;
-	ProductRepository productRepository;
 
 	@Override
 	public Product add(String id) {
-		if (service.get(String.valueOf(id)) != null) {
-			Product item = service.get(String.valueOf(id));
-			//item.setProductQuantity(item.getProductQuantity() + 1);
-			return item;
-		} else {
-			Product newItem = productRepository.findById(id).get();
-			//newItem.setProductQuantity(1);;
-			service.set(String.valueOf(id), newItem);
-			return newItem;
+		System.out.println(id);
+		try {
+			if (service.get(String.valueOf(id)) != null) {
+				item = service.get(String.valueOf(id));
+				item.setProductQuantity(item.getProductQuantity() + 1);
+				return item;
+			} else {
+				newItem = productRepository.findById(id).get();
+
+				newItem.setProductQuantity(1);
+
+				service.set(String.valueOf(id), newItem);
+				service.setTimeOut(1000);
+			}	
+		} catch (Exception e) {
+			System.out.println(e);
 		}
+		return newItem;
 	}
 
 	@Override
@@ -90,6 +104,7 @@ public class ShoppingCartService implements ShoppingCartDAO {
 		}
 		return amount;
 	}
+
 //	private Map<Integer, Item> map = new HashMap<>();
 //	
 //	@Override
