@@ -25,14 +25,14 @@
                 </div>
             </div>
 
-            <hr class="my-4">
+        <hr class="my-4">
 
-            <div class="d-flex gap-2">
-                <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Add</button>
-                <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Delete</button>
-                <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
-            </div>
-        </form>
+        <div class="d-flex gap-2">
+            <button class=" btn btn-success text-capitalize" id="btn-saveProducer">Add</button>
+            <button class="btn btn-danger text-capitalize" id="btn-deleteProducer">Delete</button>
+            <button class="btn btn-primary text-capitalize" type="reset">Reset</button>
+        </div>
+    </form>
 
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -64,10 +64,8 @@
                         Tên
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"
-                                href="/admin/manager-producer/search?name=producerName&sort=true">Tăng dần</a></li>
-                        <li><a class="dropdown-item"
-                                href="/admin/manager-producer/search?name=producerName&sort=false">Giảm dần</a></li>
+                        <li><a class="dropdown-item" href="/admin/manager-producer/search?name=producerName&sort=true">A->Z</a></li>
+                        <li><a class="dropdown-item" href="/admin/manager-producer/search?name=producerName&sort=false">Z->A</a></li>
                     </ul>
                 </div>
             </div>
