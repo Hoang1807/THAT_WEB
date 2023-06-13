@@ -94,4 +94,25 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <nav class="d-flex flex-column">
+                <span class="m-auto mb-2">Page ${listProducer.number+1}/${listProducer.totalPages}</span>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}" href="
+                            /admin/manager-producer/search?page=0">&#8676</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-producer/search?page=${listProducer.number<=0?listProducer.totalPages-1:listProducer.number-1}">&laquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-producer/search?page=${listProducer.number>=listProducer.totalPages-1?0:listProducer.number+1}">&raquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link ${listProducer.totalPages ==0?'disabled':''}"
+                            href="/admin/manager-producer/search?page=${listProducer.totalPages-1}">&#8677</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
