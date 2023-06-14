@@ -6,12 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin - Name</title>
-        <link rel="stylesheet" href="/css/multi-select-tag.css">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/styleAdmin.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
     </head>
 
     <body ng-app="myApp">
@@ -33,9 +33,12 @@
         <script src="/js/jquery.bootstrap-growl.min.js"></script>
         <script src="/js/isotope.pkgd.min.js"></script>
         <script src="/js/bootstrap.bundle.min.js"></script>
-        <script src="/js/multi-select-tag.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
         <script src="/js/scriptAdmin.js"></script>
         <script src="/js/angularJSAdmin.js"></script>
+        <script>
+            new MultiSelectTag('spec') 
+        </script>
     </body>
 
     </html>

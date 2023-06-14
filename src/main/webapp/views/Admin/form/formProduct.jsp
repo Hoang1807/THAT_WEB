@@ -42,14 +42,15 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="specs" class="form-label">Thông số kỹ thuật</label>
-                            <select name="specs" id="specs" multiple ng-model="product.specs">
+                        <div class="col-sm-6">  
+                            <label  class="form-label">Thông số kỹ thuật</label>
+                            <select class="form-select " name="specs" id="specs" multiple ng-model="product.abc">
                                 <c:forEach var="cate" items="${specList}">
-                                    <option value="${cate.specId}">
+                                    <option class="form-label" value="${cate.specId}" >
                                         ${cate.specKey}:${cate.specValue}</option>
                                 </c:forEach>
                             </select>
+                            
                         </div>
                         <div class="col-sm-12">
                             <label for="images" class="form-label">Ảnh</label>
