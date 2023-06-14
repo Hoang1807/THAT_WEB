@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 			<header id="insHeaderPage" class="mb-2 sticky-top bg-white">
 				<div class="top-bar w-100">
 					<div class="top-bar-carousel-cell">
@@ -23,8 +23,9 @@
 											<input class="form-control" type="text" placeholder="Search"
 												aria-label="Search">
 											<button class="btn btn-danger" type="submit">
-												<i class="bi bi-search"></i> <span class="d-none d-lg-inline">Tìm
-													Kiếm</span>
+												<i class="bi bi-search"></i> <span class="d-none d-lg-inline">
+													<spring:message code="nav.btnSearch" />
+												</span>
 											</button>
 										</div>
 										<div id="ajaxSearchResults" class="d-none"></div>
@@ -40,8 +41,12 @@
 												<i class="bi bi-person-fill"></i>
 											</a>
 											<ul class="list-group list-group-flush">
-												<li class="list-group-item border-0">Đăng nhập/Đăng ký</li>
-												<li class="list-group-item fw-bold">Tài khoản</li>
+												<li class="list-group-item border-0">
+													<spring:message code="nav.btnLogin" />
+												</li>
+												<li class="list-group-item fw-bold">
+													<spring:message code="nav.btnAccount" />
+												</li>
 											</ul>
 											<div
 												class="header-account__dropdown position-absolute p-2 shadow z-1 bg-white">
@@ -110,13 +115,15 @@
 								<div class="header-action__cart d-flex position-relative">
 									<a href="cart" class="text-decoration-none link-dark stretched-link">
 										<i class="bi bi-cart d-block position-relative">
-											<span class="position-absolute z-1 badge rounded-pill bg-danger"> 3 <span
-													class="visually-hidden">quantity in cart</span>
+											<span class="position-absolute z-1 badge rounded-pill bg-danger"> 3
+												<span class="visually-hidden">quantity in cart</span>
 											</span>
 										</i>
 									</a>
 									<ul class="list-group list-group-flush align-self-center">
-										<li class="list-group-item fw-bold d-none d-sm-inline">Giỏ hàng</li>
+										<li class="list-group-item fw-bold d-none d-sm-inline">
+											<spring:message code="nav.btnCart" />
+										</li>
 									</ul>
 								</div>
 								<div class="header-action__language dropstart d-none d-xxl-block">
@@ -139,8 +146,9 @@
 						<div class="nav-sidebar col-3 px-0 d-none d-lg-block position-relative">
 							<div class="nav-sidebar__head d-flex justify-content-center rounded rounded-2 gap-2 px-2">
 								<i class="bi bi-list fw-bold"></i> <span
-									class="text-uppercase align-self-center fw-bold text-center">danh mục sản
-									phẩm</span>
+									class="text-uppercase align-self-center fw-bold text-center">
+									<spring:message code="nav.btnListProduct" />
+								</span>
 							</div>
 							<div class="nav-sidebar__dropdown shadow-sm d-none position-absolute z-1 w-100 bg-white">
 								<div class="list-group list-group-flush position-relative">
@@ -259,16 +267,18 @@
 						<div class="nav-main__menu col-9 d-none d-lg-block">
 							<div class="nav-navbar nav justify-content-around rounded rounded-2">
 								<a class="nav-link py-1 d-flex gap-2" href="#">
-									<i class="bi bi-buildings"></i>Giới Thiệu
+									<i class="bi bi-buildings"></i>
+									<spring:message code="nav.btnIntroduce" />
 								</a>
 								<a class="nav-link py-1 d-flex gap-2" href="#">
-									<i class="bi bi-cash-stack"></i>Bảng giá
+									<i class="bi bi-cash-stack"></i>
+									<spring:message code="nav.btnPriceList" />
 								</a>
 								<a class="nav-link py-1 d-flex gap-2" href="#">
-									<i class="bi bi-envelope"></i>Liên Hệ
+									<spring:message code="nav.btnContact" />
 								</a>
 								<a class="nav-link py-1 d-flex gap-2" href="#">
-									<i class="bi bi-sliders"></i>Xây dựng cấu hình
+									<spring:message code="nav.btnBuildConfiguration" />
 								</a>
 							</div>
 						</div>
