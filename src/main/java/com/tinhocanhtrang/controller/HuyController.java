@@ -84,7 +84,7 @@ public class HuyController {
 		Pageable pageable = PageRequest.of(pe, 6, sort ? Direction.ASC : Direction.DESC, name);
 //		Page<Product> page = dao.findByProductIdContaining((kwords != null ? "%"+kwords+"%" : ""), pageable);
 		System.out.println(kwords);
-		Page<Product> page = dao.findByProductIdContaining((kwords != null ? "" : kwords), pageable);
+		Page<Product> page = dao.findByProductIdContaining((kwords != null ? kwords  : "" ), pageable);
 		System.out.println(page.getTotalElements());
 		model.addAttribute("productInStore", page);
 		model.addAttribute("search", kwords);
