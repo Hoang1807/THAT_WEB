@@ -68,6 +68,7 @@ app.controller("myCtrlImage", function ($scope) {
 });
 app.controller("myCtrlProduct", function ($scope, $http) {
   $scope.editProduct = function (id, name, price, quantity, producerId, categoryId) {
+    $('.input-container').innerHTML=''
     var data = id
     $scope.product = {
       id: id,
@@ -82,16 +83,12 @@ app.controller("myCtrlProduct", function ($scope, $http) {
     $http.post('/admin/manager-product/listSpec/' + data)
       .then(function (response) {
         $scope.product.specs = response.data
-        $scope.product.
-        $scope.isSelectedSpec = function (specId) {
-          console.log($scope.product.specs.includes(specId))
-          return $scope.product.specs.includes(specId) ? true : false;
-        };
       })
       .catch(function (error) {
         // Xử lý lỗi nếu có
         console.error(error);
       });
+    
     $http.post('/admin/manager-product/listImg/' + data)
       .then(function (response) {
         // Nhận phản hồi từ backend controller

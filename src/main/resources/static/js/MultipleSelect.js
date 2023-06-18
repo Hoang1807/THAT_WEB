@@ -232,5 +232,3 @@
             }
         }
  
-
-        new MultiSelectTag('spec')

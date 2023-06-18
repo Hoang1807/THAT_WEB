@@ -36,9 +36,6 @@
         <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
         <script src="/js/scriptAdmin.js"></script>
         <script src="/js/angularJSAdmin.js"></script>
-        <script>
-            new MultiSelectTag('spec') 
-        </script>
     </body>
 
     </html>

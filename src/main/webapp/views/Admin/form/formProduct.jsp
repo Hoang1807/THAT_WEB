@@ -44,9 +44,9 @@
                         </div>
                         <div class="col-sm-6">  
                             <label  class="form-label">Thông số kỹ thuật</label>
-                            <select class="form-select " name="specs" id="specs" multiple ng-model="product.abc">
+                            <select class="form-select " name="specs"  multiple ng-model="product.specs">
                                 <c:forEach var="cate" items="${specList}">
-                                    <option class="form-label" value="${cate.specId}" >
+                                    <option class="form-label" value="${cate.specId}" id="${cate.specId}">
                                         ${cate.specKey}:${cate.specValue}</option>
                                 </c:forEach>
                             </select>

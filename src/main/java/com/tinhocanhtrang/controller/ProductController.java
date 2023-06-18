@@ -154,13 +154,13 @@ public class ProductController {
 		}
 	}
 	@PostMapping("/admin/manager-product/listSpec/{id}")
-	public @ResponseBody List<String> findSpecbyId(@PathVariable String id) {
+	public @ResponseBody List<Integer> findSpecbyId(@PathVariable String id) {
 		System.out.println(id);
 		Product pro= proDAO.findById(id).get();
 		List<Spec> list= pro.getSpecs();
-		List<String> list2 =new ArrayList<>();
+		List<Integer> list2 =new ArrayList<>();
 		for(Spec str:list) {
-			list2.add(str.getSpecId().toString());
+			list2.add(str.getSpecId());
 		}
 		System.out.println(list2.size());
 		return list2;
